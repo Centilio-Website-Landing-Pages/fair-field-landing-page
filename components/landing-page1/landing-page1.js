@@ -1,6 +1,8 @@
 'use client'
 import { useState, useEffect } from 'react';
 import Image from 'next/image'
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 
 import phone from '@/images/phone.svg'
 
@@ -21,6 +23,63 @@ import fold5icon1 from '@/images/landing-page1/fold5icon1.svg'
 import fold7icon1 from '@/images/landing-page1/fold7icon1.svg'
 import fold7icon2 from '@/images/landing-page1/fold7icon2.svg'
 
+// Animation variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 60 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" }
+  }
+};
+
+const fadeInLeft = {
+  hidden: { opacity: 0, x: -60 },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    transition: { duration: 0.6, ease: "easeOut" }
+  }
+};
+
+const fadeInRight = {
+  hidden: { opacity: 0, x: 60 },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    transition: { duration: 0.6, ease: "easeOut" }
+  }
+};
+
+const scaleIn = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: { 
+    opacity: 1, 
+    scale: 1,
+    transition: { duration: 0.5, ease: "easeOut" }
+  }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2
+    }
+  }
+};
+
+const staggerItem = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" }
+  }
+};
+
 export default function LandingPage1() {
 
 	const [formData, setFormData] = useState({
@@ -30,6 +89,22 @@ export default function LandingPage1() {
 	});
 	const [errors, setErrors] = useState({});
 	const [isSubmitting, setIsSubmitting] = useState(false);
+
+	// Refs for lazy loading
+	const heroRef = useRef(null);
+	const featuresRef = useRef(null);
+	const testimonialsRef = useRef(null);
+	const infrastructureRef = useRef(null);
+	const ctaRef = useRef(null);
+	const contactRef = useRef(null);
+
+	// InView hooks
+	const heroInView = useInView(heroRef, { once: true, threshold: 0.3 });
+	const featuresInView = useInView(featuresRef, { once: true, threshold: 0.2 });
+	const testimonialsInView = useInView(testimonialsRef, { once: true, threshold: 0.3 });
+	const infrastructureInView = useInView(infrastructureRef, { once: true, threshold: 0.3 });
+	const ctaInView = useInView(ctaRef, { once: true, threshold: 0.5 });
+	const contactInView = useInView(contactRef, { once: true, threshold: 0.5 });
 
 	const features = [
 	    {
@@ -149,8 +224,9 @@ export default function LandingPage1() {
 	    
 	    try {
 	      // Simulate API call
-	      await new Promise(resolve => setTimeout(resolve, 1000));
-	      
+	    //   await new Promise(resolve => setTimeout(resolve, 1000));
+	    window.centilio_connector_init.submit();
+
 	      // Handle successful submission
 	      console.log('Form submitted:', formData);
 	      alert('Consultation booked successfully!');
@@ -172,111 +248,177 @@ export default function LandingPage1() {
 	return(
 		<>
 			<Header />
-			<div className="bg-[#937B371A]">
+			
+			{/* Hero Section */}
+			<div className="bg-[#937B371A]" ref={heroRef}>
 				<div className="max-w-[1300px] mx-auto sm:px-[50px] px-[20px] py-20">
 					<div className="grid lg:grid-cols-2 gap-8 items-center">
 			          {/* Left Content */}
-			          <div className="space-y-8">
-			            <div className="space-y-6">
-			              <ShiningText customStyle="sm:text-[40px] text-[30px] font-medium font-['DM_Serif_Display']" textLeft={"Still Losing 3 Hours Daily "} textRight={"to Coimbatore Traffic?"} />
-			              <div className="text-[#D3AC4A] font-medium text-[24px] font-[Futura-Medium]">
+			          <motion.div 
+			            className="space-y-8"
+			            initial="hidden"
+			            animate={heroInView ? "visible" : "hidden"}
+			            variants={staggerContainer}
+			          >
+			            <motion.div className="space-y-6" variants={staggerItem}>
+			              <motion.div variants={staggerItem}>
+			                <ShiningText customStyle="sm:text-[40px] text-[30px] font-medium font-['DM_Serif_Display']" textLeft={"Still Losing 3 Hours Daily "} textRight={"to Coimbatore Traffic?"} />
+			              </motion.div>
+			              <motion.div 
+			                className="text-[#D3AC4A] font-medium text-[24px] font-[Futura-Medium]"
+			                variants={staggerItem}
+			              >
 			              	Your code runs efficiently. Why shouldn&apos;t your life?
-			              </div>
-			              <p className="text-[#000000] md:text-[18px] leading-relaxed">
+			              </motion.div>
+			              <motion.p 
+			                className="text-[#000000] md:text-[18px] leading-relaxed"
+			                variants={staggerItem}
+			              >
 			                Anicham & Magilam brings you closer to work, family, and dreams. Just 5km from major IT parks, this RERA-approved community of only 73 exclusive plots offers what every tech professional seeks - worklife balance in a growing investment
-			              </p>
-			            </div>
+			              </motion.p>
+			            </motion.div>
 
 			            {/* Contact Form */}
-			            <div className="max-w-md font-['Futura-Medium']">
+			            <motion.div 
+			              className="max-w-md font-['Futura-Medium']"
+			              variants={staggerContainer}
+			            >
 			              <form onSubmit={handleSubmit} className="space-y-6">
 			                {/* Full Name Field */}
-			                <div>
+			                <motion.div variants={staggerItem}>
 			                  <input
 			                    type="text"
 			                    name="fullName"
 			                    placeholder="Full name"
 			                    value={formData.fullName}
 			                    onChange={handleInputChange}
-			                    className={`bg-white w-full px-4 py-3 border rounded-sm text-gray-900 placeholder-gray-500 ${
+			                    className={`bg-white w-full px-4 py-3 border rounded-sm text-gray-900 placeholder-gray-500 transition-all duration-300 centilio-input-last-name ${
 			                      errors.fullName 
 			                        ? 'border-red-500 focus:ring-red-200' 
 			                        : 'border-gray-300 focus:ring-green-200 focus:border-green-500'
 			                    }`}
 			                  />
 			                  {errors.fullName && (
-			                    <p className="mt-1 text-sm text-red-600">{errors.fullName}</p>
+			                    <motion.p 
+			                      className="mt-1 text-sm text-red-600"
+			                      initial={{ opacity: 0, y: -10 }}
+			                      animate={{ opacity: 1, y: 0 }}
+			                    >
+			                      {errors.fullName}
+			                    </motion.p>
 			                  )}
-			                </div>
+			                </motion.div>
 
 			                {/* Email Field */}
-			                <div>
+			                <motion.div variants={staggerItem}>
 			                  <input
 			                    type="email"
 			                    name="email"
 			                    placeholder="Email"
 			                    value={formData.email}
 			                    onChange={handleInputChange}
-			                    className={`bg-white w-full px-4 py-3 border rounded-sm text-gray-900 placeholder-gray-500 ${
+			                    className={`bg-white w-full px-4 py-3 border rounded-sm text-gray-900 placeholder-gray-500 transition-all duration-300 centilio-input-email ${
 			                      errors.email 
 			                        ? 'border-red-500 focus:ring-red-200' 
 			                        : 'border-gray-300'
 			                    }`}
 			                  />
 			                  {errors.email && (
-			                    <p className="mt-1 text-sm text-red-600">{errors.email}</p>
+			                    <motion.p 
+			                      className="mt-1 text-sm text-red-600"
+			                      initial={{ opacity: 0, y: -10 }}
+			                      animate={{ opacity: 1, y: 0 }}
+			                    >
+			                      {errors.email}
+			                    </motion.p>
 			                  )}
-			                </div>
+			                </motion.div>
 
 			                {/* Phone Number Field */}
-			                <div>
+			                <motion.div variants={staggerItem}>
 			                  <input
 			                    type="tel"
 			                    name="phoneNumber"
 			                    placeholder="Phone Number"
 			                    value={formData.phoneNumber}
 			                    onChange={handleInputChange}
-			                    className={`bg-white w-full px-4 py-3 border rounded-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 transition-colors ${
+			                    className={`bg-white w-full px-4 py-3 border rounded-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 transition-all duration-300 centilio-input-mobile ${
 			                      errors.phoneNumber 
 			                        ? 'border-red-500 focus:ring-red-200' 
 			                        : 'border-gray-300 focus:ring-green-200 focus:border-green-500'
 			                    }`}
 			                  />
 			                  {errors.phoneNumber && (
-			                    <p className="mt-1 text-sm text-red-600">{errors.phoneNumber}</p>
+			                    <motion.p 
+			                      className="mt-1 text-sm text-red-600"
+			                      initial={{ opacity: 0, y: -10 }}
+			                      animate={{ opacity: 1, y: 0 }}
+			                    >
+			                      {errors.phoneNumber}
+			                    </motion.p>
 			                  )}
-			                </div>
+			                </motion.div>
 
 			                {/* Submit Button */}
-			                <div id="bookVisitNowButton" className="book-visit-button">
+			                <motion.div 
+			                  id="bookVisitNowButton" 
+			                  className="book-visit-button"
+			                  variants={staggerItem}
+			                  whileHover={{ scale: 1.02 }}
+			                  whileTap={{ scale: 0.98 }}
+			                >
 				                <ShimmerButton id="" className="shadow-2xl w-full">
 				                  {isSubmitting ? 'Booking...' : 'Book Your Visit Today'}
 				                </ShimmerButton>
-				            </div>
+				            </motion.div>
 			              </form>
-			            </div>
-			          </div>
+			            </motion.div>
+			          </motion.div>
 
 			          {/* Right Image */}
-			          <div className="relative">
+			          <motion.div 
+			            className="relative"
+			            initial="hidden"
+			            animate={heroInView ? "visible" : "hidden"}
+			            variants={fadeInRight}
+			          >
 			              <Image
 			                src={fold1image1}
 			                alt="Happy school children in yellow uniforms walking together with backpacks"
 			                className="shadow-lg"
 			              />
-			          </div>
+			          </motion.div>
 			        </div>
 				</div>
 			</div>
-			<div className="bg-white">
+
+			{/* Features Section */}
+			<div className="bg-white" ref={featuresRef}>
 				<div className="max-w-[1300px] mx-auto sm:px-[50px] px-[20px] py-20">
-					<ShiningText customStyle="sm:text-[36px] text-[30px] font-medium font-['DM_Serif_Display'] text-center mb-10" textLeft={"The Edge "} textRight={"You Deserve"} />
+					<motion.div
+						initial="hidden"
+						animate={featuresInView ? "visible" : "hidden"}
+						variants={fadeInUp}
+					>
+						<ShiningText customStyle="sm:text-[36px] text-[30px] font-medium font-['DM_Serif_Display'] text-center mb-10" textLeft={"The Edge "} textRight={"You Deserve"} />
+					</motion.div>
+			        
 			        {/* Features Grid */}
-			        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+			        <motion.div 
+			          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+			          initial="hidden"
+			          animate={featuresInView ? "visible" : "hidden"}
+			          variants={staggerContainer}
+			        >
 			          {features.map((feature, index) => (
-			            <div 
+			            <motion.div 
 			              key={index}
-			              className="relative border border-[#7B7B7B33] rounded-sm p-8 hover:shadow-lg transition-shadow duration-300 min-h-[220px]"
+			              className="relative border border-[#7B7B7B33] rounded-sm p-8 hover:shadow-lg transition-all duration-300 min-h-[220px]"
+			              variants={staggerItem}
+			              whileHover={{ 
+			                y: -5,
+			                transition: { duration: 0.2 }
+			              }}
 			            >
 			              {/* Feature Content */}
 			              <div className="mb-6">
@@ -302,25 +444,43 @@ export default function LandingPage1() {
 			                    className="absolute bottom-0 right-0"
 			                  />
 			              </div>
-			            </div>
+			            </motion.div>
 			          ))}
-			        </div>
+			        </motion.div>
 			    </div>
 			</div>
-			<div className="bg-[#37405E]">
+
+			{/* Testimonials Section */}
+			<div className="bg-[#37405E]" ref={testimonialsRef}>
 				<div className="relative max-w-[700px] mx-auto sm:px-[50px] px-[20px] py-20">
-					<div className="font-semibold bg-linear-to-r from-[#D3AC4A] from-[30%] to-[#FFFFFF] to-[70%] bg-clip-text text-[36px] font-['DM_Serif_Display'] text-center text-transparent ...">
+					<motion.div 
+						className="font-semibold bg-linear-to-r from-[#D3AC4A] from-[30%] to-[#FFFFFF] to-[70%] bg-clip-text text-[36px] font-['DM_Serif_Display'] text-center text-transparent ..."
+						initial="hidden"
+						animate={testimonialsInView ? "visible" : "hidden"}
+						variants={fadeInUp}
+					>
 						What Tech Leaders Say
-					</div>
-		            <div className="grid md:grid-cols-2 gap-6 lg:gap-8 text-center w-fit mx-auto mt-15">
+					</motion.div>
+		            
+		            <motion.div 
+		              className="grid md:grid-cols-2 gap-6 lg:gap-8 text-center w-fit mx-auto mt-15"
+		              initial="hidden"
+		              animate={testimonialsInView ? "visible" : "hidden"}
+		              variants={staggerContainer}
+		            >
 		              {testimonialsData.map((testimonial, index) => (
-		                <div 
+		                <motion.div 
 		                  key={index}
-		                  className="max-w-[282px] bg-white rounded-sm p-6 md:p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 relative"
+		                  className="max-w-[282px] bg-white rounded-sm p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 relative"
+		                  variants={scaleIn}
+		                  whileHover={{ 
+		                    scale: 1.05,
+		                    transition: { duration: 0.2 }
+		                  }}
 		                >
 		                  {/* Quote Icon */}
 		                  <div className="mx-auto">
-		                      <span className="text-[100px] font-['Raleway'] text-[#D3AC4A] font-bold">“</span>
+		                      <span className="text-[100px] font-['Raleway'] text-[#D3AC4A] font-bold">"</span>
 		                  </div>
 
 		                  {/* Content */}
@@ -340,33 +500,62 @@ export default function LandingPage1() {
 		                      &quot;{testimonial.testimonial}&quot;
 		                    </blockquote>
 		                  </div>
-		                </div>
+		                </motion.div>
 		              ))}
-		            </div>
-		            <Image src={fold3icon1} alt="star" className="absolute top-10 left-0" />
-		            <Image src={fold3icon1} alt="star" className="absolute bottom-5 right-0" />
+		            </motion.div>
+		            
+		            <motion.div
+		            	initial={{ opacity: 0, scale: 0 }}
+		            	animate={testimonialsInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
+		            	transition={{ delay: 0.8, duration: 0.5 }}
+		            >
+		            	<Image src={fold3icon1} alt="star" className="absolute top-10 left-0" />
+		            </motion.div>
+		            <motion.div
+		            	initial={{ opacity: 0, scale: 0 }}
+		            	animate={testimonialsInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
+		            	transition={{ delay: 1, duration: 0.5 }}
+		            >
+		            	<Image src={fold3icon1} alt="star" className="absolute bottom-5 right-0" />
+		            </motion.div>
 				</div>
 			</div>
-			<div className="bg-white">
+
+			{/* Infrastructure Section */}
+			<div className="bg-white" ref={infrastructureRef}>
 				<div className="relative max-w-[1300px] mx-auto sm:px-[50px] px-[20px] py-20">
 					<div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center justify-center">
 			          {/* Image Section */}
-			            <div className="relative">
+			            <motion.div 
+			              className="relative"
+			              initial="hidden"
+			              animate={infrastructureInView ? "visible" : "hidden"}
+			              variants={fadeInLeft}
+			            >
 			              <Image
 			                src={fold4image1}
 			                alt="Infrastructure development site"
 			              />
-			            </div>
+			            </motion.div>
 
 			          {/* Content Section */}
-			          <div className="w-fit">
-			            <ShiningText customStyle="sm:text-[36px] text-[30px] font-medium font-['DM_Serif_Display'] mb-5 max-w-[450px]" textLeft={"Infrastructure "} textRight={"Growth Indicators"} />
+			          <motion.div 
+			            className="w-fit"
+			            initial="hidden"
+			            animate={infrastructureInView ? "visible" : "hidden"}
+			            variants={staggerContainer}
+			          >
+			            <motion.div variants={staggerItem}>
+			              <ShiningText customStyle="sm:text-[36px] text-[30px] font-medium font-['DM_Serif_Display'] mb-5 max-w-[450px]" textLeft={"Infrastructure "} textRight={"Growth Indicators"} />
+			            </motion.div>
+			            
 			            {/* Indicators List */}
 			            <div className="space-y-6">
 			              {indicators.map((indicator, index) => (
-			                <div 
+			                <motion.div 
 			                  key={index}
 			                  className="flex items-start gap-4"
+			                  variants={staggerItem}
 			                >
 			                  {/* Check Icon */}
 			                  <Image src={fold5icon1} alt="check" />
@@ -377,32 +566,63 @@ export default function LandingPage1() {
 			                  >
 			                    {indicator.text}
 			                  </p>
-			                </div>
+			                </motion.div>
 			              ))}
 			            </div>
-			          </div>
+			          </motion.div>
 			        </div>
 				</div>
 			</div>
-			<div className="bg-[#937B371A]">
+
+			{/* CTA Section */}
+			<div className="bg-[#937B371A]" ref={ctaRef}>
 				<div className="relative max-w-[1300px] mx-auto sm:px-[50px] px-[20px] py-20 text-center">
-					<div className="text-[30px] sm:text-[36px] font-['DM_Serif_Display'] text-[#37405E]">
-						Your Smart Investment Starts Here
-					</div>
-					<div className="text-[24px] text-[#202428] my-10">
-						Limited to 73 plots only. 40% already sold to IT professionals.
-					</div>
-					<ShimmerButton id="" className="shadow-2xl w-fit mx-auto">
-						<Image src={phone} alt="phone" />
-						<span className="ml-3">Book Now</span>
-					</ShimmerButton>
+					<motion.div
+						initial="hidden"
+						animate={ctaInView ? "visible" : "hidden"}
+						variants={staggerContainer}
+					>
+						<motion.div 
+							className="text-[30px] sm:text-[36px] font-['DM_Serif_Display'] text-[#37405E]"
+							variants={staggerItem}
+						>
+							Your Smart Investment Starts Here
+						</motion.div>
+						<motion.div 
+							className="text-[24px] text-[#202428] my-10"
+							variants={staggerItem}
+						>
+							Limited to 73 plots only. 40% already sold to IT professionals.
+						</motion.div>
+						<motion.div
+							variants={staggerItem}
+							whileHover={{ scale: 1.05 }}
+							whileTap={{ scale: 0.95 }}
+						>
+							<ShimmerButton id="" className="shadow-2xl w-fit mx-auto" onClick={() => window.centilio_connector_init.submit_call()}>
+								<Image src={phone} alt="phone" />
+								<span className="ml-3">Book Now</span>
+							</ShimmerButton>
+						</motion.div>
+					</motion.div>
 				</div>
 			</div>
-			<div className="bg-white">
+
+			{/* Contact Section */}
+			<div className="bg-white" ref={contactRef}>
 				<div className="relative max-w-[1300px] mx-auto sm:px-[50px] px-[20px] py-20 text-center">
-					<div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+					<motion.div 
+						className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8"
+						initial="hidden"
+						animate={contactInView ? "visible" : "hidden"}
+						variants={staggerContainer}
+					>
 			          {/* Phone/WhatsApp */}
-			          <div className="flex items-start gap-4 p-4 lg:p-6 rounded-xl cursor-pointer justify-center">
+			          <motion.div 
+			            className="flex items-start gap-4 p-4 lg:p-6 rounded-xl cursor-pointer justify-center"
+			            variants={staggerItem}
+			            whileHover={{ scale: 1.05 }}
+			          >
 			            <Image
 			                src={fold7icon1}
 			                alt="WhatsApp"
@@ -411,10 +631,14 @@ export default function LandingPage1() {
 			            <h3 className="text-[20px] w-fit">
 			                +91 7900882288
 			            </h3>
-			          </div>
+			          </motion.div>
 
 			          {/* Location */}
-			          <div className="flex items-start gap-4 p-4 lg:p-6 rounded-xl justify-center">
+			          <motion.div 
+			            className="flex items-start gap-4 p-4 lg:p-6 rounded-xl justify-center"
+			            variants={staggerItem}
+			            whileHover={{ scale: 1.05 }}
+			          >
 			            <Image
 			                src={fold7icon2}
 			                alt="Location"
@@ -423,8 +647,8 @@ export default function LandingPage1() {
 			            <h3 className="text-[20px] w-fit">
 			                +91 7900884488
 			            </h3>
-			          </div>
-			        </div>
+			          </motion.div>
+			        </motion.div>
 				</div>
 			</div>
 		</>

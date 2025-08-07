@@ -162,3 +162,1389 @@
     @apply bg-background text-foreground;
   }
 }
+
+@import "tailwindcss";
+
+body {
+  margin: 0;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  background: white;
+  color: #1a1a1a;
+}
+
+.section-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hero-bg {
+  background-color: #F5F1EA;
+}
+
+.testimonial-bg {
+  background-color: #37405E;
+}
+
+.page3-feature-grid{
+  grid-template-columns: repeat(4, 1fr)
+}
+
+
+
+
+/* Hero gradient background */
+.hero-gradient {
+  background: linear-gradient(135deg, #37405E 22%, #D3AC4A 56%);
+}
+
+/* Glassmorphism effect for better design */
+.glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Features grid responsive */
+@media (max-width: 1024px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .page3-feature-grid{
+  grid-template-columns: repeat(2, 1fr)
+}
+  
+  .features-grid .feature-card {
+    padding: 24px 20px !important;
+    min-height: 160px !important;
+  }
+  
+  .features-grid .feature-card h3 {
+    font-size: 16px !important;
+  }
+  
+  .features-grid .feature-icon {
+    width: 48px !important;
+    height: 48px !important;
+  }
+}
+
+/* page3 Hero Responsive Styles */
+@media (max-width: 1024px) {
+  .page3-hero-container {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 30px !important;
+  }
+  
+  .page3-hero-text {
+    max-width: none !important;
+    padding-right: 0 !important;
+  }
+  
+  .page3-diagonal {
+    clip-path: polygon(0% 70%, 100% 50%, 100% 100%, 0% 100%) !important;
+    width: 100% !important;
+    height: 60% !important;
+    top: auto !important;
+    bottom: 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .page3-hero-title {
+    font-size: 32px !important;
+    line-height: 1.2 !important;
+  }
+  
+  .page3-hero-desc {
+    font-size: 15px !important;
+    margin-bottom: 30px !important;
+  }
+  
+  .page3-diagonal {
+    height: 40% !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .page3-hero-title {
+    font-size: 28px !important;
+  }
+  
+  .page3-hero-desc {
+    font-size: 14px !important;
+  }
+    .page3-feature-grid{
+  grid-template-columns: repeat(1, 1fr)
+}
+  .page3-feature-flex{
+    flex: 1;
+  }
+}
+
+/* page3 Hero Center Alignment Styles */
+@media (max-width: 1200px) {
+  .page3-hero-container {
+    gap: 60px !important;
+    padding: 0 20px !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .page3-hero-container {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 40px !important;
+    justify-content: center !important;
+  }
+  
+  .page3-hero-text {
+    max-width: none !important;
+    order: 2;
+  }
+  
+  .page3-hero-text form {
+    max-width: 400px !important;
+    margin: 0 auto !important;
+  }
+  
+  .page3-diagonal {
+    clip-path: polygon(0% 70%, 100% 50%, 100% 100%, 0% 100%) !important;
+    width: 100% !important;
+    height: 50% !important;
+    top: auto !important;
+    bottom: 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .page3-hero-title {
+    font-size: 36px !important;
+    line-height: 1.2 !important;
+  }
+  
+  .page3-hero-subtitle {
+    font-size: 16px !important;
+  }
+  
+  .page3-hero-desc {
+    font-size: 15px !important;
+    margin-bottom: 30px !important;
+  }
+  
+  .page3-diagonal {
+    height: 40% !important;
+  }
+  
+  .page3-hero-container {
+    padding: 0 20px !important;
+    min-height: 500px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .page3-hero-title {
+    font-size: 28px !important;
+  }
+  
+  .page3-hero-desc {
+    font-size: 14px !important;
+  }
+  
+  .page3-hero-text form {
+    max-width: 100% !important;
+  }
+}
+
+/* page3 Benefits Responsive Styles */
+@media (max-width: 1024px) {
+  .gov-benefits-grid {
+    gap: 40px !important;
+    justify-content: center !important;
+  }
+  
+  .gov-benefits-item {
+    width: 200px !important;
+  }
+  
+  .gov-benefits-icon {
+    width: 80px !important;
+    height: 80px !important;
+    margin-bottom: 24px !important;
+  }
+  
+  .gov-benefits-title {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .gov-benefits-grid {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 32px !important;
+  }
+  
+  .gov-benefits-item {
+    width: 250px !important;
+  }
+  
+  .gov-benefits-title-main {
+    font-size: 36px !important;
+    margin-bottom: 60px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .gov-benefits-title-main {
+    font-size: 28px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 40px !important;
+  }
+  
+  .gov-benefits-item {
+    width: 200px !important;
+  }
+}
+
+/* page3 Features Grid Responsive */
+@media (max-width: 1024px) {
+  .gov-features-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 30px !important;
+  }
+  
+  .gov-features-bottom {
+    grid-template-columns: repeat(3, 1fr) !important;
+    max-width: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .gov-features-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 24px !important;
+  }
+  .page3-feture-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .gov-features-bottom {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 24px !important;
+  }
+  
+  .gov-features-title {
+    font-size: 36px !important;
+    margin-bottom: 60px !important;
+  }
+  
+  .gov-testimonials-container {
+    flex-direction: column !important;
+    gap: 40px !important;
+  }
+  
+  .gov-testimonials-title {
+    font-size: 36px !important;
+    margin-bottom: 60px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .gov-features-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .page3-feture-grid{
+    grid-template-columns: repeat(1, 1fr);
+  }
+  
+  .gov-features-bottom {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .gov-features-title {
+    font-size: 28px !important;
+    line-height: 1.2 !important;
+  }
+  
+  .gov-testimonials-title {
+    font-size: 28px !important;
+    line-height: 1.2 !important;
+  }
+  
+  .gov-testimonial-card {
+    min-width: 280px !important;
+    padding: 32px 24px !important;
+  }
+}
+
+/* page3 CTA Section Responsive */
+@media (max-width: 1024px) {
+  .gov-cta-container {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 50px !important;
+  }
+  
+  .gov-cta-text {
+    min-width: auto !important;
+    max-width: none !important;
+  }
+  
+  .gov-cta-buttons {
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .gov-cta-title {
+    font-size: 36px !important;
+    line-height: 1.2 !important;
+  }
+  
+  .gov-cta-subtitle {
+    font-size: 18px !important;
+  }
+  
+  .gov-cta-benefits li {
+    font-size: 16px !important;
+    margin-bottom: 16px !important;
+  }
+  
+  .gov-cta-buttons {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  
+  .gov-cta-buttons button {
+    width: 100% !important;
+    max-width: 300px !important;
+  }
+  
+  .gov-financial-grid {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 32px !important;
+  }
+  
+  .gov-financial-title {
+    font-size: 36px !important;
+    margin-bottom: 60px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .gov-cta-title {
+    font-size: 28px !important;
+  }
+  
+  .gov-financial-title {
+    font-size: 28px !important;
+    line-height: 1.2 !important;
+  }
+  
+  .gov-financial-item h3,
+  .gov-financial-item p {
+    font-size: 16px !important;
+  }
+}
+
+/* Footer Responsive Styles */
+@media (max-width: 768px) {
+  .footer-contacts {
+    gap: 40px !important;
+  }
+  
+  .footer-message {
+    font-size: 16px !important;
+    margin-bottom: 24px !important;
+  }
+  
+  .footer-contact-item {
+    font-size: 14px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-contacts {
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+  
+  .footer-message {
+    font-size: 15px !important;
+    line-height: 1.4 !important;
+  }
+}
+
+/* Page4 Hero Responsive Improvements */
+@media (max-width: 1024px) {
+  .page4-hero-curve {
+    clip-path: ellipse(100% 60% at 100% 100%) !important;
+    width: 100% !important;
+    height: 40% !important;
+    bottom: 0 !important;
+    top: auto !important;
+  }
+  
+  .page4-hero-container {
+    flex-direction: column !important;
+    gap: 40px !important;
+    text-align: center !important;
+    min-height: 600px !important;
+  }
+  
+  .page4-hero-text {
+    padding-right: 0 !important;
+    max-width: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .page4-hero-title {
+    font-size: 36px !important;
+    line-height: 1.1 !important;
+  }
+  
+  .page4-hero-desc {
+    font-size: 16px !important;
+  }
+  
+  .page4-hero-pricing {
+    font-size: 14px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .page4-hero-title {
+    font-size: 28px !important;
+  }
+  
+  .page4-hero-desc {
+    font-size: 15px !important;
+  }
+}
+
+/* Perfect curve styling for Page4 Hero */
+.page4-hero-curve > div {
+  position: relative;
+  overflow: hidden;
+}
+
+.page4-hero-curve > div::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -2px;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #37405E 0%, #2d3548 100%);
+  clip-path: ellipse(85% 100% at 100% 50%);
+}
+
+/* Ensure proper stacking and positioning */
+.page4-hero-container {
+  position: relative;
+  z-index: 10;
+}
+
+/* Text contrast improvements */
+.page4-hero-title {
+  text-shadow: 0 2px 4px rgba(255,255,255,0.3);
+}
+
+.page4-hero-desc {
+  text-shadow: 0 1px 2px rgba(255,255,255,0.3);
+}
+
+/* Button enhancements */
+.page4-hero-container button {
+  box-shadow: 0 4px 14px rgba(55, 64, 94, 0.3);
+  border: none;
+  outline: none;
+}
+
+.page4-hero-container button:hover {
+  box-shadow: 0 6px 20px rgba(55, 64, 94, 0.4);
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 1024px) {
+  .page4-hero-curve {
+    width: 100% !important;
+    height: 50% !important;
+    bottom: 0 !important;
+    top: auto !important;
+  }
+  
+  .page4-hero-curve > div::before {
+    clip-path: ellipse(100% 80% at 50% 100%) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .page4-hero-curve {
+    height: 40% !important;
+  }
+  
+  .page4-hero-curve > div::before {
+    clip-path: ellipse(100% 70% at 50% 100%) !important;
+  }
+}
+
+/* Page4 Family Features Responsive */
+.family-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .family-features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .family-features-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .family-feature-card {
+    min-height: 180px !important;
+    padding: 1.5rem !important;
+  }
+  
+  .family-feature-content {
+    padding-right: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+  
+  .family-feature-icon {
+    width: 3rem !important;
+    height: 3rem !important;
+    bottom: 1rem !important;
+    right: 1rem !important;
+  }
+  
+  .family-feature-title {
+    font-size: 1.125rem !important;
+  }
+  
+  .family-feature-desc {
+    font-size: 0.875rem !important;
+  }
+}
+
+/* Family Features Custom Styling */
+.family-feature-card {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.family-feature-card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.family-feature-icon > div {
+  transition: transform 0.3s ease;
+}
+
+.family-feature-card:hover .family-feature-icon > div {
+  transform: scale(1.05);
+}
+
+/* Typography improvements */
+.family-feature-title {
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.025em;
+}
+
+.family-feature-desc {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+}
+
+/* Icon styling improvements */
+.family-feature-icon svg {
+  filter: drop-shadow(0 1px 2px rgba(55, 64, 94, 0.1));
+}
+
+/* Page4 Real Families Responsive */
+.real-families-section {
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+}
+
+.real-families-decorative-1 {
+  position: absolute;
+  top: -3rem;
+  right: -3rem;
+  width: 12rem;
+  height: 12rem;
+  background: #d1d5db;
+  border-radius: 50%;
+  opacity: 0.3;
+}
+
+.real-families-decorative-2 {
+  position: absolute;
+  bottom: -4rem;
+  left: -4rem;
+  width: 16rem;
+  height: 16rem;
+  background: #d1d5db;
+  border-radius: 50%;
+  opacity: 0.2;
+}
+
+@media (max-width: 768px) {
+  .real-families-card {
+    padding: 2rem 1.5rem !important;
+    margin: 0 1rem !important;
+  }
+  
+  .real-families-title {
+    font-size: 2.25rem !important;
+    margin-bottom: 3rem !important;
+  }
+  
+  .real-families-name {
+    font-size: 1.5rem !important;
+  }
+  
+  .real-families-role {
+    font-size: 1rem !important;
+  }
+  
+  .real-families-quote {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .real-families-decorative-1 {
+    width: 8rem !important;
+    height: 8rem !important;
+    top: -2rem !important;
+    right: -2rem !important;
+  }
+  
+  .real-families-decorative-2 {
+    width: 10rem !important;
+    height: 10rem !important;
+    bottom: -2rem !important;
+    left: -2rem !important;
+  }
+}
+
+/* Real Families Perfect Styling */
+.real-families-section {
+  background: #f3f4f6;
+}
+
+.real-families-card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid rgba(229, 231, 235, 0.8);
+  transition: all 0.3s ease;
+}
+
+.real-families-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Typography refinements */
+.real-families-title {
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+
+.real-families-name {
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.025em;
+  color: #37405E;
+}
+
+.real-families-role {
+  font-family: 'Inter', sans-serif;
+  color: #6b7280;
+  font-family: system-ui;
+}
+
+.real-families-quote {
+  font-family: 'Inter', sans-serif;
+  color: #374151;
+  line-height: 1.7;
+  position: relative;
+}
+
+/* Quote styling */
+/* .real-families-quote::before {
+  content: '"';
+  position: absolute;
+  left: -1rem;
+  top: -0.5rem;
+  font-size: 3rem;
+  color: #d1d5db;
+  font-family: serif;
+}
+
+.real-families-quote::after {
+  content: '"';
+  position: absolute;
+  right: -1rem;
+  bottom: -1rem;
+  font-size: 3rem;
+  color: #d1d5db;
+  font-family: serif;
+} */
+
+/* Decorative elements positioning */
+.real-families-decorative-1 {
+  animation: float 6s ease-in-out infinite;
+}
+
+.real-families-decorative-2 {
+  animation: float 8s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(-10px) translateX(5px);
+  }
+}
+
+/* Page4 Growing Together Responsive */
+.growing-together-section {
+  background: linear-gradient(135deg, #37405E 0%, #2d3548 100%);
+}
+
+.growing-together-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  
+}
+
+/* .growing-together-content {
+  flex: 1;.growing-together-container
+  max-width: 32rem;
+} */
+
+.growing-together-image {
+  flex: 1;
+  max-width: 32rem;
+}
+
+@media (max-width: 1024px) {
+  .growing-together-container {
+    flex-direction: column !important;
+    gap: 3rem !important;
+    text-align: center !important;
+  }
+  
+  .growing-together-content {
+    max-width: none !important;
+  }
+  
+  .growing-together-image {
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .growing-together-title {
+    font-size: 2.5rem !important;
+    margin-bottom: 2.5rem !important;
+  }
+  
+  .growing-together-benefits {
+    gap: 1.25rem !important;
+    margin-bottom: 2.5rem !important;
+  }
+  
+  .growing-together-benefit {
+    font-size: 1rem !important;
+  }
+  
+  .growing-together-button {
+    width: 100% !important;
+    max-width: 20rem !important;
+    margin: 0 auto !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .growing-together-title {
+    font-size: 2rem !important;
+    line-height: 1.1 !important;
+  }
+  
+  .growing-together-benefit {
+    font-size: 0.9rem !important;
+  }
+}
+
+/* Growing Together Enhanced Styling */
+.growing-together-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.growing-together-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #37405E 0%, #2d3548 50%, #37405E 100%);
+  z-index: -1;
+}
+
+/* Typography improvements */
+.growing-together-title {
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.growing-together-benefit span {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+}
+
+/* Button enhancements */
+.growing-together-button {
+  position: relative;
+  overflow: hidden;
+  border: none;
+  outline: none;
+}
+
+.growing-together-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.growing-together-button:hover::before {
+  left: 100%;
+}
+
+/* Checkmark styling */
+.growing-together-benefit{
+  filter: drop-shadow(0 2px 4px rgba(147, 123, 55, 0.3));
+}
+
+/* Image container enhancements */
+.growing-together-image > div {
+  transition: transform 0.3s ease;
+}
+
+.growing-together-image:hover > div {
+  transform: scale(1.02);
+}
+
+/* Responsive image improvements */
+@media (max-width: 768px) {
+  .growing-together-image img {
+    aspect-ratio: 16/10 !important;
+  }
+}
+
+/* Page5 Pain Points Responsive */
+.pain-points-section {
+  background: #ffffff;
+}
+
+.pain-points-illustration {
+  border: 1px solid #f1f5f9;
+}
+
+.pain-points-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.pain-points-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+  .pain-points-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  
+  .pain-points-title {
+    font-size: 2.5rem !important;
+    margin-bottom: 2.5rem !important;
+  }
+  
+  .pain-points-illustration {
+    width: 20rem !important;
+    height: 10rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .pain-points-title {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  .pain-points-card {
+    padding: 1.5rem !important;
+  }
+  
+  .pain-points-card h3 {
+    font-size: 1.25rem !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .pain-points-illustration {
+    width: 16rem !important;
+    height: 8rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .pain-points-card {
+    padding: 1.25rem !important;
+    margin: 0 0.5rem !important;
+  }
+  
+  .pain-points-illustration {
+    width: 14rem !important;
+    height: 7rem !important;
+  }
+}
+
+/* Pain Points Enhanced Styling */
+.pain-points-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.pain-points-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #937B37, transparent);
+  transition: left 0.6s ease;
+}
+
+.pain-points-card:hover::before {
+  left: 100%;
+}
+
+/* Typography improvements */
+.pain-points-title {
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+
+.pain-points-card h3 {
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.025em;
+}
+
+.pain-points-card li span:last-child {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+}
+
+/* Bullet point styling */
+.pain-points-card li span:first-child {
+  color: #937B37;
+  font-weight: 700;
+}
+
+/* Illustration enhancements */
+.pain-points-illustration {
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.pain-points-illustration::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 100%);
+  border-radius: inherit;
+}
+
+/* Page5 Success Stories Responsive */
+.success-stories-section {
+  background: #f6f3ee;
+  position: relative;
+  overflow: hidden;
+}
+
+.success-stories-star {
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  opacity: 0.8;
+}
+
+.success-stories-card {
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.success-stories-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+  .success-stories-quote-mark {
+    font-size: 3rem;
+    top: 1rem ;
+    left: 50% ;
+    transform: translateX(-50%) ;
+  }
+
+@media (max-width: 1024px) {
+  .success-stories-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  
+  .success-stories-title {
+    font-size: 2.5rem !important;
+    margin-bottom: 3rem !important;
+  }
+  
+  .success-stories-star {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .success-stories-title {
+    font-size: 2rem !important;
+    margin-bottom: 2.5rem !important;
+  }
+  
+  .success-stories-card {
+    padding: 1.5rem !important;
+    margin: 0 1rem !important;
+  }
+  
+  .success-stories-quote-mark {
+    font-size: 3rem !important;
+    top: 1rem !important;
+
+  }
+  
+  .success-stories-name {
+    font-size: 1.5rem !important;
+  }
+  
+  .success-stories-role {
+    font-size: 1rem !important;
+  }
+  
+  .success-stories-quote {
+    font-size: 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .success-stories-star {
+    width: 2rem !important;
+    height: 2rem !important;
+  }
+  
+  .success-stories-star:first-child {
+    top: 1rem !important;
+    left: 1rem !important;
+  }
+  
+  .success-stories-star:last-child {
+    bottom: 1rem !important;
+    right: 1rem !important;
+  }
+}
+
+/* Success Stories Enhanced Styling */
+.success-stories-section {
+  background: #f6f3ee;
+}
+
+.success-stories-star {
+  animation: twinkle 4s ease-in-out infinite;
+}
+
+.success-stories-star:last-child {
+  animation-delay: 2s;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+/* Card styling improvements */
+.success-stories-card {
+  background: #ffffff;
+  border: 1px solid rgba(229, 231, 235, 0.6);
+}
+
+.success-stories-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #937B37, #D3AC4A, #937B37);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.success-stories-card:hover::before {
+  opacity: 1;
+}
+
+/* Typography improvements */
+.success-stories-title {
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+
+.success-stories-name {
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.025em;
+}
+
+.success-stories-role {
+  font-family: system-ui;
+}
+
+.success-stories-quote {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+}
+
+/* Quote mark styling */
+.success-stories-quote-mark {
+  color: #937B37;
+  text-shadow: 0 2px 4px rgba(147, 123, 55, 0.2);
+  font-family: serif;
+}
+
+/* Page4 Hero Perfect Curve Styling */
+.page4-hero-section {
+  background: #f7f4ef;
+  position: relative;
+  overflow: hidden;
+  min-height: 700px;
+}
+
+.page4-curved-element {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 55%;
+  height: 100%;
+  z-index: 10;
+}
+
+.page4-curved-element > div {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #37405E 0%, #2d3548 100%);
+  clip-path: ellipse(85% 100% at 100% 50%);
+}
+
+/* Content positioning */
+.page4-hero-content {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  min-height: 600px;
+  padding: 5rem 0;
+}
+
+.page4-hero-text {
+  flex: 1;
+}
+
+.page4-hero-image {
+  flex: 1;
+  max-width: 32rem;
+  position: relative;
+  z-index: 30;
+}
+
+/* Typography enhancements */
+.page4-hero-title {
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  color: #37405E;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.025em;
+}
+
+.page4-hero-description {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: #1f2937;
+  max-width: 36rem;
+}
+
+.page4-hero-pricing {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 2.5rem;
+  color: #374151;
+}
+
+.page4-hero-button {
+  background: #37405E;
+  color: white;
+  padding: 1rem 3rem;
+  border-radius: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(55, 64, 94, 0.3);
+}
+
+.page4-hero-button:hover {
+  background: #2d3548;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(55, 64, 94, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .page4-curved-element {
+    width: 100%;
+    height: 50%;
+    bottom: 0;
+    top: auto;
+  }
+  
+  .page4-curved-element > div {
+    clip-path: ellipse(100% 80% at 50% 100%);
+  }
+  
+  .page4-hero-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 2.5rem;
+    min-height: 500px;
+  }
+  
+  .page4-hero-text {
+    padding-right: 0;
+    max-width: none;
+    order: 1;
+  }
+  
+  .page4-hero-image {
+    max-width: 100%;
+    order: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .page4-curved-element > div {
+    clip-path: ellipse(100% 70% at 50% 100%);
+  }
+  
+  .page4-hero-title {
+    font-size: 2.25rem;
+    line-height: 1.2;
+  }
+  
+  .page4-hero-description {
+    font-size: 1rem;
+  }
+  
+  .page4-hero-pricing {
+    font-size: 0.875rem;
+  }
+  
+  .page4-hero-button {
+    width: 100%;
+    max-width: 20rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page4-hero-title {
+    font-size: 1.75rem;
+  }
+  
+  .page4-curved-element {
+    height: 40%;
+  }
+  
+  .page4-hero-content {
+    padding: 3rem 0;
+    min-height: 400px;
+  }
+}
