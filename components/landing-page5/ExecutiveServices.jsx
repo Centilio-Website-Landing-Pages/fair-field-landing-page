@@ -53,7 +53,7 @@ export default function ExecutiveServices() {
               viewport={{ once: true }}
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              // onClick={() => window.centilio_connector_init.submit_call()}
+              onClick={() => window.centilio_connector_init.submit_call()}
             >
               SCHEDULE EXCLUSIVE SHOWING
             </motion.button>

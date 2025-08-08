@@ -213,6 +213,16 @@ export default function LandingPage1() {
 	    }
 	};
 
+	function closeThankYouModal() {
+		document.getElementById("thankYouModal").classList.add("hidden");
+		document.getElementById("modalOverlay").classList.add("hidden");
+	}
+
+	function openThankYouModal() {
+		document.getElementById("thankYouModal").classList.remove("hidden");
+		document.getElementById("modalOverlay").classList.remove("hidden");
+	}
+
 	const handleSubmit = async (e) => {
 	    e.preventDefault();
 	    
@@ -228,8 +238,9 @@ export default function LandingPage1() {
 	    window.centilio_connector_init.submit();
 
 	      // Handle successful submission
-	      console.log('Form submitted:', formData);
-	      alert('Consultation booked successfully!');
+	      
+		  openThankYouModal();
+		  setTimeout(closeThankYouModal, 5000);
 	      
 	      // Reset form
 	      setFormData({
@@ -649,6 +660,35 @@ export default function LandingPage1() {
 			            </h3>
 			          </motion.div>
 			        </motion.div>
+				</div>
+			</div>
+			{/* Modal */}
+			<div id="modalOverlay" className="w-full bg-[#000000ab] fixed top-0 left-0 h-full z-[5] hidden">
+				<div id="thankYouModal" className="w-full h-full bg-[#7f808080] fixed z-[6] text-center hidden">
+					<div
+						className="text-[#37405E] fixed bg-[#c2d9ff] top-1/2 left-1/2 py-[30px] px-[10px] sm:w-[400px] w-[90%] rounded-[10px] z-[5] leading-[35px] border border-[#37405E]"
+						style={{ transform: "translate(-50%, -50%)" }}
+					>
+						<div className="bg-[#37405E] w-max px-[15px] py-[18px] rounded-full mx-auto">
+							<svg width="30" height="24" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M8.01587 1.77777L3.65079 6.22222L1.66667 4.20201"
+									stroke="#FFFFFF"
+									strokeWidth="1"
+									strokeLinecap="round"
+									strokeLinejoin="round"
+								/>
+							</svg>
+						</div>
+						<div className="text-[30px] font-semibold my-[20px]">Thank You!</div>
+						<div>We&apos;ll reach you out soon!</div>
+						<div
+							className="bg-[#dc3737] text-white cursor-pointer rounded-[5px] my-[20px] w-max mx-auto px-[20px] font-medium"
+							onClick={() => closeThankYouModal()}
+						>
+							Close
+						</div>
+					</div>
 				</div>
 			</div>
 		</>

@@ -56,7 +56,7 @@ export default function GrowingTogether() {
               style={{
                 boxShadow: '0 4px 14px rgba(147, 123, 55, 0.4)'
               }}
-              // onClick={() => window.centilio_connector_init.submit_call()}
+              onClick={() => window.centilio_connector_init.submit_call()}
             >
               BOOK FAMILY SITE VISIT
             </motion.button>

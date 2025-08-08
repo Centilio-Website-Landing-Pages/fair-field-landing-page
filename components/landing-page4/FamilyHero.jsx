@@ -37,7 +37,7 @@ export default function FamilyHero() {
               className="page4-hero-button"
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              // onClick={() => window.centilio_connector_init.submit_call()}
+              onClick={() => window.centilio_connector_init.submit_call()}
             >
               Book Your Visit Today
             </motion.button>

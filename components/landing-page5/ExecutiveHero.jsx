@@ -35,7 +35,7 @@ export default function ExecutiveHero() {
             </p>
 
             <button className="bg-[#37405E] text-white px-10 py-4 rounded-lg font-semibold text-lg hover:bg-[#2d3548] transition-colors shadow-lg" 
-            // onClick={() => window.centilio_connector_init.submit_call()} 
+            onClick={() => window.centilio_connector_init.submit_call()} 
             >
               Book Your Visit Today
             </button>

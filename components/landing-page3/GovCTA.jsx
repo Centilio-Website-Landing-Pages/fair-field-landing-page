@@ -127,7 +127,7 @@ export default function GovCTA() {
                   e.currentTarget.style.backgroundColor = '#937B37'
                   e.currentTarget.style.transform = 'translateY(0)'
                 }}
-                // onClick={() => window.centilio_connector_init.submit_call()}
+                 onClick={() => window.centilio_connector_init.submit_call()}
               >
                 BOOK SITE VISIT
               </button>
