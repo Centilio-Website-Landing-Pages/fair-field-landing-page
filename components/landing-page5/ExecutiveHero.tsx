@@ -20,7 +20,7 @@ export default function ExecutiveHero() {
             <ShiningText customStyle="sm:text-[40px] text-[30px] font-medium font-['DM_Serif_Display'] mb-5" textLeft={"Does Your Address Reflect Your "} textRight={"Success?"} />                                              
             
             <p className="text-[#937B37] text-xl mb-6 leading-relaxed font-medium">
-              You've built a successful business. Your office impresses 
+              You&apos;ve built a successful business. Your office impresses 
               clients. But what about your home? Does your residential 
               address match your achievements?
             </p>

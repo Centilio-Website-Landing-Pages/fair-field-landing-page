@@ -59,7 +59,7 @@ export default function SuccessStories() {
                 className="success-stories-quote-mark absolute text-[#937B37] font-bold leading-none"
                 style={{ fontSize: '4rem' }}
               >
-                "
+                &quot;
               </div>
               
               <div className="text-center relative z-10 pt-6">
@@ -75,7 +75,7 @@ export default function SuccessStories() {
                 
                 {/* Quote */}
                 <p className="success-stories-quote text-gray-700 text-lg leading-relaxed">
-                  "{testimonial.quote}"
+                  &quot;{testimonial.quote}&quot;
                 </p>
               </div>
             </motion.div>

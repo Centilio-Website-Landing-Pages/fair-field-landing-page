@@ -83,7 +83,7 @@ export default function GovTestimonials() {
                 fontFamily: 'serif',
                 lineHeight: '1'
               }}>
-                "
+                &quot;
               </div>
               
               {/* Name and Role */}
@@ -116,7 +116,7 @@ export default function GovTestimonials() {
                 margin: 0,
                 fontStyle: 'italic'
               }}>
-                "{testimonial.quote}"
+                &quot;{testimonial.quote}&quot;
               </p>
             </motion.div>
           ))}

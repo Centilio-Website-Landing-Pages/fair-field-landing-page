@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Image from 'next/image'
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
@@ -480,7 +480,7 @@ export default function LandingPage1() {
 		                >
 		                  {/* Quote Icon */}
 		                  <div className="mx-auto">
-		                      <span className="text-[100px] font-['Raleway'] text-[#D3AC4A] font-bold">"</span>
+		                      <span className="text-[100px] font-['Raleway'] text-[#D3AC4A] font-bold">&quot;</span>
 		                  </div>
 
 		                  {/* Content */}

@@ -39,8 +39,8 @@ export default function RealFamilies() {
           
           {/* Testimonial Quote */}
           <blockquote className="real-families-quote text-gray-700 text-lg leading-relaxed font-medium">
-            "My daughter walks to her friend's house safely. My son cycles without 
-            traffic fear. This is the childhood I wanted for them."
+            &quot;My daughter walks to her friend&apos;s house safely. My son cycles without 
+            traffic fear. This is the childhood I wanted for them.&quot;
           </blockquote>
         </motion.div>
       </div>

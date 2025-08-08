@@ -1,10 +1,8 @@
 'use client'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Image from 'next/image'
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-
-import phone from '@/images/phone.svg'
 
 import Header from '@/components/header.js'
 import { ShiningText } from "@/components/ui/shining-text"
@@ -301,7 +299,7 @@ export default function LandingPage2() {
 			                className="text-[#000000] md:text-[18px] leading-relaxed"
 			                variants={staggerItem}
 			              >
-			              	Imagine checking your investment portfolio in 3 years and seeing a 40% appreciation. While others chase volatile stocks or settle for 6% FDs, your land investment in Coimbatore's fastest-growing corridor delivers consistent, tangible returns.
+			              	Imagine checking your investment portfolio in 3 years and seeing a 40% appreciation. While others chase volatile stocks or settle for 6% FDs, your land investment in Coimbatore&apos;s fastest-growing corridor delivers consistent, tangible returns.
 			              </motion.p>
 			            </motion.div>
 
@@ -434,7 +432,7 @@ export default function LandingPage2() {
 							className="mt-7 text-[18px] font-['Futura-Medium'] leading-[27px]"
 							variants={staggerItem}
 						>
-							Anicham & Magilam isn't just another project - it's a calculated investment opportunity in Nanjundapuram's transformation zone.
+							Anicham & Magilam isn&apos;t just another project - it&apos;s a calculated investment opportunity in Nanjundapuram&apos;s transformation zone.
 						</motion.div>
 					</motion.div>
 				</div>
@@ -665,7 +663,7 @@ export default function LandingPage2() {
 		                >
 		                  {/* Quote Icon */}
 		                  <div className="mx-auto">
-		                      <span className="text-[100px] font-['Raleway'] text-[#D3AC4A] font-bold">"</span>
+		                      <span className="text-[100px] font-['Raleway'] text-[#D3AC4A] font-bold">&quot;</span>
 		                  </div>
 
 		                  {/* Content */}
@@ -720,7 +718,7 @@ export default function LandingPage2() {
 			            {/* Heading */}
 			            <motion.div className="space-y-2" variants={staggerItem}>
 			            	<div className="font-semibold bg-linear-to-r from-[#D3AC4A] from-[30%] to-[#FFFFFF] to-[70%] bg-clip-text text-[36px] font-['DM_Serif_Display'] text-transparent ...">
-			            		Lock Today's Price Before Infrastructure Completion
+			            		Lock Today&apos;s Price Before Infrastructure Completion
 							</div>
 			            </motion.div>
 
