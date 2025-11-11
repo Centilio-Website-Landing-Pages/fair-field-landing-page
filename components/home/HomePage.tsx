@@ -1,10 +1,84 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import UniversalFooter from '../shared/footer/UniversalFooter';
+
+// Testimonial Carousel Component
+function TestimonialCarousel() {
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+
+  const testimonials = [
+    {
+      quote: "I live overseas. The Fair Field team kept me updated with photos and reports. Everything was smooth and transparent.",
+      name: "Ms. Lavanya",
+      location: "Singapore"
+    },
+    {
+      quote: "My plot value has grown more than 75 % in three years. Fair Field Shelters truly keeps its promises.",
+      name: "Mr. Mahesh",
+      location: "USA"
+    },
+    {
+      quote: "We bought our plot at Kurinjee Nagar Phase I. All papers were clear and registration finished on time. Now we live in our own home with peace of mind.",
+      name: "Mr. Anand",
+      location: "Coimbatore"
+    }
+  ];
+
+  const nextTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
+  const current = testimonials[currentTestimonial];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: 50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.8, delay: 0.2 }}
+      viewport={{ once: true }}
+      className="bg-[#37405E] rounded-[30px] p-8 lg:p-12 text-white relative"
+    >
+      <div className="relative z-10">
+        <blockquote className="text-lg lg:text-xl leading-relaxed mb-8 font-light">
+          &ldquo;{current.quote}&rdquo;
+        </blockquote>
+        
+        <div className="border-t border-white/20 pt-6">
+          <div className="font-semibold text-xl mb-1">{current.name}</div>
+          <div className="text-[#D3AC4A] font-medium">{current.location}</div>
+        </div>
+      </div>
+
+      {/* Navigation Buttons */}
+      <div className="flex gap-4 mt-8 justify-end">
+        <button 
+          onClick={prevTestimonial}
+          className="w-12 h-12 bg-[#D3AC4A] rounded-full flex items-center justify-center hover:bg-[#D3AC4A]/80 transition-colors"
+        >
+          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button 
+          onClick={nextTestimonial}
+          className="w-12 h-12 bg-[#D3AC4A] rounded-full flex items-center justify-center hover:bg-[#D3AC4A]/80 transition-colors"
+        >
+          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </motion.div>
+  );
+}
 
 export function HomePage() {
   return (
@@ -125,38 +199,64 @@ export function HomePage() {
 
               {/* Right Content - Floating Cards exactly as reference */}
               <div className="relative flex-1 max-w-md">
-                {/* 100+ Successful Projects Card - Rounded bottom-left */}
+                {/* 100+ Successful Projects Card - Enhanced transparent design */}
                 <motion.div
                   initial={{ opacity: 0, x: 50, y: -20 }}
                   animate={{ opacity: 1, x: 0, y: 0 }}
                   transition={{ duration: 0.8, delay: 1.2 }}
-                  className="bg-white/5 backdrop-blur-sm border border-white/5 p-6 mb-6 shadow-xl relative"
-                  style={{ borderRadius: '8px 8px 8px 24px' }}
+                  className="relative p-6 mb-6 shadow-2xl backdrop-blur-md"
+                  style={{ 
+                    borderRadius: '8px 8px 8px 24px',
+                    background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)',
+                    border: '1px solid rgba(255,255,255,0.1)',
+                    boxShadow: '0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)'
+                  }}
                 >
                   <div>
-                    <h3 className="text-4xl font-bold text-white mb-2 drop-shadow-lg" style={{ fontFamily: 'DM Serif Display', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>100+</h3>
-                    <p className="text-white text-base font-medium leading-relaxed drop-shadow-lg" style={{ fontFamily: 'Futura-Medium', textShadow: '0 1px 3px rgba(0,0,0,0.5)' }}>
+                    <h3 className="text-4xl font-bold text-white mb-2" style={{ 
+                      fontFamily: 'DM Serif Display', 
+                      textShadow: '0 2px 8px rgba(0,0,0,0.6)',
+                      fontWeight: '700'
+                    }}>100+</h3>
+                    <p className="text-white text-base font-bold leading-relaxed" style={{ 
+                      fontFamily: 'Futura-Heavy', 
+                      textShadow: '0 1px 4px rgba(0,0,0,0.6)',
+                      fontWeight: '700'
+                    }}>
                       Successful Projects Delivered
                     </p>
                   </div>
-                  {/* Golden circle at bottom-left rounded corner */}
-                  <div className="absolute bottom-2 left-2 w-3 h-3 bg-[#D3AC4A] rounded-full"></div>
+                  {/* Golden circle accent at bottom-left rounded corner */}
+                  <div className="absolute bottom-3 left-3 w-3 h-3 bg-[#D3AC4A] rounded-full shadow-lg"></div>
                 </motion.div>
 
-                {/* DTCP Approved Card - Rounded top-right */}
+                {/* DTCP Approved Card - Enhanced transparent design */}
                 <motion.div
                   initial={{ opacity: 0, x: 50, y: 20 }}
                   animate={{ opacity: 1, x: 0, y: 0 }}
                   transition={{ duration: 0.8, delay: 1.4 }}
-                  className="bg-white/5 backdrop-blur-sm border border-white/5 p-6 shadow-xl relative"
-                  style={{ borderRadius: '8px 24px 8px 8px' }}
+                  className="relative p-6 shadow-2xl backdrop-blur-md"
+                  style={{ 
+                    borderRadius: '8px 24px 8px 8px',
+                    background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)',
+                    border: '1px solid rgba(255,255,255,0.1)',
+                    boxShadow: '0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)'
+                  }}
                 >
-                  {/* Golden circle at top-right rounded corner */}
-                  <div className="absolute top-2 right-2 w-3 h-3 bg-[#D3AC4A] rounded-full"></div>
+                  {/* Golden circle accent at top-right rounded corner */}
+                  <div className="absolute top-3 right-3 w-3 h-3 bg-[#D3AC4A] rounded-full shadow-lg"></div>
                   <div className="mb-4">
-                    <h3 className="text-2xl font-bold text-white drop-shadow-lg" style={{ fontFamily: 'DM Serif Display', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>DTCP Approved</h3>
+                    <h3 className="text-2xl font-bold text-white" style={{ 
+                      fontFamily: 'DM Serif Display', 
+                      textShadow: '0 2px 8px rgba(0,0,0,0.6)',
+                      fontWeight: '700'
+                    }}>DTCP Approved</h3>
                   </div>
-                  <p className="text-white text-base leading-relaxed font-medium drop-shadow-lg" style={{ fontFamily: 'Futura-Medium', textShadow: '0 1px 3px rgba(0,0,0,0.5)' }}>
+                  <p className="text-white text-base leading-relaxed font-bold" style={{ 
+                    fontFamily: 'Futura-Heavy', 
+                    textShadow: '0 1px 4px rgba(0,0,0,0.6)',
+                    fontWeight: '700'
+                  }}>
                     All our projects are legally verified and RERA-registered for your peace of mind.
                   </p>
                 </motion.div>
@@ -169,7 +269,7 @@ export function HomePage() {
       {/* Company Introduction - Second Fold */}
       <section className="bg-white" style={{ height: '674px' }}>
         <div className="mx-auto flex items-center h-full" style={{ maxWidth: '1280px' }}>
-          <div className="flex items-center justify-between w-full px-12">
+          <div className="flex items-center justify-between w-full px-12 gap-24">
             {/* Left Content - Text */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -302,11 +402,11 @@ export function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="text-4xl lg:text-5xl mb-12 leading-tight"
+                className="text-4xl lg:text-5xl mb-32 leading-tight"
                 style={{ fontFamily: 'DM Serif Display' }}
               >
                 <span className="text-[#37405E]">Our </span>
-                <span className="text-[#D3AC4A]">Four Promises</span>
+                <span className="bg-gradient-to-r from-[#D3AC4A] to-[#37405E] bg-clip-text text-transparent">Four Promises</span>
               </motion.h2>
 
               {/* Paint Brush Image Container with Artistic Effect */}
@@ -342,7 +442,181 @@ export function HomePage() {
             </motion.div>
 
             {/* Right Content - Four Promise Cards */}
-            {/* Cards will be added here */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="space-y-4"
+            >
+              {/* Legal Clarity Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true }}
+                className="relative w-full max-w-lg"
+              >
+                {/* Card Background */}
+                <img
+                  src="/images/home page - ff/icons/Third Fold - home page-ffs/RecVector 1.svg"
+                  alt=""
+                  className="w-full h-auto"
+                />
+                
+                {/* Icon positioned in rounded cutout (top-left) */}
+                <div className="absolute top-[8%] left-[4%] sm:top-[10%] sm:left-[5%]">
+                  <img
+                    src="/images/home page - ff/icons/Third Fold - home page-ffs/Vector 1.svg"
+                    alt="Legal Clarity"
+                    className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
+                  />
+                </div>
+                
+                {/* Text content positioned in center of main rectangle */}
+                <div className="absolute inset-0 flex items-center justify-center" style={{ 
+                  top: '25%', 
+                  left: '20%', 
+                  right: '5%', 
+                  bottom: '15%' 
+                }}>
+                  <div className="text-white text-left max-w-xs">
+                    <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3" style={{ fontFamily: 'DM Serif Display' }}>
+                      Legal Clarity
+                    </h3>
+                    <p className="text-white/90 text-sm sm:text-base leading-relaxed" style={{ fontFamily: 'Futura-Medium' }}>
+                      All our projects are DTCP-approved and RERA-registered, with clean documents and verified ownership giving you complete peace of mind.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Strong Returns Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="relative w-full max-w-lg"
+              >
+                {/* Card Background */}
+                <img
+                  src="/images/home page - ff/icons/Third Fold - home page-ffs/RecVector 2.svg"
+                  alt=""
+                  className="w-full h-auto"
+                />
+                
+                {/* Icon positioned in rounded cutout (top-right) */}
+                <div className="absolute top-[8%] right-[4%] sm:top-[10%] sm:right-[5%]">
+                  <img
+                    src="/images/home page - ff/icons/Third Fold - home page-ffs/Vector 2.svg"
+                    alt="Strong Returns"
+                    className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
+                  />
+                </div>
+                
+                {/* Text content positioned in center of main rectangle */}
+                <div className="absolute inset-0 flex items-center justify-start" style={{ 
+                  top: '25%', 
+                  left: '5%', 
+                  right: '20%', 
+                  bottom: '15%' 
+                }}>
+                  <div className="text-[#37405E] text-left max-w-xs">
+                    <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3" style={{ fontFamily: 'DM Serif Display' }}>
+                      Strong Returns
+                    </h3>
+                    <p className="text-[#37405E]/90 text-sm sm:text-base leading-relaxed" style={{ fontFamily: 'Futura-Medium' }}>
+                      Our locations are carefully chosen in fast-developing areas of Coimbatore and Nilgiris, offering steady appreciation and resale value.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Premium Quality Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                viewport={{ once: true }}
+                className="relative w-full max-w-lg"
+              >
+                {/* Card Background */}
+                <img
+                  src="/images/home page - ff/icons/Third Fold - home page-ffs/ReVector 3.svg"
+                  alt=""
+                  className="w-full h-auto"
+                />
+                
+                {/* Icon positioned in rounded cutout (top-left) */}
+                <div className="absolute top-[8%] left-[4%] sm:top-[10%] sm:left-[5%]">
+                  <img
+                    src="/images/home page - ff/icons/Third Fold - home page-ffs/Vector 3.svg"
+                    alt="Premium Quality"
+                    className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
+                  />
+                </div>
+                
+                {/* Text content positioned in center of main rectangle */}
+                <div className="absolute inset-0 flex items-center justify-center" style={{ 
+                  top: '25%', 
+                  left: '20%', 
+                  right: '5%', 
+                  bottom: '15%' 
+                }}>
+                  <div className="text-white text-left max-w-xs">
+                    <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3" style={{ fontFamily: 'DM Serif Display' }}>
+                      Premium Quality
+                    </h3>
+                    <p className="text-white/90 text-sm sm:text-base leading-relaxed" style={{ fontFamily: 'Futura-Medium' }}>
+                      We design modern layouts, wide roads, parks, and secure gated communities to create a lifestyle you can be proud of.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Transparent Service Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                viewport={{ once: true }}
+                className="relative w-full max-w-lg"
+              >
+                {/* Card Background */}
+                <img
+                  src="/images/home page - ff/icons/Third Fold - home page-ffs/ReVector 4.svg"
+                  alt=""
+                  className="w-full h-auto"
+                />
+                
+                {/* Icon positioned in rounded cutout (top-right) */}
+                <div className="absolute top-[8%] right-[4%] sm:top-[10%] sm:right-[5%]">
+                  <img
+                    src="/images/home page - ff/icons/Third Fold - home page-ffs/Vector 4.svg"
+                    alt="Transparent Service"
+                    className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
+                  />
+                </div>
+                
+                {/* Text content positioned in center of main rectangle */}
+                <div className="absolute inset-0 flex items-center justify-start" style={{ 
+                  top: '25%', 
+                  left: '5%', 
+                  right: '20%', 
+                  bottom: '15%' 
+                }}>
+                  <div className="text-[#37405E] text-left max-w-xs">
+                    <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3" style={{ fontFamily: 'DM Serif Display' }}>
+                      Transparent Service
+                    </h3>
+                    <p className="text-[#37405E]/90 text-sm sm:text-base leading-relaxed" style={{ fontFamily: 'Futura-Medium' }}>
+                      From site visit to handover, we guide you step by step with honest communication and professional support
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -358,7 +632,7 @@ export function HomePage() {
             className="text-center mb-16 px-4"
           >
             <h2 className="text-4xl lg:text-5xl mb-6" style={{ fontFamily: 'DM Serif Display' }}>
-              <span className="text-[#37405E]">Ongoing </span><span className="text-[#D3AC4A]">Projects</span>
+              <span className="text-[#37405E]">Ongoing </span><span className="bg-gradient-to-r from-[#D3AC4A] to-[#37405E] bg-clip-text text-transparent">Projects</span>
             </h2>
           </motion.div>
 
@@ -412,36 +686,38 @@ export function HomePage() {
                   className="space-y-4"
                 >
                   <div className="space-y-4">
-                    <div className="flex items-start gap-3">
-                      <div className="w-6 h-6 bg-[#D3AC4A] rounded-full flex items-center justify-center mt-1 flex-shrink-0">
-                        <svg className="w-4 h-4 text-[#37405E]" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
-                        </svg>
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 flex items-center justify-center flex-shrink-0">
+                        <img
+                          src="/images/home page - ff/icons/fourth fold/anicham/Vector 1.svg"
+                          alt="Type Icon"
+                          className="w-6 h-6"
+                        />
                       </div>
                       <div>
                         <span className="font-medium text-[#37405E] text-base" style={{ fontFamily: 'Futura-Medium' }}>Type: Premium villas & DTCP-approved Plots</span>
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-3">
-                      <div className="w-6 h-6 bg-[#D3AC4A] rounded-full flex items-center justify-center mt-1 flex-shrink-0">
-                        <svg className="w-4 h-4 text-[#37405E]" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                        </svg>
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 flex items-center justify-center flex-shrink-0">
+                        <img
+                          src="/images/home page - ff/icons/fourth fold/anicham/Vector 2.svg"
+                          alt="Location Icon"
+                          className="w-6 h-6"
+                        />
                       </div>
                       <div>
                         <span className="font-medium text-[#37405E] text-base" style={{ fontFamily: 'Futura-Medium' }}>Location: Ramanathapuram to Nanjundapuram Road (Near Parsn Apartments)</span>
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-3">
-                      <div className="w-6 h-6 bg-[#D3AC4A] rounded-full flex items-center justify-center mt-1 flex-shrink-0">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 flex items-center justify-center flex-shrink-0">
                         <img
-                          src="/icons/fourth-fold/anicham/vector-3.svg"
+                          src="/images/home page - ff/icons/fourth fold/anicham/vector 3.svg"
                           alt="Price Icon"
-                          
-                          
-                          className="w-4 h-4"
+                          className="w-6 h-6"
                         />
                       </div>
                       <div>
@@ -449,14 +725,12 @@ export function HomePage() {
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-3">
-                      <div className="w-6 h-6 bg-[#D3AC4A] rounded-full flex items-center justify-center mt-1 flex-shrink-0">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 flex items-center justify-center flex-shrink-0">
                         <img
-                          src="/icons/fourth-fold/anicham/vector-4.svg"
+                          src="/images/home page - ff/icons/fourth fold/anicham/Vector 4.svg"
                           alt="Status Icon"
-                          
-                          
-                          className="w-4 h-4"
+                          className="w-6 h-6"
                         />
                       </div>
                       <div>
@@ -464,14 +738,12 @@ export function HomePage() {
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-3">
-                      <div className="w-6 h-6 bg-[#D3AC4A] rounded-full flex items-center justify-center mt-1 flex-shrink-0">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 flex items-center justify-center flex-shrink-0">
                         <img
-                          src="/icons/fourth-fold/anicham/vector-5.svg"
+                          src="/images/home page - ff/icons/fourth fold/anicham/Vector 5.svg"
                           alt="Approvals Icon"
-                          
-                          
-                          className="w-4 h-4"
+                          className="w-6 h-6"
                         />
                       </div>
                       <div>
@@ -494,50 +766,62 @@ export function HomePage() {
               >
                 <div className="flex flex-wrap justify-center gap-6 lg:gap-8">
                   <div className="flex items-center gap-3 text-white">
-                    <div className="w-5 h-5 bg-[#D3AC4A] rounded-full flex items-center justify-center">
-                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/>
-                      </svg>
+                    <div className="w-6 h-6 flex items-center justify-center">
+                      <img
+                        src="/images/home page - ff/icons/fourth fold/tick vector.svg"
+                        alt="Tick"
+                        className="w-5 h-5"
+                      />
                     </div>
                     <span className="font-medium" style={{ fontFamily: 'Futura-Medium' }}>Gated community</span>
                   </div>
                   <div className="flex items-center gap-3 text-white">
-                    <div className="w-5 h-5 bg-[#D3AC4A] rounded-full flex items-center justify-center">
-                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/>
-                      </svg>
+                    <div className="w-6 h-6 flex items-center justify-center">
+                      <img
+                        src="/images/home page - ff/icons/fourth fold/tick vector.svg"
+                        alt="Tick"
+                        className="w-5 h-5"
+                      />
                     </div>
                     <span className="font-medium" style={{ fontFamily: 'Futura-Medium' }}>Wide roads</span>
                   </div>
                   <div className="flex items-center gap-3 text-white">
-                    <div className="w-5 h-5 bg-[#D3AC4A] rounded-full flex items-center justify-center">
-                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/>
-                      </svg>
+                    <div className="w-6 h-6 flex items-center justify-center">
+                      <img
+                        src="/images/home page - ff/icons/fourth fold/tick vector.svg"
+                        alt="Tick"
+                        className="w-5 h-5"
+                      />
                     </div>
                     <span className="font-medium" style={{ fontFamily: 'Futura-Medium' }}>EB</span>
                   </div>
                   <div className="flex items-center gap-3 text-white">
-                    <div className="w-5 h-5 bg-[#D3AC4A] rounded-full flex items-center justify-center">
-                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/>
-                      </svg>
+                    <div className="w-6 h-6 flex items-center justify-center">
+                      <img
+                        src="/images/home page - ff/icons/fourth fold/tick vector.svg"
+                        alt="Tick"
+                        className="w-5 h-5"
+                      />
                     </div>
                     <span className="font-medium" style={{ fontFamily: 'Futura-Medium' }}>Water</span>
                   </div>
                   <div className="flex items-center gap-3 text-white">
-                    <div className="w-5 h-5 bg-[#D3AC4A] rounded-full flex items-center justify-center">
-                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/>
-                      </svg>
+                    <div className="w-6 h-6 flex items-center justify-center">
+                      <img
+                        src="/images/home page - ff/icons/fourth fold/tick vector.svg"
+                        alt="Tick"
+                        className="w-5 h-5"
+                      />
                     </div>
                     <span className="font-medium" style={{ fontFamily: 'Futura-Medium' }}>CCTV</span>
                   </div>
                   <div className="flex items-center gap-3 text-white">
-                    <div className="w-5 h-5 bg-[#D3AC4A] rounded-full flex items-center justify-center">
-                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/>
-                      </svg>
+                    <div className="w-6 h-6 flex items-center justify-center">
+                      <img
+                        src="/images/home page - ff/icons/fourth fold/tick vector.svg"
+                        alt="Tick"
+                        className="w-5 h-5"
+                      />
                     </div>
                     <span className="font-medium" style={{ fontFamily: 'Futura-Medium' }}>20-25% value growth potential</span>
                   </div>
@@ -593,14 +877,12 @@ export function HomePage() {
                   className="space-y-4"
                 >
                   <div className="space-y-4">
-                    <div className="flex items-start gap-3">
-                      <div className="w-6 h-6 bg-[#D3AC4A] rounded-full flex items-center justify-center mt-1 flex-shrink-0">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 flex items-center justify-center flex-shrink-0">
                         <img
-                          src="/icons/fourth-fold/vaagai/vector-1.svg"
+                          src="/images/home page - ff/icons/fourth fold/vaagai/Vector 1.svg"
                           alt="Document Icon"
-                          
-                          
-                          className="w-4 h-4"
+                          className="w-6 h-6"
                         />
                       </div>
                       <div>
@@ -608,14 +890,12 @@ export function HomePage() {
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-3">
-                      <div className="w-6 h-6 bg-[#D3AC4A] rounded-full flex items-center justify-center mt-1 flex-shrink-0">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 flex items-center justify-center flex-shrink-0">
                         <img
-                          src="/icons/fourth-fold/vaagai/vector-2.svg"
+                          src="/images/home page - ff/icons/fourth fold/vaagai/Vector 2.svg"
                           alt="Location Icon"
-                          
-                          
-                          className="w-4 h-4"
+                          className="w-6 h-6"
                         />
                       </div>
                       <div>
@@ -623,14 +903,12 @@ export function HomePage() {
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-3">
-                      <div className="w-6 h-6 bg-[#D3AC4A] rounded-full flex items-center justify-center mt-1 flex-shrink-0">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 flex items-center justify-center flex-shrink-0">
                         <img
-                          src="/icons/fourth-fold/vaagai/vector-3.svg"
+                          src="/images/home page - ff/icons/fourth fold/vaagai/vector 3.svg"
                           alt="Price Icon"
-                          
-                          
-                          className="w-4 h-4"
+                          className="w-6 h-6"
                         />
                       </div>
                       <div>
@@ -638,14 +916,12 @@ export function HomePage() {
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-3">
-                      <div className="w-6 h-6 bg-[#D3AC4A] rounded-full flex items-center justify-center mt-1 flex-shrink-0">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 flex items-center justify-center flex-shrink-0">
                         <img
-                          src="/icons/fourth-fold/vaagai/vector-4.svg"
+                          src="/images/home page - ff/icons/fourth fold/vaagai/Vector 4.svg"
                           alt="Completion Icon"
-                          
-                          
-                          className="w-4 h-4"
+                          className="w-6 h-6"
                         />
                       </div>
                       <div>
@@ -668,50 +944,62 @@ export function HomePage() {
               >
                 <div className="flex flex-wrap justify-center gap-6 lg:gap-8">
                   <div className="flex items-center gap-3 text-white">
-                    <div className="w-5 h-5 bg-[#D3AC4A] rounded-full flex items-center justify-center">
-                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/>
-                      </svg>
+                    <div className="w-6 h-6 flex items-center justify-center">
+                      <img
+                        src="/images/home page - ff/icons/fourth fold/tick vector.svg"
+                        alt="Tick"
+                        className="w-5 h-5"
+                      />
                     </div>
                     <span className="font-medium" style={{ fontFamily: 'Futura-Medium' }}>Developed layout</span>
                   </div>
                   <div className="flex items-center gap-3 text-white">
-                    <div className="w-5 h-5 bg-[#D3AC4A] rounded-full flex items-center justify-center">
-                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/>
-                      </svg>
+                    <div className="w-6 h-6 flex items-center justify-center">
+                      <img
+                        src="/images/home page - ff/icons/fourth fold/tick vector.svg"
+                        alt="Tick"
+                        className="w-5 h-5"
+                      />
                     </div>
                     <span className="font-medium" style={{ fontFamily: 'Futura-Medium' }}>Drainage</span>
                   </div>
                   <div className="flex items-center gap-3 text-white">
-                    <div className="w-5 h-5 bg-[#D3AC4A] rounded-full flex items-center justify-center">
-                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/>
-                      </svg>
+                    <div className="w-6 h-6 flex items-center justify-center">
+                      <img
+                        src="/images/home page - ff/icons/fourth fold/tick vector.svg"
+                        alt="Tick"
+                        className="w-5 h-5"
+                      />
                     </div>
                     <span className="font-medium" style={{ fontFamily: 'Futura-Medium' }}>Streetlights</span>
                   </div>
                   <div className="flex items-center gap-3 text-white">
-                    <div className="w-5 h-5 bg-[#D3AC4A] rounded-full flex items-center justify-center">
-                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/>
-                      </svg>
+                    <div className="w-6 h-6 flex items-center justify-center">
+                      <img
+                        src="/images/home page - ff/icons/fourth fold/tick vector.svg"
+                        alt="Tick"
+                        className="w-5 h-5"
+                      />
                     </div>
                     <span className="font-medium" style={{ fontFamily: 'Futura-Medium' }}>Security</span>
                   </div>
                   <div className="flex items-center gap-3 text-white">
-                    <div className="w-5 h-5 bg-[#D3AC4A] rounded-full flex items-center justify-center">
-                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/>
-                      </svg>
+                    <div className="w-6 h-6 flex items-center justify-center">
+                      <img
+                        src="/images/home page - ff/icons/fourth fold/tick vector.svg"
+                        alt="Tick"
+                        className="w-5 h-5"
+                      />
                     </div>
                     <span className="font-medium" style={{ fontFamily: 'Futura-Medium' }}>Easy access to Palakkad Bypass & Airport</span>
                   </div>
                   <div className="flex items-center gap-3 text-white">
-                    <div className="w-5 h-5 bg-[#D3AC4A] rounded-full flex items-center justify-center">
-                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/>
-                      </svg>
+                    <div className="w-6 h-6 flex items-center justify-center">
+                      <img
+                        src="/images/home page - ff/icons/fourth fold/tick vector.svg"
+                        alt="Tick"
+                        className="w-5 h-5"
+                      />
                     </div>
                     <span className="font-medium" style={{ fontFamily: 'Futura-Medium' }}>25-40% appreciation</span>
                   </div>
@@ -732,8 +1020,8 @@ export function HomePage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl lg:text-5xl font-serif text-[#37405E] mb-6">
-              Completed <span className="text-[#D3AC4A]">Projects</span>
+            <h2 className="text-4xl lg:text-5xl mb-6" style={{ fontFamily: 'DM Serif Display' }}>
+              <span className="text-[#37405E]">Completed </span><span className="bg-gradient-to-r from-[#D3AC4A] to-[#37405E] bg-clip-text text-transparent">Projects</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto font-sans">
               Explore our successfully delivered projects that showcase our commitment to quality and excellence in residential development.
@@ -747,17 +1035,40 @@ export function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+              className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              <div className="relative h-64">
+              <div className="relative h-80">
                 <img
                   src="/images/home page - ff/images/fifth fold/image 1.png"
                   alt="Kotagiri Serene Villas"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
+                
+                {/* Hover Overlay - Hidden by default, shown on hover */}
+                <div className="absolute inset-x-6 bottom-6 top-1/2 bg-[#37405E]/95 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-xl">
+                  <div className="text-center text-white p-4">
+                    <div className="flex items-center justify-center space-x-4">
+                      <div className="text-center">
+                        <div className="text-3xl font-bold" style={{ fontFamily: 'DM Serif Display' }}>2018</div>
+                      </div>
+                      <div className="w-px h-12 bg-white/30"></div>
+                      <div className="text-center">
+                        <div className="text-lg font-bold" style={{ fontFamily: 'DM Serif Display' }}>9 Hill-View</div>
+                        <div className="text-lg font-bold" style={{ fontFamily: 'DM Serif Display' }}>Villas</div>
+                      </div>
+                      <div className="w-px h-12 bg-white/30"></div>
+                      <div className="text-center">
+                        <div className="text-lg font-semibold text-[#D3AC4A]" style={{ fontFamily: 'Futura-Medium' }}>Sold</div>
+                        <div className="text-lg font-semibold text-[#D3AC4A]" style={{ fontFamily: 'Futura-Medium' }}>Out</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
+              
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-[#37405E] mb-2 font-serif">Kotagiri Serene Villas</h3>
+                <h3 className="text-xl font-semibold text-[#37405E] mb-1" style={{ fontFamily: 'DM Serif Display' }}>Kotagiri Serene Villas</h3>
+                <p className="text-gray-600" style={{ fontFamily: 'Futura-Medium' }}>Nilgiris</p>
               </div>
             </motion.div>
 
@@ -767,33 +1078,39 @@ export function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow relative"
+              className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              <div className="relative h-64">
+              <div className="relative h-80">
                 <img
                   src="/images/home page - ff/images/fifth fold/image 2.png"
                   alt="Kurinjee Nagar Phase 1"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
-                {/* Overlay with project info */}
-                <div className="absolute bottom-4 left-4 bg-[#37405E]/90 backdrop-blur-sm rounded-lg p-4 text-white">
-                  <div className="flex items-center space-x-4 text-sm font-sans">
-                    <div className="text-center">
-                      <div className="font-semibold">2023</div>
-                    </div>
-                    <div className="w-px h-8 bg-white/30"></div>
-                    <div className="text-center">
-                      <div className="font-semibold">106 Plots</div>
-                    </div>
-                    <div className="w-px h-8 bg-white/30"></div>
-                    <div className="text-center">
-                      <div className="font-semibold text-[#D3AC4A]">Sold Out</div>
+                
+                {/* Hover Overlay - Hidden by default, shown on hover */}
+                <div className="absolute inset-x-6 bottom-6 top-1/2 bg-[#37405E]/95 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-xl">
+                  <div className="text-center text-white p-4">
+                    <div className="flex items-center justify-center space-x-4">
+                      <div className="text-center">
+                        <div className="text-3xl font-bold" style={{ fontFamily: 'DM Serif Display' }}>2023</div>
+                      </div>
+                      <div className="w-px h-12 bg-white/30"></div>
+                      <div className="text-center">
+                        <div className="text-lg font-bold" style={{ fontFamily: 'DM Serif Display' }}>106 Plots</div>
+                      </div>
+                      <div className="w-px h-12 bg-white/30"></div>
+                      <div className="text-center">
+                        <div className="text-lg font-semibold text-[#D3AC4A]" style={{ fontFamily: 'Futura-Medium' }}>Sold</div>
+                        <div className="text-lg font-semibold text-[#D3AC4A]" style={{ fontFamily: 'Futura-Medium' }}>Out</div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+              
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-[#37405E] mb-2 font-serif">Kurinjee Nagar Phase 1</h3>
+                <h3 className="text-xl font-semibold text-[#37405E] mb-1" style={{ fontFamily: 'DM Serif Display' }}>Kurinjee Nagar Phase 1</h3>
+                <p className="text-gray-600" style={{ fontFamily: 'Futura-Medium' }}>Vedapatty</p>
               </div>
             </motion.div>
 
@@ -803,33 +1120,39 @@ export function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow relative"
+              className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              <div className="relative h-64">
+              <div className="relative h-80">
                 <img
                   src="/images/home page - ff/images/fifth fold/image 3.png"
                   alt="Kurinjee Nagar Phase 2"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
-                {/* Overlay with project info */}
-                <div className="absolute bottom-4 left-4 bg-[#37405E]/90 backdrop-blur-sm rounded-lg p-4 text-white">
-                  <div className="flex items-center space-x-4 text-sm font-sans">
-                    <div className="text-center">
-                      <div className="font-semibold">2023</div>
-                    </div>
-                    <div className="w-px h-8 bg-white/30"></div>
-                    <div className="text-center">
-                      <div className="font-semibold">34 Plots</div>
-                    </div>
-                    <div className="w-px h-8 bg-white/30"></div>
-                    <div className="text-center">
-                      <div className="font-semibold text-[#D3AC4A]">Fully Sold</div>
+                
+                {/* Hover Overlay - Hidden by default, shown on hover */}
+                <div className="absolute inset-x-6 bottom-6 top-1/2 bg-[#37405E]/95 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-xl">
+                  <div className="text-center text-white p-4">
+                    <div className="flex items-center justify-center space-x-4">
+                      <div className="text-center">
+                        <div className="text-3xl font-bold" style={{ fontFamily: 'DM Serif Display' }}>2023</div>
+                      </div>
+                      <div className="w-px h-12 bg-white/30"></div>
+                      <div className="text-center">
+                        <div className="text-lg font-bold" style={{ fontFamily: 'DM Serif Display' }}>34 Plots</div>
+                      </div>
+                      <div className="w-px h-12 bg-white/30"></div>
+                      <div className="text-center">
+                        <div className="text-lg font-semibold text-[#D3AC4A]" style={{ fontFamily: 'Futura-Medium' }}>Fully</div>
+                        <div className="text-lg font-semibold text-[#D3AC4A]" style={{ fontFamily: 'Futura-Medium' }}>Sold</div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+              
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-[#37405E] mb-2 font-serif">Kurinjee Nagar Phase 2</h3>
+                <h3 className="text-xl font-semibold text-[#37405E] mb-1" style={{ fontFamily: 'DM Serif Display' }}>Kurinjee Nagar Phase 2</h3>
+                <p className="text-gray-600" style={{ fontFamily: 'Futura-Medium' }}>Vedapatty</p>
               </div>
             </motion.div>
           </div>
@@ -847,7 +1170,7 @@ export function HomePage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl lg:text-5xl font-serif text-[#37405E] mb-6">
-              Happy Buyer <span className="text-[#D3AC4A]">Stories</span>
+              Happy Buyer <span className="bg-gradient-to-r from-[#D3AC4A] to-[#37405E] bg-clip-text text-transparent">Stories</span>
             </h2>
           </motion.div>
 
@@ -860,73 +1183,17 @@ export function HomePage() {
               viewport={{ once: true }}
               className="relative"
             >
-              {/* Curved Border Lines Design */}
-              <div className="absolute -inset-12 -z-10">
-                <svg
-                  className="w-full h-full"
-                  viewBox="0 0 700 600"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M100 100 Q350 50 600 100 Q650 300 600 500 Q350 550 100 500 Q50 300 100 200 Z"
-                    fill="none"
-                    stroke="#5B9BD5"
-                    strokeWidth="4"
-                    opacity="0.8"
-                  />
-                  <path
-                    d="M120 120 Q350 70 580 120 Q620 300 580 480 Q350 520 120 480 Q80 300 120 220 Z"
-                    fill="none"
-                    stroke="#4A90E2"
-                    strokeWidth="3"
-                    opacity="0.6"
-                  />
-                </svg>
-              </div>
-              
-              <div className="relative w-full h-96 lg:h-[500px] rounded-[40px] overflow-hidden shadow-2xl z-10">
+              <div className="relative w-full h-96 lg:h-[500px]">
                 <img
                   src="/images/home page - ff/images/sixth fold Vector.jpg"
                   alt="Happy Customer at Fair Field Project"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               </div>
             </motion.div>
 
-            {/* Right - Testimonial */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="bg-[#37405E] rounded-[30px] p-8 lg:p-12 text-white relative"
-            >
-              <div className="relative z-10">
-                <blockquote className="text-lg lg:text-xl leading-relaxed mb-8 font-light">
-                  &ldquo;I live overseas. The Fair Field team kept me updated with photos and reports. Everything was smooth and transparent.&rdquo;
-                </blockquote>
-                
-                <div className="border-t border-white/20 pt-6">
-                  <div className="font-semibold text-xl mb-1">Ms. Lavanya</div>
-                  <div className="text-[#D3AC4A] font-medium">Singapore</div>
-                </div>
-              </div>
-
-              {/* Navigation Buttons */}
-              <div className="flex gap-4 mt-8 justify-end">
-                <button className="w-12 h-12 bg-[#D3AC4A] rounded-full flex items-center justify-center hover:bg-[#D3AC4A]/80 transition-colors">
-                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
-                </button>
-                <button className="w-12 h-12 bg-[#D3AC4A] rounded-full flex items-center justify-center hover:bg-[#D3AC4A]/80 transition-colors">
-                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-              </div>
-            </motion.div>
+            {/* Right - Testimonial Carousel */}
+            <TestimonialCarousel />
           </div>
         </div>
       </section>
@@ -942,233 +1209,179 @@ export function HomePage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl lg:text-5xl font-serif text-[#37405E] mb-6">
-              How we <span className="text-[#D3AC4A]">work</span>
+              How we <span 
+                style={{
+                  background: 'radial-gradient(circle, #37405E 0%, #D3AC4A 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text'
+                }}
+              >work</span>
             </h2>
             <p className="text-lg text-[#37405E] max-w-4xl mx-auto font-sans">
               We take care of every step from documents and loans to construction and after-sale service. So, your property journey stays simple and stress-free.
             </p>
           </motion.div>
 
-          {/* Process flow - Zigzag pattern exactly as reference */}
-          <div className="relative max-w-7xl mx-auto">
-            {/* Dotted connecting lines - Zigzag pattern */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <svg width="100%" height="250" className="absolute">
-                {/* Zigzag dotted lines connecting each step */}
-                <path d="M180 80 Q240 120, 300 160" stroke="#D3AC4A" strokeWidth="2" strokeDasharray="4,4" fill="none" opacity="0.8" />
-                <path d="M420 160 Q480 120, 540 80" stroke="#D3AC4A" strokeWidth="2" strokeDasharray="4,4" fill="none" opacity="0.8" />
-                <path d="M660 80 Q720 120, 780 160" stroke="#D3AC4A" strokeWidth="2" strokeDasharray="4,4" fill="none" opacity="0.8" />
-                <path d="M900 160 Q960 120, 1020 80" stroke="#D3AC4A" strokeWidth="2" strokeDasharray="4,4" fill="none" opacity="0.8" />
-                <path d="M1140 80 Q1200 120, 1260 160" stroke="#D3AC4A" strokeWidth="2" strokeDasharray="4,4" fill="none" opacity="0.8" />
-                <path d="M1380 160 Q1440 120, 1500 80" stroke="#D3AC4A" strokeWidth="2" strokeDasharray="4,4" fill="none" opacity="0.8" />
-                <path d="M1620 80 Q1680 120, 1740 160" stroke="#D3AC4A" strokeWidth="2" strokeDasharray="4,4" fill="none" opacity="0.8" />
-              </svg>
-            </div>
-
-            {/* Zigzag layout - exactly as reference */}
-            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-8 gap-8 lg:gap-4 items-center">
+          {/* Complete process flow with SVG background, individual icons, and text labels */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="flex justify-center"
+          >
+            <div className="relative w-full max-w-6xl">
+              {/* Background SVG with complete layout structure */}
+              <img
+                src="/images/home page - ff/icons/seventh folder/seventh fold Vector.svg"
+                alt="How we work - Complete process flow layout"
+                className="w-full h-auto"
+              />
               
-              {/* Row 1: Site Visit (top) */}
-              <div className="lg:col-span-2 flex justify-center">
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }} 
-                  whileInView={{ opacity: 1, y: 0 }} 
-                  transition={{ duration: 0.6, delay: 0.1 }} 
-                  viewport={{ once: true }}
-                  className="flex flex-col items-center"
-                >
-                  <div className="w-16 h-16 bg-[#37405E] rounded-full flex items-center justify-center shadow-lg mb-3">
+              {/* Positioned Vector SVGs with overlaid text labels - matching reference design layout */}
+              <div className="absolute inset-0">
+                {/* Step 1 - Inquiry (bottom left white label position) */}
+                <div className="absolute" style={{ left: '14%', top: '68%', transform: 'translate(-50%, -50%)' }}>
+                  <div className="relative">
                     <img
-src="/images/home page - ff/icons/first fold icon.svg"
-                      alt="Site Visit"
-                      
-                      
-                      className="brightness-0 invert"
+                      src="/images/home page - ff/icons/seventh folder/Vector 1.svg"
+                      alt="01"
+                      className="w-16 h-8 lg:w-20 lg:h-10"
                     />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="text-[#37405E] font-medium text-xs lg:text-sm" style={{ fontFamily: 'Futura-Medium' }}>Inquiry</span>
+                    </div>
                   </div>
-                  <div className="bg-white rounded-xl px-4 py-2 shadow-lg">
-                    <span className="text-[#37405E] font-semibold text-sm">Site Visit</span>
-                  </div>
-                </motion.div>
-              </div>
+                </div>
 
-              {/* Row 1: Inquiry (bottom) */}
-              <div className="lg:col-span-2 flex justify-center lg:mt-20">
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }} 
-                  whileInView={{ opacity: 1, y: 0 }} 
-                  transition={{ duration: 0.6, delay: 0.2 }} 
-                  viewport={{ once: true }}
-                  className="flex flex-col items-center"
-                >
-                  <div className="bg-white rounded-xl px-4 py-2 shadow-lg mb-3">
-                    <span className="text-[#37405E] font-semibold text-sm">Inquiry</span>
-                  </div>
-                  <div className="w-16 h-16 bg-[#37405E] rounded-full flex items-center justify-center shadow-lg">
+                {/* Step 2 - Site Visit (top left white label position) */}
+                <div className="absolute" style={{ left: '23%', top: '42%', transform: 'translate(-50%, -50%)' }}>
+                  <div className="relative">
                     <img
-src="/images/home page - ff/icons/first fold icon.svg"
-                      alt="Inquiry"
-                      
-                      
-                      className="brightness-0 invert"
+                      src="/images/home page - ff/icons/seventh folder/Vector 2.svg"
+                      alt="02"
+                      className="w-16 h-8 lg:w-20 lg:h-10"
                     />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="text-[#37405E] font-medium text-xs lg:text-sm" style={{ fontFamily: 'Futura-Medium' }}>Site Visit</span>
+                    </div>
                   </div>
-                </motion.div>
-              </div>
+                </div>
 
-              {/* Row 2: Booking (top) */}
-              <div className="lg:col-span-2 flex justify-center">
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }} 
-                  whileInView={{ opacity: 1, y: 0 }} 
-                  transition={{ duration: 0.6, delay: 0.3 }} 
-                  viewport={{ once: true }}
-                  className="flex flex-col items-center"
-                >
-                  <div className="w-16 h-16 bg-[#37405E] rounded-full flex items-center justify-center shadow-lg mb-3">
+                {/* Step 3 - Selection (bottom middle white label position) */}
+                <div className="absolute" style={{ left: '38%', top: '68%', transform: 'translate(-50%, -50%)' }}>
+                  <div className="relative">
                     <img
-src="/images/home page - ff/icons/first fold icon.svg"
-                      alt="Booking"
-                      
-                      
-                      className="brightness-0 invert"
+                      src="/images/home page - ff/icons/seventh folder/Vector 3.svg"
+                      alt="03"
+                      className="w-16 h-8 lg:w-20 lg:h-10"
                     />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="text-[#37405E] font-medium text-xs lg:text-sm" style={{ fontFamily: 'Futura-Medium' }}>Selection</span>
+                    </div>
                   </div>
-                  <div className="bg-white rounded-xl px-4 py-2 shadow-lg">
-                    <span className="text-[#37405E] font-semibold text-sm">Booking</span>
-                  </div>
-                </motion.div>
-              </div>
+                </div>
 
-              {/* Row 2: Selection (bottom) */}
-              <div className="lg:col-span-2 flex justify-center lg:mt-20">
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }} 
-                  whileInView={{ opacity: 1, y: 0 }} 
-                  transition={{ duration: 0.6, delay: 0.4 }} 
-                  viewport={{ once: true }}
-                  className="flex flex-col items-center"
-                >
-                  <div className="bg-white rounded-xl px-4 py-2 shadow-lg mb-3">
-                    <span className="text-[#37405E] font-semibold text-sm">Selection</span>
-                  </div>
-                  <div className="w-16 h-16 bg-[#37405E] rounded-full flex items-center justify-center shadow-lg">
+                {/* Step 4 - Booking (top center white label position) */}
+                <div className="absolute" style={{ left: '50%', top: '42%', transform: 'translate(-50%, -50%)' }}>
+                  <div className="relative">
                     <img
-src="/images/home page - ff/icons/first fold icon.svg"
-                      alt="Selection"
-                      
-                      
-                      className="brightness-0 invert"
+                      src="/images/home page - ff/icons/seventh folder/Vector 4.svg"
+                      alt="04"
+                      className="w-16 h-8 lg:w-20 lg:h-10"
                     />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="text-[#37405E] font-medium text-xs lg:text-sm" style={{ fontFamily: 'Futura-Medium' }}>Booking</span>
+                    </div>
                   </div>
-                </motion.div>
-              </div>
+                </div>
 
-              {/* Row 3: Construction (top) */}
-              <div className="lg:col-span-2 flex justify-center">
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }} 
-                  whileInView={{ opacity: 1, y: 0 }} 
-                  transition={{ duration: 0.6, delay: 0.5 }} 
-                  viewport={{ once: true }}
-                  className="flex flex-col items-center"
-                >
-                  <div className="w-16 h-16 bg-[#37405E] rounded-full flex items-center justify-center shadow-lg mb-3">
+                {/* Step 5 - Registration (bottom center-right white label position) */}
+                <div className="absolute" style={{ left: '62%', top: '68%', transform: 'translate(-50%, -50%)' }}>
+                  <div className="relative">
                     <img
-src="/images/home page - ff/icons/first fold icon.svg"
-                      alt="Construction"
-                      
-                      
-                      className="brightness-0 invert"
+                      src="/images/home page - ff/icons/seventh folder/Vector 5.svg"
+                      alt="05"
+                      className="w-16 h-8 lg:w-20 lg:h-10"
                     />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="text-[#37405E] font-medium text-xs lg:text-sm" style={{ fontFamily: 'Futura-Medium' }}>Registration</span>
+                    </div>
                   </div>
-                  <div className="bg-white rounded-xl px-4 py-2 shadow-lg">
-                    <span className="text-[#37405E] font-semibold text-sm">Construction</span>
-                  </div>
-                </motion.div>
-              </div>
+                </div>
 
-              {/* Row 3: Registration (bottom) */}
-              <div className="lg:col-span-2 flex justify-center lg:mt-20">
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }} 
-                  whileInView={{ opacity: 1, y: 0 }} 
-                  transition={{ duration: 0.6, delay: 0.6 }} 
-                  viewport={{ once: true }}
-                  className="flex flex-col items-center"
-                >
-                  <div className="bg-white rounded-xl px-4 py-2 shadow-lg mb-3">
-                    <span className="text-[#37405E] font-semibold text-sm">Registration</span>
-                  </div>
-                  <div className="w-16 h-16 bg-[#37405E] rounded-full flex items-center justify-center shadow-lg">
+                {/* Step 6 - Construction (top right white label position) */}
+                <div className="absolute" style={{ left: '77%', top: '42%', transform: 'translate(-50%, -50%)' }}>
+                  <div className="relative">
                     <img
-src="/images/home page - ff/icons/first fold icon.svg"
-                      alt="Registration"
-                      
-                      
-                      className="brightness-0 invert"
+                      src="/images/home page - ff/icons/seventh folder/Vector 6.svg"
+                      alt="06"
+                      className="w-16 h-8 lg:w-20 lg:h-10"
                     />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="text-[#37405E] font-medium text-xs lg:text-sm" style={{ fontFamily: 'Futura-Medium' }}>Construction</span>
+                    </div>
                   </div>
-                </motion.div>
-              </div>
+                </div>
 
-              {/* Row 4: Support (top) */}
-              <div className="lg:col-span-2 flex justify-center">
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }} 
-                  whileInView={{ opacity: 1, y: 0 }} 
-                  transition={{ duration: 0.6, delay: 0.7 }} 
-                  viewport={{ once: true }}
-                  className="flex flex-col items-center"
-                >
-                  <div className="w-16 h-16 bg-[#37405E] rounded-full flex items-center justify-center shadow-lg mb-3">
+                {/* Step 7 - Handover (bottom right white label position) */}
+                <div className="absolute" style={{ left: '86%', top: '68%', transform: 'translate(-50%, -50%)' }}>
+                  <div className="relative">
                     <img
-src="/images/home page - ff/icons/first fold icon.svg"
-                      alt="Support"
-                      
-                      
-                      className="brightness-0 invert"
+                      src="/images/home page - ff/icons/seventh folder/Vector 7.svg"
+                      alt="07"
+                      className="w-16 h-8 lg:w-20 lg:h-10"
                     />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="text-[#37405E] font-medium text-xs lg:text-sm" style={{ fontFamily: 'Futura-Medium' }}>Handover</span>
+                    </div>
                   </div>
-                  <div className="bg-white rounded-xl px-4 py-2 shadow-lg">
-                    <span className="text-[#37405E] font-semibold text-sm">Support</span>
-                  </div>
-                </motion.div>
-              </div>
+                </div>
 
-              {/* Row 4: Handover (bottom) */}
-              <div className="lg:col-span-2 flex justify-center lg:mt-20">
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }} 
-                  whileInView={{ opacity: 1, y: 0 }} 
-                  transition={{ duration: 0.6, delay: 0.8 }} 
-                  viewport={{ once: true }}
-                  className="flex flex-col items-center"
-                >
-                  <div className="bg-white rounded-xl px-4 py-2 shadow-lg mb-3">
-                    <span className="text-[#37405E] font-semibold text-sm">Handover</span>
-                  </div>
-                  <div className="w-16 h-16 bg-[#37405E] rounded-full flex items-center justify-center shadow-lg">
+                {/* Step 8 - Support (top far right white label position) */}
+                <div className="absolute" style={{ left: '94%', top: '42%', transform: 'translate(-50%, -50%)' }}>
+                  <div className="relative">
                     <img
-src="/images/home page - ff/icons/first fold icon.svg"
-                      alt="Handover"
-                      
-                      
-                      className="brightness-0 invert"
+                      src="/images/home page - ff/icons/seventh folder/Vector 8.svg"
+                      alt="08"
+                      className="w-16 h-8 lg:w-20 lg:h-10"
                     />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="text-[#37405E] font-medium text-xs lg:text-sm" style={{ fontFamily: 'Futura-Medium' }}>Support</span>
+                    </div>
                   </div>
-                </motion.div>
+                </div>
               </div>
-
             </div>
-          </div>
+          </motion.div>
+
+
+
+
         </div>
       </section>
 
       {/* Why choose Fair Field Shelters - Eighth Fold */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-[#F5F1E8]">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Heading */}
+          <motion.div
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl lg:text-5xl font-serif mb-4">
+              <span className="bg-gradient-to-r from-[#D3AC4A] to-[#37405E] bg-clip-text text-transparent">Why choose</span>
+            </h2>
+            <h3 className="text-4xl lg:text-5xl font-serif text-[#37405E]">
+              Fair Field Shelters
+            </h3>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-2 gap-40 items-center">
             {/* Left - Illustration */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -1177,21 +1390,12 @@ src="/images/home page - ff/icons/first fold icon.svg"
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="relative w-full h-96 lg:h-[500px]">
-                {/* Organic blob background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#6B7B8F] to-[#4A5568] rounded-[50px] rotate-3 transform"></div>
-                <div className="absolute inset-4 bg-gradient-to-tr from-[#5A6A7A] to-[#6B7B8F] rounded-[45px] -rotate-2 transform flex items-center justify-center">
-                  {/* Illustration content */}
-                  <img
-                    src="/images/home page - ff/icons/eighth fold Vector.svg"
-                    alt="Why choose Fair Field Shelters illustration"
-                    
-                    
-                    className="relative z-10"
-                  />
-                </div>
-                {/* Decorative border */}
-                <div className="absolute -inset-2 border-2 border-[#D3AC4A] rounded-[55px] opacity-30"></div>
+              <div className="relative w-full h-96 lg:h-[500px] flex items-center justify-center">
+                <img
+                  src="/images/home page - ff/icons/eighth fold Vector.svg"
+                  alt="Why choose Fair Field Shelters illustration"
+                  className="w-full h-full object-contain"
+                />
               </div>
             </motion.div>
 
@@ -1203,14 +1407,6 @@ src="/images/home page - ff/icons/first fold icon.svg"
               viewport={{ once: true }}
               className="space-y-8"
             >
-              <div>
-                <h2 className="text-4xl lg:text-5xl font-serif text-[#D3AC4A] mb-4">
-                  Why choose
-                </h2>
-                <h3 className="text-4xl lg:text-5xl font-serif text-[#37405E]">
-                  Fair Field Shelters
-                </h3>
-              </div>
 
               <div className="space-y-6">
                 {[
@@ -1226,12 +1422,14 @@ src="/images/home page - ff/icons/first fold icon.svg"
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                     viewport={{ once: true }}
-                    className="flex items-center space-x-4"
+                    className="flex items-center space-x-10"
                   >
-                    <div className="w-8 h-8 bg-[#D3AC4A] rounded-lg flex items-center justify-center flex-shrink-0">
-                      <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
+                    <div className="w-8 h-8 flex items-center justify-center flex-shrink-0">
+                      <img
+                        src="/images/home page - ff/icons/fourth fold/tick vector.svg"
+                        alt="Tick"
+                        className="w-6 h-6"
+                      />
                     </div>
                     <p className="text-lg text-[#37405E] font-medium">{feature}</p>
                   </motion.div>
@@ -1259,7 +1457,7 @@ src="/images/home page - ff/icons/first fold icon.svg"
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="bg-white rounded-[40px] p-8 lg:p-12 max-w-lg shadow-2xl"
+              className="bg-white rounded-tl-none rounded-tr-[40px] rounded-bl-[40px] rounded-br-none p-8 lg:p-12 max-w-lg shadow-2xl"
             >
               <h2 className="text-3xl lg:text-4xl font-serif text-[#37405E] mb-8">
                 Book your site visit today
