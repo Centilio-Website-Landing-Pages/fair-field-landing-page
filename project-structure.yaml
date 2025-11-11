@@ -1,0 +1,166 @@
+# Fair Field Landing Page - Project Structure
+
+project:
+  name: fair-field-nextjs
+  type: Next.js React Application
+  version: 0.1.0
+
+root_files:
+  package.json: Project dependencies and scripts configuration
+  package-lock.json: Locked dependency versions
+  next.config.ts: Next.js configuration file
+  eslint.config.mjs: ESLint linting configuration
+  postcss.config.mjs: PostCSS configuration for Tailwind
+  components.json: Component library configuration
+  tsconfig.json: TypeScript configuration (if exists)
+
+directories:
+  app/:
+    description: Next.js App Router directory
+    files:
+      layout.tsx: Root layout component with global styles and structure
+      page.tsx: Home page component
+      globals.css: Global CSS styles and Tailwind imports
+      favicon.ico: Website favicon
+    subdirectories:
+      landing-page1/:
+        description: First landing page route
+        files:
+          page.tsx: Landing page 1 component
+      landing-page2/:
+        description: Second landing page route  
+        files:
+          page.tsx: Landing page 2 component
+      landing-page3/:
+        description: Third landing page route
+        files:
+          page.tsx: Landing page 3 component
+      landing-page4/:
+        description: Fourth landing page route
+        files:
+          page.tsx: Landing page 4 component
+      landing-page5/:
+        description: Fifth landing page route
+        files:
+          page.tsx: Landing page 5 component
+
+  components/:
+    description: Reusable React components
+    subdirectories:
+      shared/:
+        description: Common components used across pages
+        files:
+          Header.tsx: Global navigation header
+          Footer.jsx: Global footer component
+      ui/:
+        description: Base UI components and utilities
+        files:
+          shining-text.js: Animated text effect component
+          shimmer-button.tsx: Shimmer button animation component
+      landing-page1/:
+        description: Components specific to landing page 1
+        files:
+          landing-page1.js: Main landing page 1 component
+      landing-page2/:
+        description: Components specific to landing page 2
+        files:
+          landing-page2.js: Main landing page 2 component
+      landing-page3/:
+        description: Government-focused landing page components
+        files:
+          GovHero.jsx: Hero section for government audience
+          GovFeatures.tsx: Government-specific features section
+          GovBenefits.tsx: Benefits section for government
+          GovTestimonials.tsx: Government client testimonials
+          GovFinancials.tsx: Financial information for government
+          GovCTA.jsx: Call-to-action for government audience
+      landing-page4/:
+        description: Family-focused landing page components
+        files:
+          FamilyHero.jsx: Hero section for families
+          Welcome.tsx: Welcome section for families
+          FamilyFeatures.tsx: Family-specific features
+          PainPoints.tsx: Family pain points section
+          RealFamilies.jsx: Real family stories/testimonials
+          GrowingTogether.jsx: Community growth section
+      landing-page5/:
+        description: Executive-focused landing page components
+        files:
+          ExecutiveHero.jsx: Hero section for executives
+          ExecutiveServices.jsx: Executive services overview
+          PainPoints.tsx: Executive pain points section
+          BusinessCase.tsx: Business case presentation
+          ExecutiveChoice.tsx: Executive decision section
+          SuccessStories.tsx: Executive success stories
+    legacy_files:
+      header.js: Legacy header component (likely replaced by shared/Header.tsx)
+
+  images/:
+    description: Static image assets organized by page
+    general_images:
+      logo.svg: Company logo
+      peaceful_location.svg: Peaceful location illustration
+      address.svg: Address/location icon
+      bank_loan.svg: Bank loan illustration
+      document.svg: Document icon
+      networking.png: Networking illustration
+      tax_efficiency.png: Tax efficiency visualization
+      page3Vector.svg: Vector graphic for page 3
+      clear_legal_titles.svg: Legal titles illustration
+      zero_maintenance.svg: Zero maintenance icon
+      no_hidden_cost.svg: No hidden costs icon
+      client_hosting.png: Client hosting illustration
+      just_73_families.svg: Limited families illustration
+      checked_9709605_1.png: Checkmark icon
+      Group_1.2.png: Grouped graphic element
+      Rectangle_14.png: Rectangle graphic
+      e0d50340edae7b3102b8a05ae4f1efd598aaa6ca.jpg: Property/location photo
+    subdirectories:
+      landing-page1/:
+        description: Images specific to landing page 1
+        files:
+          fold1image1.png: Main hero image for fold 1
+          fold2icon1.svg: Feature icon 1 for fold 2
+          fold2icon2.svg: Feature icon 2 for fold 2
+          fold2icon3.svg: Feature icon 3 for fold 2
+          fold2icon4.svg: Feature icon 4 for fold 2
+          fold2icon5.svg: Feature icon 5 for fold 2
+          fold2icon6.svg: Feature icon 6 for fold 2
+          fold3icon1.svg: Icon for fold 3
+          fold4image1.png: Main image for fold 4
+          fold5icon1.svg: Icon for fold 5
+          fold7icon1.svg: Icon 1 for fold 7
+          fold7icon2.svg: Icon 2 for fold 7
+      landing-page2/:
+        description: Images specific to landing page 2
+
+  lib/:
+    description: Utility functions and helpers
+    files:
+      utils.ts: Common utility functions (likely Tailwind utilities)
+
+  public/:
+    description: Static assets served directly
+    files:
+      next.svg: Next.js logo
+      vercel.svg: Vercel logo  
+      window.svg: Window icon
+      file.svg: File icon
+      globe.svg: Globe icon
+
+tech_stack:
+  framework: Next.js 15.4.4
+  frontend: React 19.1.0
+  styling: Tailwind CSS v4
+  typescript: TypeScript 5
+  animations: Motion library
+  icons: Lucide React
+  development: Turbopack (for dev server)
+
+page_structure:
+  description: Multi-page landing site with audience-specific content
+  audiences:
+    - General (landing-page1, landing-page2)
+    - Government (landing-page3)
+    - Families (landing-page4)  
+    - Executives (landing-page5)
