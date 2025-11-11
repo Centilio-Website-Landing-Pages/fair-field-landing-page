@@ -316,7 +316,8 @@ export default function CurrentProject2Page() {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
+          {/* Images Section - Two Column Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-8">
             {/* Left Side - Image Carousel */}
             <motion.div 
               className="space-y-6"
@@ -353,130 +354,208 @@ export default function CurrentProject2Page() {
                     <path d="m9 18 6-6-6-6"/>
                   </svg>
                 </button>
-              </div>
-
-              {/* Project Description */}
-              <div className="space-y-4">
-                <h3 className="text-[18px] font-medium text-[#37405E]" style={{ fontFamily: 'Futura-Medium' }}>
-                  DTCP approved premium layout in a fast growing neighbourhood
-                </h3>
-                <p className="text-[16px] text-gray-700 leading-relaxed" style={{ fontFamily: 'Futura-Medium' }}>
-                  Located at No. 28, Subramaniya Udaiyar Street, Telungupalayam, Vaagai is a 2.3-acre premium layout offering excellent connectivity to Perur, Palakkad Bypass and Coimbatore Airport. Enjoy peaceful surroundings with city access in under 20 minutes, ideal for both families and investors.
-                </p>
-              </div>
-
-              {/* Pricing & Units and Project Type */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-[#F5F2E8] p-6 rounded-lg">
-                  <h4 className="text-[16px] font-medium text-[#37405E] mb-4" style={{ fontFamily: 'Futura-Medium' }}>
-                    Pricing & Units
-                  </h4>
-                  <div className="space-y-3">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-6 h-6 bg-[#D3AC4A] rounded-full flex items-center justify-center">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                        </svg>
-                      </div>
-                      <span className="text-[14px] text-[#37405E]" style={{ fontFamily: 'Futura-Medium' }}>
-                        <strong>Land Price:</strong> ₹21 Lakhs per Cent
-                      </span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="w-6 h-6 bg-[#D3AC4A] rounded-full flex items-center justify-center">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/>
-                        </svg>
-                      </div>
-                      <span className="text-[14px] text-[#37405E]" style={{ fontFamily: 'Futura-Medium' }}>
-                        <strong>Project Size:</strong> 2.3 Acres | Total Units: 49
-                      </span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="w-6 h-6 bg-[#D3AC4A] rounded-full flex items-center justify-center">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                        </svg>
-                      </div>
-                      <span className="text-[14px] text-[#37405E]" style={{ fontFamily: 'Futura-Medium' }}>
-                        <strong>Completion Date:</strong> December 2025
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-[#F5F2E8] p-6 rounded-lg">
-                  <h4 className="text-[16px] font-medium text-[#37405E] mb-4" style={{ fontFamily: 'Futura-Medium' }}>
-                    Project Type
-                  </h4>
-                  <div className="space-y-3">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-6 h-6 bg-[#D3AC4A] rounded-full flex items-center justify-center">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="m9 12 2 2 4-4"/>
-                        </svg>
-                      </div>
-                      <span className="text-[14px] text-[#37405E]" style={{ fontFamily: 'Futura-Medium' }}>
-                        DTCP approved premium layout
-                      </span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="w-6 h-6 bg-[#D3AC4A] rounded-full flex items-center justify-center">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="m9 12 2 2 4-4"/>
-                        </svg>
-                      </div>
-                      <span className="text-[14px] text-[#37405E]" style={{ fontFamily: 'Futura-Medium' }}>
-                        Developed Residential Plots
-                      </span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="w-6 h-6 bg-[#D3AC4A] rounded-full flex items-center justify-center">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="m9 12 2 2 4-4"/>
-                        </svg>
-                      </div>
-                      <span className="text-[14px] text-[#37405E]" style={{ fontFamily: 'Futura-Medium' }}>
-                        Ready for Registration & Construction
-                      </span>
-                    </div>
-                  </div>
+                
+                {/* Dots Indicator */}
+                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                  {projectImages.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentImageIndex(index)}
+                      className={`w-2 h-2 rounded-full transition-colors duration-300 ${
+                        index === currentImageIndex ? 'bg-[#D3AC4A]' : 'bg-white/50 hover:bg-white/80'
+                      }`}
+                    />
+                  ))}
                 </div>
               </div>
             </motion.div>
 
-            {/* Right Side - Map */}
-            <motion.div 
-              initial={{ opacity: 0, x: 50 }}
+            {/* Right Side - Location Map - Interactive Google Maps */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden">
-                <Image
-                  src="/images/current project page - ff/vaagai/images/vagai hp - second fold image.png"
-                  alt="Vaagai Location Map"
-                  fill
-                  className="object-cover object-center"
+              <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden bg-[#8B7B6E]">
+                {/* Embed Google Maps using iframe for Vaagai location */}
+                <iframe
+                  src="https://maps.google.com/maps?q=Telungupalayam,Coimbatore,Tamil+Nadu&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="absolute inset-0"
                 />
-              </div>
-              
-              <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-[#D3AC4A] rounded-full flex items-center justify-center">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                    <circle cx="12" cy="10" r="3"/>
-                  </svg>
+                
+                {/* Red Location Marker - Custom overlay to show exact project location */}
+                <div className="absolute top-[60%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+                  <div className="relative">
+                    <div className="w-6 h-6 bg-[#E53E3E] rounded-full border-2 border-white shadow-lg relative z-10">
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-2 h-2 bg-white rounded-full"></div>
+                      </div>
+                    </div>
+                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 -translate-y-1 w-0 h-0 border-l-[3px] border-r-[3px] border-t-[4px] border-l-transparent border-r-transparent border-t-[#E53E3E]"></div>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-[16px] font-medium text-[#37405E]" style={{ fontFamily: 'Futura-Medium' }}>
-                    Vaagai – Telungupalayam, Coimbatore
-                  </p>
+
+                {/* Location Info Card - Bottom Right with yellow accent and proper location icon */}
+                <div className="absolute bottom-4 right-4 bg-white rounded-lg p-3 shadow-lg max-w-[200px] z-20">
+                  <div className="flex items-start gap-3">
+                    <div className="w-6 h-6 bg-[#D3AC4A] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M23.9858 23.1562L21.642 11.8594C21.6096 11.7006 21.5233 11.558 21.3979 11.4555C21.2724 11.353 21.1154 11.297 20.9534 11.2969H20.2033C19.5644 12.8241 18.5725 14.6086 17.2159 16.6758C15.4374 19.3861 13.658 21.6155 13.583 21.7087C13.3854 21.9555 13.1348 22.1546 12.8499 22.2914C12.5649 22.4282 12.2528 22.4993 11.9367 22.4993C11.6206 22.4993 11.3085 22.4282 11.0236 22.2914C10.7386 22.1546 10.4881 21.9555 10.2904 21.7087C10.215 21.615 8.43553 19.3847 6.65704 16.6744C5.30232 14.6086 4.31229 12.8241 3.67149 11.2969H3.04663C2.88462 11.297 2.7276 11.353 2.60212 11.4555C2.47665 11.558 2.39042 11.7006 2.35802 11.8594L0.0142064 23.1562C-0.00664145 23.2584 -0.00452043 23.3639 0.0204159 23.4651C0.0453523 23.5663 0.0924801 23.6607 0.158388 23.7414C0.224296 23.8222 0.307335 23.8873 0.401495 23.932C0.495655 23.9767 0.59858 24 0.702819 24H23.2972C23.4014 24 23.5043 23.9767 23.5985 23.932C23.6927 23.8873 23.7757 23.8222 23.8416 23.7414C23.9075 23.6607 23.9546 23.5663 23.9796 23.4651C24.0045 23.3639 24.0066 23.2584 23.9858 23.1562Z" fill="white"/>
+                        <path d="M11.9381 10.3125C13.362 10.3125 14.5163 9.15823 14.5163 7.73438C14.5163 6.31052 13.362 5.15625 11.9381 5.15625C10.5142 5.15625 9.35993 6.31052 9.35993 7.73438C9.35993 9.15823 10.5142 10.3125 11.9381 10.3125Z" fill="white"/>
+                        <path d="M11.3906 20.8303C11.4565 20.9125 11.54 20.9789 11.635 21.0245C11.7299 21.0701 11.8339 21.0937 11.9393 21.0937C12.0446 21.0937 12.1486 21.0701 12.2436 21.0245C12.3386 20.9789 12.4221 20.9125 12.488 20.8303C12.5058 20.8083 14.2871 18.5803 16.0426 15.9047C18.452 12.233 19.6736 9.48281 19.6736 7.73438C19.6736 3.46875 16.2048 0 11.9391 0C7.67332 0 4.20448 3.46875 4.20448 7.73438C4.20448 9.48422 5.42607 12.2344 7.83551 15.9047C9.59056 18.5803 11.3719 20.8083 11.3906 20.8303ZM11.9381 3.75C12.7262 3.75 13.4965 3.98368 14.1518 4.42149C14.807 4.8593 15.3177 5.48157 15.6193 6.20962C15.9209 6.93767 15.9998 7.73879 15.846 8.51169C15.6923 9.28458 15.3128 9.99453 14.7556 10.5518C14.1983 11.109 13.4884 11.4885 12.7155 11.6422C11.9425 11.7959 11.1414 11.717 10.4133 11.4155C9.68526 11.1139 9.06297 10.6032 8.62515 9.94798C8.18733 9.29275 7.95364 8.52241 7.95364 7.73438C7.95488 6.67803 8.37507 5.66531 9.12204 4.91837C9.86901 4.17142 10.8818 3.75124 11.9381 3.75Z" fill="white"/>
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-bold text-[#37405E] text-sm leading-tight" style={{ fontFamily: 'Futura-Heavy' }}>
+                        Vaagai
+                      </h4>
+                      <p className="text-[#37405E] font-medium text-xs leading-tight mt-1" style={{ fontFamily: 'Futura-Medium' }}>
+                        Telungupalayam, Coimbatore
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>
           </div>
+
+          {/* Project Description - Full Width */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="mb-8"
+          >
+            <div className="space-y-4">
+              <h3 className="text-[22px] md:text-[24px] font-medium text-[#37405E]" style={{ fontFamily: 'Futura-Medium' }}>
+                DTCP approved premium layout in a fast growing neighbourhood
+              </h3>
+              <p className="text-[18px] md:text-[20px] text-gray-700 leading-relaxed" style={{ fontFamily: 'Futura-Medium' }}>
+                Located at No. 28, Subramaniya Udaiyar Street, Telungupalayam, Vaagai is a 2.3-acre premium layout offering excellent connectivity to Perur, Palakkad Bypass and Coimbatore Airport. Enjoy peaceful surroundings with city access in under 20 minutes, ideal for both families and investors.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Dashed Separator Line */}
+          <div className="w-full border-t-2 border-dashed border-gray-300 mb-8"></div>
+
+          {/* Pricing & Units and Project Type - Two Columns */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          >
+            <div className="bg-[#F5F2E8] p-6 rounded-lg">
+              <h4 className="text-[18px] md:text-[20px] font-medium text-[#37405E] mb-4" style={{ fontFamily: 'Futura-Medium' }}>
+                Pricing & Units
+              </h4>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-7 h-7 bg-[#D3AC4A] rounded-full flex items-center justify-center">
+                    <Image
+                      src="/images/current project page - ff/vaagai/icons/second fold icon/project unit group/Vector 1.svg"
+                      alt="Land Price Icon"
+                      width={14}
+                      height={14}
+                      className="brightness-0 invert"
+                    />
+                  </div>
+                  <span className="text-[16px] md:text-[18px] text-[#37405E]" style={{ fontFamily: 'Futura-Medium' }}>
+                    <strong>Land Price:</strong> ₹21 Lakhs per Cent
+                  </span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-7 h-7 bg-[#D3AC4A] rounded-full flex items-center justify-center">
+                    <Image
+                      src="/images/current project page - ff/vaagai/icons/second fold icon/project unit group/Vector 2.svg"
+                      alt="Project Size Icon"
+                      width={14}
+                      height={14}
+                      className="brightness-0 invert"
+                    />
+                  </div>
+                  <span className="text-[16px] md:text-[18px] text-[#37405E]" style={{ fontFamily: 'Futura-Medium' }}>
+                    <strong>Project Size:</strong> 2.3 Acres | Total Units: 49
+                  </span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-7 h-7 bg-[#D3AC4A] rounded-full flex items-center justify-center">
+                    <Image
+                      src="/images/current project page - ff/vaagai/icons/second fold icon/project unit group/Vector 3.svg"
+                      alt="Completion Date Icon"
+                      width={14}
+                      height={14}
+                      className="brightness-0 invert"
+                    />
+                  </div>
+                  <span className="text-[16px] md:text-[18px] text-[#37405E]" style={{ fontFamily: 'Futura-Medium' }}>
+                    <strong>Completion Date:</strong> December 2025
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-[#F5F2E8] p-6 rounded-lg">
+              <h4 className="text-[18px] md:text-[20px] font-medium text-[#37405E] mb-4" style={{ fontFamily: 'Futura-Medium' }}>
+                Project Type
+              </h4>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-7 h-7 bg-[#D3AC4A] rounded-full flex items-center justify-center">
+                    <Image
+                      src="/images/current project page - ff/vaagai/icons/second fold icon/project unit group/tick vector - fifth fold.svg"
+                      alt="Checkmark"
+                      width={14}
+                      height={14}
+                      className="brightness-0 invert"
+                    />
+                  </div>
+                  <span className="text-[16px] md:text-[18px] text-[#37405E]" style={{ fontFamily: 'Futura-Medium' }}>
+                    DTCP approved premium layout
+                  </span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-7 h-7 bg-[#D3AC4A] rounded-full flex items-center justify-center">
+                    <Image
+                      src="/images/current project page - ff/vaagai/icons/second fold icon/project unit group/tick vector - fifth fold.svg"
+                      alt="Checkmark"
+                      width={14}
+                      height={14}
+                      className="brightness-0 invert"
+                    />
+                  </div>
+                  <span className="text-[16px] md:text-[18px] text-[#37405E]" style={{ fontFamily: 'Futura-Medium' }}>
+                    Developed Residential Plots
+                  </span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-7 h-7 bg-[#D3AC4A] rounded-full flex items-center justify-center">
+                    <Image
+                      src="/images/current project page - ff/vaagai/icons/second fold icon/project unit group/tick vector - fifth fold.svg"
+                      alt="Checkmark"
+                      width={14}
+                      height={14}
+                      className="brightness-0 invert"
+                    />
+                  </div>
+                  <span className="text-[16px] md:text-[18px] text-[#37405E]" style={{ fontFamily: 'Futura-Medium' }}>
+                    Ready for Registration & Construction
+                  </span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -490,8 +569,8 @@ export default function CurrentProject2Page() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-[32px] md:text-[40px] font-normal" style={{ fontFamily: 'DM Serif Display' }}>
-              Key Features & <span className="text-[#D3AC4A]">Benefits</span>
+            <h2 className="text-[32px] md:text-[40px] font-normal bg-gradient-to-br from-[#37405E] to-[#7285C4] bg-clip-text text-transparent" style={{ fontFamily: 'DM Serif Display' }}>
+              Key Features & Benefits
             </h2>
           </motion.div>
 
@@ -502,16 +581,16 @@ export default function CurrentProject2Page() {
             viewport={{ once: true }}
             className="overflow-x-auto"
           >
-            <table className="w-full bg-white rounded-lg shadow-sm overflow-hidden">
+            <table className="w-full bg-white rounded-lg shadow-sm overflow-hidden border border-gray-300">
               <thead>
                 <tr className="bg-[#37405E] text-white">
-                  <th className="px-6 py-4 text-left text-[18px] font-medium" style={{ fontFamily: 'Futura-Medium' }}>
+                  <th className="px-8 py-6 text-center text-[18px] font-medium border-r border-gray-400" style={{ fontFamily: 'Futura-Medium' }}>
                     Feature
                   </th>
-                  <th className="px-6 py-4 text-left text-[18px] font-medium" style={{ fontFamily: 'Futura-Medium' }}>
+                  <th className="px-8 py-6 text-center text-[18px] font-medium border-r border-gray-400" style={{ fontFamily: 'Futura-Medium' }}>
                     Benefit
                   </th>
-                  <th className="px-6 py-4 text-left text-[18px] font-medium" style={{ fontFamily: 'Futura-Medium' }}>
+                  <th className="px-8 py-6 text-center text-[18px] font-medium" style={{ fontFamily: 'Futura-Medium' }}>
                     Advantage
                   </th>
                 </tr>
@@ -519,13 +598,13 @@ export default function CurrentProject2Page() {
               <tbody>
                 {featuresData.map((row, index) => (
                   <tr key={index} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
-                    <td className="px-6 py-4 text-[16px] text-[#37405E]" style={{ fontFamily: 'Futura-Medium' }}>
+                    <td className="px-8 py-6 text-[16px] text-[#37405E] border-r border-b border-gray-300 text-center" style={{ fontFamily: 'Futura-Medium' }}>
                       {row.feature}
                     </td>
-                    <td className="px-6 py-4 text-[16px] text-[#37405E]" style={{ fontFamily: 'Futura-Medium' }}>
+                    <td className="px-8 py-6 text-[16px] text-[#37405E] border-r border-b border-gray-300 text-center" style={{ fontFamily: 'Futura-Medium' }}>
                       {row.benefit}
                     </td>
-                    <td className="px-6 py-4 text-[16px] text-[#37405E]" style={{ fontFamily: 'Futura-Medium' }}>
+                    <td className="px-8 py-6 text-[16px] text-[#37405E] border-b border-gray-300 text-center" style={{ fontFamily: 'Futura-Medium' }}>
                       {row.advantage}
                     </td>
                   </tr>
@@ -546,7 +625,7 @@ export default function CurrentProject2Page() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-[32px] md:text-[40px] font-normal text-white" style={{ fontFamily: 'DM Serif Display' }}>
+            <h2 className="text-[32px] md:text-[40px] font-normal bg-gradient-to-r from-white via-white to-[#D3AC4A] bg-clip-text text-transparent" style={{ fontFamily: 'DM Serif Display', backgroundImage: 'linear-gradient(to right, #FFFFFF 19.23%, #D3AC4A 79.81%)' }}>
               Amenities
             </h2>
           </motion.div>
