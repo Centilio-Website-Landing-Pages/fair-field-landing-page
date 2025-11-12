@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
+import { UniversalHeader } from '@/components/shared/header/UniversalHeader';
 import UniversalFooter from '@/components/shared/footer/UniversalFooter';
 
 const AboutUsPage = () => {
@@ -30,64 +30,8 @@ const AboutUsPage = () => {
         </div>
 
 
-        {/* Logo and Navigation Menu - Over building image */}
-        <div className="absolute top-0 left-0 right-0 z-30">
-          <div className="px-8 py-6">
-            <div className="flex items-center justify-between max-w-7xl mx-auto">
-              {/* Logo */}
-              <motion.div 
-                className="flex items-center"
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <Image
-                  src="/images/logo/FFS LOGO DIFFERENCE-02.png"
-                  alt="Fair Field Shelters Logo"
-                  width={80}
-                  height={60}
-                  className="mr-2"
-                />
-              </motion.div>
-
-              {/* Navigation Menu - Over building image with white text */}
-              <motion.nav 
-                className="hidden md:flex items-center space-x-8"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                <Link href="/" className="text-[16px] text-[#D3AC4A] font-medium hover:text-white transition-colors drop-shadow-lg" style={{ fontFamily: 'Alata' }}>Home</Link>
-                <Link href="/about-us" className="text-[16px] text-white font-medium hover:text-[#D3AC4A] transition-colors drop-shadow-lg" style={{ fontFamily: 'Alata' }}>About us</Link>
-                <Link href="/projects" className="text-[16px] text-white font-medium hover:text-[#D3AC4A] transition-colors drop-shadow-lg" style={{ fontFamily: 'Alata' }}>Project</Link>
-                <Link href="/blog" className="text-[16px] text-white font-medium hover:text-[#D3AC4A] transition-colors drop-shadow-lg" style={{ fontFamily: 'Alata' }}>Blog</Link>
-                <Link href="/careers" className="text-[16px] text-white font-medium hover:text-[#D3AC4A] transition-colors drop-shadow-lg" style={{ fontFamily: 'Alata' }}>Careers</Link>
-                <Link href="/contact" className="text-[16px] text-white font-medium hover:text-[#D3AC4A] transition-colors drop-shadow-lg" style={{ fontFamily: 'Alata' }}>Contact</Link>
-              </motion.nav>
-
-              {/* Empty space for button */}
-              <div className="w-48"></div>
-            </div>
-          </div>
-        </div>
-
-        {/* Schedule a Visit Button - Positioned over step-cut area */}
-        <motion.div 
-          className="absolute top-4 right-8 z-40"
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-        >
-          <button 
-            className="bg-[#D3AC4A] text-[#37405E] px-6 py-3 rounded-lg font-bold text-[16px] hover:bg-[#C19B42] transition-colors flex items-center space-x-2"
-            style={{ fontFamily: 'Futura-Heavy' }}
-          >
-            <span>Schedule a visit</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6L16 12L10 18L8.59 16.59Z"/>
-            </svg>
-          </button>
-        </motion.div>
+        {/* Universal Header */}
+        <UniversalHeader transparent={true} showScheduleButton={true} />
 
         {/* About Us Title - Centered over building image */}
         <div className="absolute inset-0 flex items-center justify-center z-20">

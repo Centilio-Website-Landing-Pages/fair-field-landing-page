@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
-import Link from 'next/link';
+import { UniversalHeader } from '../shared/header/UniversalHeader';
 import UniversalFooter from '../shared/footer/UniversalFooter';
 
 // Testimonial Carousel Component
@@ -82,137 +82,125 @@ function TestimonialCarousel() {
 
 export function HomePage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-x-hidden">
       {/* Hero Section - First Fold - Group 1.1.1 Design */}
-      <section className="relative h-screen overflow-hidden">
-        {/* Step-shaped background with curved cuts */}
-        <div className="absolute inset-0 z-0">
-          {/* Main villa background image */}
+      <section className="relative p-4 min-h-screen lg:min-h-0 lg:h-auto">
+        {/* Main villa background image */}
+        <div className="relative z-0 min-h-screen lg:min-h-0 lg:h-auto">
           <img
-            src="/images/home page - ff/images/first fold image.png"
+            src="/images/home page - ff/images/first_fold_image.png"
             alt="Fair Field Premium Villa"
-            className="w-full h-full object-cover"
+            className="w-full h-full min-h-screen lg:min-h-0 lg:h-auto object-cover lg:object-contain"
           />
         </div>
 
-        {/* White step-shaped area for Schedule button */}
-        <div className="absolute top-0 right-0 z-15">
-          <div 
-            className="bg-white"
-            style={{
-              width: '350px',
-              height: '120px',
-              clipPath: 'polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)'
-            }}
-          />
-        </div>
-
-        {/* Navigation Header */}
-        <nav className="absolute top-0 left-0 right-0 z-30 bg-transparent">
-          <div className="max-w-7xl mx-auto px-8 py-8">
-            <div className="flex items-center justify-between">
-              {/* Logo */}
-              <motion.div 
-                className="flex items-center"
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <img
-                  src="/images/logo/FFS LOGO DIFFERENCE-01.png"
-                  alt="FFS Logo"
-                  
-                  
-                  className="h-12 w-auto"
-                />
-              </motion.div>
-              
-              {/* Navigation Menu */}
-              <motion.div 
-                className="hidden lg:flex items-center space-x-10"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                <Link href="/" className="text-[#D3AC4A] font-medium text-lg" style={{ fontFamily: 'Futura-Medium' }}>Home</Link>
-                <Link href="/about-us" className="text-white hover:text-[#D3AC4A] transition-colors text-lg" style={{ fontFamily: 'Futura-Medium' }}>About us</Link>
-                <Link href="/projects" className="text-white hover:text-[#D3AC4A] transition-colors text-lg" style={{ fontFamily: 'Futura-Medium' }}>Project</Link>
-                <Link href="/blog" className="text-white hover:text-[#D3AC4A] transition-colors text-lg" style={{ fontFamily: 'Futura-Medium' }}>Blog</Link>
-                <Link href="/careers" className="text-white hover:text-[#D3AC4A] transition-colors text-lg" style={{ fontFamily: 'Futura-Medium' }}>Careers</Link>
-                <Link href="/contact" className="text-white hover:text-[#D3AC4A] transition-colors text-lg" style={{ fontFamily: 'Futura-Medium' }}>Contact</Link>
-              </motion.div>
-              
-              {/* Empty space for button positioning */}
-              <div className="w-56"></div>
-            </div>
-          </div>
-        </nav>
-
-        {/* Schedule a Visit Button - Positioned over white step area */}
-        <motion.div 
-          className="absolute top-6 right-12 z-40"
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-        >
-          <button 
-            className="bg-[#D3AC4A] text-[#37405E] px-8 py-4 rounded-lg font-bold text-lg hover:bg-[#C19B42] transition-colors flex items-center space-x-3 shadow-lg"
-            style={{ fontFamily: 'Futura-Heavy' }}
-          >
-            <span>Schedule a visit</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6L16 12L10 18L8.59 16.59Z"/>
-            </svg>
-          </button>
-        </motion.div>
+        {/* Universal Header */}
+        <UniversalHeader transparent={true} showScheduleButton={true} />
         
         {/* Main Content Container */}
-        <div className="relative z-20 h-screen flex items-center">
-          <div className="max-w-7xl mx-auto px-8 w-full">
-            <div className="flex items-center justify-between">
-              {/* Left Content - Main Headline */}
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
+        <div className="absolute inset-0 z-20 flex items-start lg:items-center justify-start lg:justify-start pt-32 sm:pt-36 lg:pt-0">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 w-full relative">
+            {/* Left Content - Main Headline */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="max-w-2xl text-shadow-md px-4 sm:px-0"
+            >
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight mb-6 sm:mb-8 lg:mb-12 text-white" style={{ fontFamily: 'DM Serif Display' }}>
+                Premium <span className="text-[#D3AC4A]">homes and investments</span> you can <span className="text-[#D3AC4A]">trust</span>
+              </h1>
+              
+              <motion.button
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
-                className="flex-1 max-w-2xl"
+                transition={{ duration: 0.8, delay: 1.0 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-[#D3AC4A] text-[#37405E] px-6 sm:px-8 lg:px-10 py-2 sm:py-3 rounded-md font-bold text-sm sm:text-base flex items-center gap-2 sm:gap-3 hover:bg-[#C19A3A] transition-all shadow-2xl"
+                style={{ fontFamily: 'Futura-Heavy' }}
               >
-                <h1 className="text-6xl xl:text-7xl leading-tight mb-12 text-white" style={{ fontFamily: 'DM Serif Display' }}>
-                  Premium <span className="text-[#D3AC4A]">homes and investments</span> you can <span className="text-[#D3AC4A]">trust</span>
-                </h1>
-                
-                <motion.button
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 1.0 }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-[#D3AC4A] text-[#37405E] px-10 py-5 rounded-lg font-bold text-xl flex items-center gap-3 hover:bg-[#C19A3A] transition-all shadow-2xl"
-                  style={{ fontFamily: 'Futura-Heavy' }}
-                >
-                  Book your visit today
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                  </svg>
-                </motion.button>
-              </motion.div>
+                Book your visit today
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 lg:w-[22px] lg:h-[22px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </motion.button>
+            </motion.div>
 
-              {/* Right Content - Floating Cards exactly as reference */}
-              <div className="relative flex-1 max-w-md">
-                {/* 100+ Successful Projects Card - Enhanced transparent design */}
+            {/* Mobile Cards - Inside hero section, below content */}
+            <div className="lg:hidden mt-8 sm:mt-10">
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
+                {/* First Card - 100+ */}
+                <motion.div
+                  initial={{ opacity: 0, x: -50, y: 20 }}
+                  animate={{ opacity: 1, x: 0, y: 0 }}
+                  transition={{ duration: 0.8, delay: 1.6 }}
+                  className="relative px-4 py-4 shadow-2xl flex flex-col items-center bg-white/10 backdrop-blur-sm border-2 border-white/30 w-64 sm:w-48"
+                  style={{ 
+                    borderRadius: '24px 24px 8px 24px'
+                  }}
+                >
+                  <div className='text-center'>
+                    <h3 className="text-lg sm:text-xl font-bold text-white mb-1" style={{ 
+                      fontFamily: 'DM Serif Display', 
+                      textShadow: '0 2px 8px rgba(0,0,0,0.6)',
+                      fontWeight: '700'
+                    }}>100+</h3>
+                    <p className="text-white text-xs sm:text-sm font-bold leading-relaxed" style={{ 
+                      fontFamily: 'Futura-Heavy', 
+                      textShadow: '0 1px 4px rgba(0,0,0,0.6)',
+                      fontWeight: '700'
+                    }}>
+                      Successful Projects
+                    </p>
+                  </div>
+                  {/* Golden circle accent */}
+                  <div className="absolute bottom-2 left-2 w-3 h-3 sm:w-4 sm:h-4 bg-[#D3AC4A] rounded-full shadow-2xl"></div>
+                </motion.div>
+
+                {/* Second Card - DTCP */}
+                <motion.div
+                  initial={{ opacity: 0, x: 50, y: 20 }}
+                  animate={{ opacity: 1, x: 0, y: 0 }}
+                  transition={{ duration: 0.8, delay: 1.8 }}
+                  className="relative px-4 py-4 shadow-2xl flex flex-col items-center bg-white/10 backdrop-blur-sm border-2 border-white/30 w-64 sm:w-48"
+                  style={{ 
+                    borderRadius: '8px 24px 8px 8px'
+                  }}
+                >
+                  <div className='text-center'>
+                    <h3 className="text-lg sm:text-xl font-bold text-white mb-1" style={{ 
+                      fontFamily: 'DM Serif Display', 
+                      textShadow: '0 2px 8px rgba(0,0,0,0.6)',
+                      fontWeight: '700'
+                    }}>DTCP Approved</h3>
+                    <p className="text-white text-xs sm:text-sm font-bold leading-relaxed" style={{ 
+                      fontFamily: 'Futura-Heavy', 
+                      textShadow: '0 1px 4px rgba(0,0,0,0.6)',
+                      fontWeight: '700'
+                    }}>
+                      Legally Verified Projects
+                    </p>
+                  </div>
+                  {/* Golden circle accent */}
+                  <div className="absolute bottom-2 right-2 w-3 h-3 sm:w-4 sm:h-4 bg-[#D3AC4A] rounded-full shadow-2xl"></div>
+                </motion.div>
+              </div>
+            </div>
+
+            {/* Desktop Cards - Original positioning */}
+            <div className='hidden lg:block absolute right-20 top-10'>
+              <div className='w-90'>
                 <motion.div
                   initial={{ opacity: 0, x: 50, y: -20 }}
                   animate={{ opacity: 1, x: 0, y: 0 }}
                   transition={{ duration: 0.8, delay: 1.2 }}
-                  className="relative p-6 mb-6 shadow-2xl backdrop-blur-md"
+                  className="relative px-10 py-6 mb-6 shadow-2xl flex flex-col items-center bg-white/10 backdrop-blur-sm border-3 border-white/30 shadow-lg"
                   style={{ 
-                    borderRadius: '8px 8px 8px 24px',
-                    background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)',
-                    border: '1px solid rgba(255,255,255,0.1)',
-                    boxShadow: '0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)'
+                    borderRadius: '24px 24px 8px 24px'
                   }}
                 >
-                  <div>
+                  <div className='text-center'>
                     <h3 className="text-4xl font-bold text-white mb-2" style={{ 
                       fontFamily: 'DM Serif Display', 
                       textShadow: '0 2px 8px rgba(0,0,0,0.6)',
@@ -227,72 +215,67 @@ export function HomePage() {
                     </p>
                   </div>
                   {/* Golden circle accent at bottom-left rounded corner */}
-                  <div className="absolute bottom-3 left-3 w-3 h-3 bg-[#D3AC4A] rounded-full shadow-lg"></div>
+                  <div className="absolute bottom-3 left-3 w-6 h-6 bg-[#D3AC4A] rounded-full shadow-2xl"></div>
                 </motion.div>
+              </div>
+            </div>
 
-                {/* DTCP Approved Card - Enhanced transparent design */}
+            <div className='hidden lg:block absolute -bottom-30 left-1/2 transform -translate-x-1/2'>
+              <div className='w-90'>
                 <motion.div
                   initial={{ opacity: 0, x: 50, y: 20 }}
                   animate={{ opacity: 1, x: 0, y: 0 }}
                   transition={{ duration: 0.8, delay: 1.4 }}
-                  className="relative p-6 shadow-2xl backdrop-blur-md"
+                  className="relative px-10 py-3 mb-6 shadow-2xl flex flex-col items-center bg-white/10 backdrop-blur-sm border-3 border-white/30 shadow-lg"
                   style={{ 
-                    borderRadius: '8px 24px 8px 8px',
-                    background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)',
-                    border: '1px solid rgba(255,255,255,0.1)',
-                    boxShadow: '0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)'
+                    borderRadius: '8px 24px 8px 8px'
                   }}
                 >
-                  {/* Golden circle accent at top-right rounded corner */}
-                  <div className="absolute top-3 right-3 w-3 h-3 bg-[#D3AC4A] rounded-full shadow-lg"></div>
-                  <div className="mb-4">
-                    <h3 className="text-2xl font-bold text-white" style={{ 
+                  <div className='text-center'>
+                    <h3 className="text-2xl font-bold text-white mb-2" style={{ 
                       fontFamily: 'DM Serif Display', 
                       textShadow: '0 2px 8px rgba(0,0,0,0.6)',
                       fontWeight: '700'
                     }}>DTCP Approved</h3>
+                    <p className="text-white text-base font-bold leading-relaxed" style={{ 
+                      fontFamily: 'Futura-Heavy', 
+                      textShadow: '0 1px 4px rgba(0,0,0,0.6)',
+                      fontWeight: '700'
+                    }}>
+                      All our projects are legally verified and RERA-registered for your peace of mind.
+                    </p>
                   </div>
-                  <p className="text-white text-base leading-relaxed font-bold" style={{ 
-                    fontFamily: 'Futura-Heavy', 
-                    textShadow: '0 1px 4px rgba(0,0,0,0.6)',
-                    fontWeight: '700'
-                  }}>
-                    All our projects are legally verified and RERA-registered for your peace of mind.
-                  </p>
-                </motion.div>
+                  {/* Golden circle accent at bottom-right rounded corner */}
+                  <div className="absolute bottom-3 right-3 w-6 h-6 bg-[#D3AC4A] rounded-full shadow-2xl"></div>
+                </motion.div>         
               </div>
-            </div>
+            </div>   
           </div>
         </div>
       </section>
 
       {/* Company Introduction - Second Fold */}
-      <section className="bg-white" style={{ height: '674px' }}>
-        <div className="mx-auto flex items-center h-full" style={{ maxWidth: '1280px' }}>
-          <div className="flex items-center justify-between w-full px-12 gap-24">
+      <section className="container mx-auto px-4 sm:px-6 lg:px-8 bg-white py-12 lg:py-0 min-h-96 lg:h-[674px]">
+        <div className="mx-auto flex items-center min-h-full lg:h-full">
+          <div className="flex flex-col lg:flex-row items-center justify-between w-full px-0 max-sm:px-6 gap-8 sm:gap-12 lg:gap-24">
             {/* Left Content - Text */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="flex-1"
-              style={{ maxWidth: '448px' }}
+              className="flex-1 w-full lg:max-w-md xl:max-w-lg text-center lg:text-left"
             >
-              <div className="space-y-8">
-                <p className="font-futura-medium text-black" style={{ 
-                  fontSize: '16px', 
-                  fontWeight: 500, 
-                  lineHeight: '42px', 
-                  letterSpacing: '0px' 
+              <div className="space-y-6 lg:space-y-8">
+                <p className="text-black text-sm sm:text-base leading-relaxed lg:leading-loose" style={{ 
+                  fontFamily:" Alata, sans-serif",
+                  fontWeight: 500
                 }}>
                   Welcome to Fair Field Shelters Pvt. Ltd., Coimbatore&rsquo;s trusted name for premium plots, villas, and commercial projects. We create properties that bring together clarity, comfort, and class. So every home or investment you make with us truly becomes a promise kept.
                 </p>
-                <p className="font-futura-medium text-black" style={{ 
-                  fontSize: '16px', 
-                  fontWeight: 500, 
-                  lineHeight: '42px', 
-                  letterSpacing: '0px' 
+                <p className="text-black text-sm sm:text-base leading-relaxed lg:leading-loose" style={{ 
+                  fontFamily:" Alata, sans-serif",
+                  fontWeight: 500
                 }}>
                   With over 25 years of experience, we focus on DTCP-approved layouts, luxury villas, and clear documentation. Our goal is simple, to give every customer a peaceful buying experience and a property that grows in value.
                 </p>
@@ -305,11 +288,17 @@ export function HomePage() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="relative"
-              style={{ width: '732px', height: '524px' }}
+              className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-2xl flex-shrink-0"
             >
+              <div className="relative aspect-[4/3] lg:aspect-[732/524]">
+                <img
+                  src="/images/home page - ff/images/second fold images/second_fold_image_full_size.png"
+                  alt="Fair Field Entrance Gate"
+                  className="w-full h-full object-cover rounded-lg "
+                />
+              </div>            
               {/* First Image - Tallest, center position */}
-              <motion.div 
+              {/* <motion.div 
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
@@ -330,10 +319,10 @@ export function HomePage() {
                   className="w-full h-full object-cover"
                   style={{ borderRadius: '5px' }}
                 />
-              </motion.div>
+              </motion.div> */}
 
               {/* Second Image - Middle height, right position */}
-              <motion.div 
+              {/* <motion.div 
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
@@ -354,10 +343,10 @@ export function HomePage() {
                   className="w-full h-full object-cover"
                   style={{ borderRadius: '5px' }}
                 />
-              </motion.div>
+              </motion.div> */}
 
               {/* Third Image - Middle height, left position */}
-              <motion.div 
+              {/* <motion.div 
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
@@ -378,7 +367,7 @@ export function HomePage() {
                   className="w-full h-full object-cover"
                   style={{ borderRadius: '5px' }}
                 />
-              </motion.div>
+              </motion.div> */}
             </motion.div>
           </div>
         </div>
@@ -387,7 +376,7 @@ export function HomePage() {
       {/* Our Four Promises - Third Fold */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Left Content - Title and Paint Brush Effect */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -447,7 +436,7 @@ export function HomePage() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="space-y-4"
+              className="space-y-6 lg:space-y-10"
             >
               {/* Legal Clarity Card */}
               <motion.div
@@ -465,11 +454,11 @@ export function HomePage() {
                 />
                 
                 {/* Icon positioned in rounded cutout (top-left) */}
-                <div className="absolute top-[8%] left-[4%] sm:top-[10%] sm:left-[5%]">
+                <div className="absolute top-[8%] left-[4%] sm:top-[10%] sm:left-[5%] lg:left-0 lg:top-0">
                   <img
                     src="/images/home page - ff/icons/Third Fold - home page-ffs/Vector 1.svg"
                     alt="Legal Clarity"
-                    className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
+                    className="w-8 h-8 sm:w-10 sm:h-10 md:w-18 md:h-18"
                   />
                 </div>
                 
@@ -507,11 +496,11 @@ export function HomePage() {
                 />
                 
                 {/* Icon positioned in rounded cutout (top-right) */}
-                <div className="absolute top-[8%] right-[4%] sm:top-[10%] sm:right-[5%]">
+                <div className="absolute top-[8%] right-[4%] sm:top-[10%] sm:right-[5%] lg:right-0 lg:top-0">
                   <img
                     src="/images/home page - ff/icons/Third Fold - home page-ffs/Vector 2.svg"
                     alt="Strong Returns"
-                    className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
+                    className="w-8 h-8 sm:w-10 sm:h-10 md:w-18 md:h-18"
                   />
                 </div>
                 
@@ -549,11 +538,11 @@ export function HomePage() {
                 />
                 
                 {/* Icon positioned in rounded cutout (top-left) */}
-                <div className="absolute top-[8%] left-[4%] sm:top-[10%] sm:left-[5%]">
+                <div className="absolute top-[8%] left-[4%] sm:top-[10%] sm:left-[5%] lg:left-0 lg:top-0">
                   <img
                     src="/images/home page - ff/icons/Third Fold - home page-ffs/Vector 3.svg"
                     alt="Premium Quality"
-                    className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
+                    className="w-8 h-8 sm:w-10 sm:h-10 md:w-18 md:h-18"
                   />
                 </div>
                 
@@ -591,11 +580,11 @@ export function HomePage() {
                 />
                 
                 {/* Icon positioned in rounded cutout (top-right) */}
-                <div className="absolute top-[8%] right-[4%] sm:top-[10%] sm:right-[5%]">
+                <div className="absolute top-[8%] right-[4%] sm:top-[10%] sm:right-[5%] lg:right-0 lg:top-0">
                   <img
                     src="/images/home page - ff/icons/Third Fold - home page-ffs/Vector 4.svg"
                     alt="Transparent Service"
-                    className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
+                    className="w-8 h-8 sm:w-10 sm:h-10 md:w-18 md:h-18"
                   />
                 </div>
                 
