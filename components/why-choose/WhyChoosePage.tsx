@@ -4,7 +4,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import { UniversalHeader } from '@/components/shared/header/UniversalHeader';
 import UniversalFooter from '@/components/shared/footer/UniversalFooter';
+import { AnimatedText } from '@/components/ui/animated-shiny-text';
 
 export function WhyChoosePage() {
   return (
@@ -18,7 +20,7 @@ export function WhyChoosePage() {
         transition={{ duration: 0.8 }}
       >
         {/* Step Cut Design Layer Only */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-4 rounded-lg overflow-hidden">
           <Image
             src="/images/layer 1.jpg"
             alt="Step Cut Design Layer"
@@ -29,70 +31,14 @@ export function WhyChoosePage() {
           />
         </div>
 
-        {/* Logo and Navigation Menu - Over building image */}
-        <div className="absolute top-0 left-0 right-0 z-30">
-          <div className="px-8 py-6">
-            <div className="flex items-center justify-between max-w-7xl mx-auto">
-              {/* Logo */}
-              <motion.div 
-                className="flex items-center"
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <Image
-                  src="/images/logo/FFS LOGO DIFFERENCE-02.png"
-                  alt="Fair Field Shelters Logo"
-                  width={80}
-                  height={60}
-                  className="mr-2"
-                />
-              </motion.div>
-
-              {/* Navigation Menu - Over building image with white text */}
-              <motion.nav 
-                className="hidden md:flex items-center space-x-8"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                <Link href="/" className="text-[16px] text-white font-medium hover:text-[#D3AC4A] transition-colors drop-shadow-lg" style={{ fontFamily: 'Alata' }}>Home</Link>
-                <Link href="/about-us" className="text-[16px] text-white font-medium hover:text-[#D3AC4A] transition-colors drop-shadow-lg" style={{ fontFamily: 'Alata' }}>About us</Link>
-                <Link href="/projects" className="text-[16px] text-white font-medium hover:text-[#D3AC4A] transition-colors drop-shadow-lg" style={{ fontFamily: 'Alata' }}>Project</Link>
-                <Link href="/blog" className="text-[16px] text-white font-medium hover:text-[#D3AC4A] transition-colors drop-shadow-lg" style={{ fontFamily: 'Alata' }}>Blog</Link>
-                <Link href="/careers" className="text-[16px] text-white font-medium hover:text-[#D3AC4A] transition-colors drop-shadow-lg" style={{ fontFamily: 'Alata' }}>Careers</Link>
-                <Link href="/contact" className="text-[16px] text-[#D3AC4A] font-medium hover:text-white transition-colors drop-shadow-lg" style={{ fontFamily: 'Alata' }}>Contact</Link>
-              </motion.nav>
-
-              {/* Empty space for button */}
-              <div className="w-48"></div>
-            </div>
-          </div>
-        </div>
-
-        {/* Schedule a Visit Button - Positioned over step-cut area */}
-        <motion.div 
-          className="absolute top-4 right-8 z-40"
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-        >
-          <button 
-            className="bg-[#D3AC4A] text-[#37405E] px-6 py-3 rounded-lg font-bold text-[16px] hover:bg-[#C19B42] transition-colors flex items-center space-x-2"
-            style={{ fontFamily: 'Futura-Heavy' }}
-          >
-            <span>Schedule a visit</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6L16 12L10 18L8.59 16.59Z"/>
-            </svg>
-          </button>
-        </motion.div>
+        {/* Universal Header */}
+        <UniversalHeader transparent={true} showScheduleButton={true} />
 
         {/* Why Choose Us Title - Centered over building image */}
         <div className="absolute inset-0 flex items-center justify-center z-20">
           <div className="text-center">
             <motion.h1 
-              className="text-[48px] font-normal text-white drop-shadow-2xl"
+              className="text-3xl sm:text-4xl lg:text-5xl font-normal text-white drop-shadow-2xl"
               style={{ fontFamily: 'DM Serif Display' }}
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -103,20 +49,32 @@ export function WhyChoosePage() {
           </div>
         </div>
 
-        {/* Cream Breadcrumb Bar - Full width at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 z-20">
+        {/* Cream Breadcrumb Bar - With spacing */}
+        <div className="absolute bottom-4 left-4 right-4 z-20">
           <motion.div 
             className="bg-[#F5F2E8] py-6 px-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.0 }}
           >
-            <div className="max-w-7xl mx-auto">
+            <div className="container mx-auto">
               <div className="flex items-center space-x-2 text-[16px] text-[#37405E] font-medium" style={{ fontFamily: 'Futura-Medium' }}>
-                <span>Home</span>
-                <span>›</span>
-                <span>About us</span>
-                <span>›</span>
+                <Link href="/" className="hover:text-[#D3AC4A] transition-colors cursor-pointer">
+                  Home
+                </Link>
+                <img
+                  src="/images/about us page - ff/icons/first fold icon.svg"
+                  alt="Arrow"
+                  className="w-8 h-8"
+                />
+                <Link href="/about-us" className="hover:text-[#D3AC4A] transition-colors cursor-pointer">
+                  About us
+                </Link>
+                <img
+                  src="/images/about us page - ff/icons/first fold icon.svg"
+                  alt="Arrow"
+                  className="w-8 h-8"
+                />
                 <span>Why choose us</span>
               </div>
             </div>
@@ -125,8 +83,8 @@ export function WhyChoosePage() {
       </motion.section>
 
       {/* Main Content Section - Second Fold */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 lg:px-8">
+      <section className="py-10 lg:py-20 bg-white">
+        <div className="container mx-auto px-4 lg:px-8">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -135,8 +93,8 @@ export function WhyChoosePage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <div className="space-y-8 max-w-4xl mx-auto">
-              <h2 className="text-4xl lg:text-5xl leading-tight text-left" style={{ fontFamily: 'DM Serif Display' }}>
+            <div className=" space-y-2 lg:space-y-8 max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl leading-tight text-left" style={{ fontFamily: 'DM Serif Display' }}>
                 <span style={{ 
                   background: 'linear-gradient(90deg, rgb(55, 64, 94) 6.73%, rgb(211, 172, 74) 98.08%)',
                   WebkitBackgroundClip: 'text',
@@ -144,22 +102,35 @@ export function WhyChoosePage() {
                   backgroundClip: 'text'
                 }}>Premium projects.</span>
               </h2>
-              <h2 className="text-4xl lg:text-5xl leading-tight text-center px-8 py-6" style={{ 
-                fontFamily: 'DM Serif Display',
-                background: 'linear-gradient(90deg, rgba(211, 172, 74, 0.1) 0%, rgba(55, 64, 94, 0.1) 100%)',
-                borderTopLeftRadius: '20px',
-                borderBottomRightRadius: '20px',
-                borderTopRightRadius: '0px',
-                borderBottomLeftRadius: '0px'
-              }}>
-                <span style={{ 
-                  background: 'linear-gradient(90deg, rgb(55, 64, 94) 0%, rgb(211, 172, 74) 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
-                }}>Honest process.</span>
-              </h2>
-              <h2 className="text-4xl lg:text-5xl leading-tight text-right" style={{ fontFamily: 'DM Serif Display' }}>
+              <div className="max-w-lg mx-auto">
+                <div 
+                  className="py-2 px-8 lg:py-6 rounded-lg"
+                  style={{ 
+                    background: 'linear-gradient(90deg, rgba(211, 172, 74, 0.1) 0%, rgba(55, 64, 94, 0.1) 100%)',
+                    borderTopLeftRadius: '20px',
+                    borderBottomRightRadius: '20px',
+                    borderTopRightRadius: '0px',
+                    borderBottomLeftRadius: '0px',
+                    transform: 'skew(-10deg)'
+                  }}
+                >
+                  <div style={{ transform: 'skew(10deg)' }}>
+                    <AnimatedText
+                      text="Honest process."
+                      gradientColors="linear-gradient(90deg, rgb(55, 64, 94) 0%, rgb(211, 172, 74) 100%)"
+                      gradientAnimationDuration={1}
+                      hoverEffect={true}
+                      className="py-0"
+                      textClassName="font-normal leading-tight"
+                      textStyle={{ 
+                        fontFamily: 'DM Serif Display',
+                        fontSize: 'clamp(1.5rem, 5vw, 3rem)'
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+              <h2 className="text-2xl sm:text-2xl md:text-4xl lg:text-5xl leading-tight text-right" style={{ fontFamily: 'DM Serif Display' }}>
                 <span style={{ 
                   background: 'linear-gradient(90deg, rgb(55, 64, 94) 0%, rgb(211, 172, 74) 100%)',
                   WebkitBackgroundClip: 'text',
@@ -188,7 +159,6 @@ export function WhyChoosePage() {
                     alt="Legal Icon"
                     width={24}
                     height={24}
-                    className="text-[#D3AC4A]"
                   />
                 </div>
                 <div>
@@ -262,7 +232,11 @@ export function WhyChoosePage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="relative h-[500px] lg:h-[600px] rounded-2xl overflow-hidden"
+              className="relative h-[300px] lg:h-[600px] overflow-hidden"
+              style={{
+                borderTopRightRadius: '60px',
+                borderBottomLeftRadius: '60px'
+              }}
             >
               <Image
                 src="/images/why choose page - ff/images/2nd fold image.png"
@@ -360,56 +334,56 @@ export function WhyChoosePage() {
       </section>
 
       {/* Promise Section - Third Fold */}
-      <section className="relative bg-white">
-        <div className="w-full flex justify-center">
-          <div className="grid lg:grid-cols-2 h-[332px] overflow-hidden" style={{ width: 'calc(100% - 200px)' }}>
-            {/* Left - Image with Blue Overlay */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="relative h-full"
-            >
-              <Image
-                src="/images/why choose page - ff/images/3 rd fold image.png"
-                alt="Happy Family"
-                fill
-                className="object-cover"
-              />
-              {/* Blue Overlay */}
-              <div 
-                className="absolute inset-0"
-                style={{
-                  background: 'linear-gradient(180deg, rgba(55, 64, 94, 0.3) 0%, rgba(55, 64, 94, 0.2) 23%, rgba(55, 64, 94, 0.3) 48%, rgba(72, 83, 123, 0.3) 100%)'
-                }}
-              />
-            </motion.div>
+      <section className="relative bg-white pb-2 lg:pb-16">
+        <div className="flex flex-col lg:flex-row h-[400px] overflow-hidden" >
+          {/* Left - Image with Blue Overlay */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="relative h-full w-full lg:w-1/2"
+          >
+            <Image
+              src="/images/why choose page - ff/images/3 rd fold image.png"
+              alt="Happy Family"
+              fill
+              className="object-cover"
+              style={{ objectPosition: 'center 75%' }}
+            />
+            {/* Blue Overlay */}
+            <div className="absolute inset-0 bg-[#37405EA6]" />
+          </motion.div>
 
-            {/* Right - Content */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="relative bg-[#F5F2ED] flex items-center px-8 lg:px-12"
-            >
-              {/* Large Quote Icon - Positioned on the yellow card near "Our Promise" */}
-              <div className="absolute left-8 top-6 z-0">
-                <span className="text-8xl font-bold leading-none" style={{ color: 'rgb(211, 172, 74)' }}>"</span>
-              </div>
-              
-              <div className="space-y-4 relative z-10 w-full pl-16">
-                <h2 className="text-3xl lg:text-4xl" style={{ fontFamily: 'DM Serif Display' }}>
-                  <span style={{ color: 'rgb(55, 64, 94)' }}>Our </span>
-                  <span style={{ color: 'rgb(211, 172, 74)' }}>Promise</span>
-                </h2>
-                <p className="text-base lg:text-lg font-medium leading-relaxed" style={{ fontFamily: 'Futura-Medium', color: 'rgb(0, 0, 0)' }}>
-                  At Fair Field Shelters, we don&apos;t just sell properties. We help you build a secure and premium future for your family.
-                </p>
-              </div>
-            </motion.div>
-          </div>
+          {/* Right - Content */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="relative bg-[#F5F2ED] flex items-center px-8 py-10 lg:px-12 w-full lg:w-1/2"
+          >
+            {/* Large Quote Icon - Positioned on the yellow card near "Our Promise" */}
+            <div className="absolute right-4 top-4 lg:-left-8 lg:top-30 z-0">
+              <Image
+                src="/images/why choose page - ff/icons/quote-icon.png"
+                alt="Quote icon"
+                width={60}
+                height={60}
+                className="opacity-90 w-10 h-8 lg:w-18 lg:h-16"
+              />
+            </div>
+            
+            <div className="space-y-3 lg:space-y-4 relative z-10 w-full pl-2 lg:pl-16">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl" style={{ fontFamily: 'DM Serif Display' }}>
+                <span style={{ color: 'rgb(55, 64, 94)' }}>Our </span>
+                <span style={{ color: 'rgb(211, 172, 74)' }}>Promise</span>
+              </h2>
+              <p className="text-sm sm:text-base lg:text-lg font-medium leading-relaxed" style={{ fontFamily: 'Futura-Medium', color: 'rgb(0, 0, 0)' }}>
+                At Fair Field Shelters, we don&apos;t just sell properties. We help you build a secure and premium future for your family.
+              </p>
+            </div>
+          </motion.div>
         </div>
       </section>
 

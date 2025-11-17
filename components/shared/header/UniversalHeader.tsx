@@ -42,7 +42,7 @@ export function UniversalHeader({ transparent = false, showScheduleButton = fals
             <Link href="/projects" className={`hover:text-[#D3AC4A] transition-colors text-base xl:text-lg ${transparent ? 'text-white' : 'text-[#37405E]'}`} >Project</Link>
             <Link href="/blog" className={`hover:text-[#D3AC4A] transition-colors text-base xl:text-lg ${transparent ? 'text-white' : 'text-[#37405E]'}`} >Blog</Link>
             <Link href="/careers" className={`hover:text-[#D3AC4A] transition-colors text-base xl:text-lg ${transparent ? 'text-white' : 'text-[#37405E]'}`} >Careers</Link>
-            <Link href="/contact" className={`hover:text-[#D3AC4A] transition-colors text-base xl:text-lg ${transparent ? 'text-white' : 'text-[#37405E]'}`} >Contact</Link>
+            <Link href="/contact-us" className={`hover:text-[#D3AC4A] transition-colors text-base xl:text-lg ${transparent ? 'text-white' : 'text-[#37405E]'}`} >Contact</Link>
           </motion.div>
 
           {/* Mobile Menu Button */}

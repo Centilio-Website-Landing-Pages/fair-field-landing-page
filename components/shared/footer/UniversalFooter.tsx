@@ -257,7 +257,8 @@ const UniversalFooter = () => {
               >
                 Designed by{' '}
                 <Link 
-                  href="https://trademindsacademy.in/" 
+                  href="https://trademindsacademy.in/"
+                  target='blank' 
                   className="text-white underline hover:text-[#D3AC4A] transition-colors"
                 >
                   Trademindsacademy.in

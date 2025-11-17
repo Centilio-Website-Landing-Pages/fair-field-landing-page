@@ -39,10 +39,10 @@ function FairFieldTimeline() {
           {/* Text content positioned in center of main rectangle */}
           <div className="absolute top-[10%] left-[25%] right-0 bottom-[10%] flex items-center justify-center px-1 py-2 sm:px-3 sm:py-3 md:px-6 md:py-6 lg:justify-start lg:pl-20">
             <div className="text-white text-left w-full max-w-[180px] sm:max-w-[220px] md:max-w-[200px] lg:max-w-xs">
-              <h3 className="sm:block text-sm sm:text-base md:text-lg lg:text-xl font-bold mb-1 sm:mb-2 md:mb-2 lg:mb-3" style={{ fontFamily: 'DM Serif Display' }}>
+              <h3 className="sm:block text-base sm:text-base md:text-lg lg:text-xl font-bold mb-1 sm:mb-2 md:mb-2 lg:mb-3" style={{ fontFamily: 'DM Serif Display' }}>
                 Legal Clarity
               </h3>
-              <p className="text-white/90 text-xs sm:text-sm md:text-sm lg:text-base leading-tight md:leading-relaxed" style={{ fontFamily: 'Futura-Medium' }}>
+              <p className="text-white/90 text-sm sm:text-sm md:text-sm lg:text-base leading-tight md:leading-relaxed" style={{ fontFamily: 'Futura-Medium' }}>
                 All our projects are DTCP-approved and RERA-registered, with clean documents and verified ownership giving you complete peace of mind.
               </p>
             </div>
@@ -79,10 +79,10 @@ function FairFieldTimeline() {
           {/* Text content positioned in center of main rectangle */}
           <div className="absolute top-[10%] left-[8%] right-[15%] bottom-[10%] flex items-center justify-start px-1 py-2 sm:px-3 sm:py-3 md:px-6 md:py-6">
             <div className="text-[#37405E] text-left w-full max-w-[160px] sm:max-w-[200px] md:max-w-[200px] lg:max-w-xs">
-              <h3 className="sm:block text-sm sm:text-base md:text-lg lg:text-xl font-bold mb-1 sm:mb-2 md:mb-2 lg:mb-3" style={{ fontFamily: 'DM Serif Display' }}>
+              <h3 className="sm:block text-base sm:text-base md:text-lg lg:text-xl font-bold mb-1 sm:mb-2 md:mb-2 lg:mb-3" style={{ fontFamily: 'DM Serif Display' }}>
                 Strong Returns
               </h3>
-              <p className="text-[#37405E]/90 text-xs sm:text-sm md:text-sm lg:text-base leading-tight md:leading-relaxed" style={{ fontFamily: 'Futura-Medium' }}>
+              <p className="text-[#37405E]/90 text-sm sm:text-sm md:text-sm lg:text-base leading-tight md:leading-relaxed" style={{ fontFamily: 'Futura-Medium' }}>
                 Our strategic locations and quality construction ensure your investment delivers consistent appreciation and long-term value growth.
               </p>
             </div>
@@ -119,10 +119,10 @@ function FairFieldTimeline() {
           {/* Text content positioned in center of main rectangle */}
           <div className="absolute top-[10%] left-[25%] right-[6%] bottom-[10%] flex items-center justify-center px-1 py-2 sm:px-3 sm:py-3 md:px-6 md:py-6 lg:justify-start lg:pl-20">
             <div className="text-white text-left w-full max-w-[180px] sm:max-w-[220px] md:max-w-[200px] lg:max-w-xs">
-              <h3 className="hidden sm:block text-sm sm:text-base md:text-lg lg:text-xl font-bold mb-1 sm:mb-2 md:mb-2 lg:mb-3" style={{ fontFamily: 'DM Serif Display' }}>
+              <h3 className=" sm:block text-base sm:text-base md:text-lg lg:text-xl font-bold mb-1 sm:mb-2 md:mb-2 lg:mb-3" style={{ fontFamily: 'DM Serif Display' }}>
                 Premium Quality
               </h3>
-              <p className="text-white/90 text-xs sm:text-sm md:text-sm lg:text-base leading-tight md:leading-relaxed" style={{ fontFamily: 'Futura-Medium' }}>
+              <p className="text-white/90 text-sm sm:text-sm md:text-sm lg:text-base leading-tight md:leading-relaxed" style={{ fontFamily: 'Futura-Medium' }}>
                 We design modern layouts, wide roads, parks, and secure gated communities to create a lifestyle you can be proud of.
               </p>
             </div>
@@ -159,10 +159,10 @@ function FairFieldTimeline() {
           {/* Text content positioned in center of main rectangle */}
           <div className="absolute top-[10%] left-[8%] right-[15%] bottom-[10%] flex items-center justify-start px-1 py-2 sm:px-3 sm:py-3 md:px-6 md:py-6">
             <div className="text-[#37405E] text-left w-full max-w-[160px] sm:max-w-[200px] md:max-w-[200px] lg:max-w-xs">
-              <h3 className="hidden sm:block text-sm sm:text-base md:text-lg lg:text-xl font-bold mb-1 sm:mb-2 md:mb-2 lg:mb-3" style={{ fontFamily: 'DM Serif Display' }}>
+              <h3 className=" sm:block text-base sm:text-base md:text-lg lg:text-xl font-bold mb-1 sm:mb-2 md:mb-2 lg:mb-3" style={{ fontFamily: 'DM Serif Display' }}>
                 Transparent Service
               </h3>
-              <p className="text-[#37405E]/90 text-xs sm:text-sm md:text-sm lg:text-base leading-tight md:leading-relaxed" style={{ fontFamily: 'Futura-Medium' }}>
+              <p className="text-[#37405E]/90 text-sm sm:text-sm md:text-sm lg:text-base leading-tight md:leading-relaxed" style={{ fontFamily: 'Futura-Medium' }}>
                 From site visit to handover, we guide you step by step with honest communication and professional support.
               </p>
             </div>
@@ -257,13 +257,13 @@ export function HomePage() {
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
       {/* Hero Section - First Fold - Group 1.1.1 Design */}
-      <section className="relative p-4 min-h-screen lg:min-h-0 lg:h-auto">
+      <section className="relative p-4 min-h-[550px] lg:min-h-screen lg:min-h-0 lg:h-auto">
         {/* Main villa background image */}
-        <div className="relative z-0 min-h-screen lg:min-h-0 lg:h-auto">
+        <div className="relative z-0 min-h-[550px] lg:min-h-screen lg:min-h-0 lg:h-auto">
           <img
             src="/images/home page - ff/images/first_fold_image.png"
             alt="Fair Field Premium Villa"
-            className="w-full h-full min-h-screen lg:min-h-0 lg:h-auto object-cover lg:object-contain"
+            className="w-full h-full min-h-[550px] lg:min-h-screen lg:min-h-0 lg:h-auto object-cover object-top lg:object-contain"
           />
         </div>
 

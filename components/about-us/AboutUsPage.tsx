@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { UniversalHeader } from '@/components/shared/header/UniversalHeader';
 import UniversalFooter from '@/components/shared/footer/UniversalFooter';
 
@@ -18,13 +19,12 @@ const AboutUsPage = () => {
         transition={{ duration: 0.8 }}
       >
         {/* Step Cut Design Layer Only */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-4 rounded-lg overflow-hidden">
           <Image
             src="/images/layer 1.jpg"
             alt="Step Cut Design Layer"
             fill
-            className="object-cover object-center"
-            style={{ objectPosition: 'center top' }}
+            className="object-cover"
             priority
           />
         </div>
@@ -37,7 +37,7 @@ const AboutUsPage = () => {
         <div className="absolute inset-0 flex items-center justify-center z-20">
           <div className="text-center">
             <motion.h1 
-              className="text-[48px] font-normal text-white drop-shadow-2xl"
+              className="text-3xl sm:text-4xl lg:text-5xl font-normal text-white drop-shadow-2xl"
               style={{ fontFamily: 'DM Serif Display' }}
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -48,18 +48,24 @@ const AboutUsPage = () => {
           </div>
         </div>
 
-        {/* Cream Breadcrumb Bar - Full width at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 z-20">
+        {/* Cream Breadcrumb Bar - With spacing */}
+        <div className="absolute bottom-4 left-4 right-4 z-20">
           <motion.div 
-            className="bg-[#F5F2E8] py-6 px-8"
+            className="bg-[#F5F2E8] py-6 px-8 "
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.0 }}
           >
-            <div className="max-w-7xl mx-auto">
+            <div className="container mx-auto">
               <div className="flex items-center space-x-2 text-[16px] text-[#37405E] font-medium" style={{ fontFamily: 'Futura-Medium' }}>
-                <span>Home</span>
-                <span>›</span>
+                <Link href="/" className="hover:text-[#D3AC4A] transition-colors cursor-pointer">
+                  Home
+                </Link>
+                <img
+                  src="/images/about us page - ff/icons/first fold icon.svg"
+                  alt="Arrow"
+                  className="w-8 h-8"
+                />
                 <span>About us</span>
               </div>
             </div>
@@ -69,101 +75,103 @@ const AboutUsPage = () => {
 
       {/* Second Fold - Who We Are - Exact Reference Design */}
       <motion.section 
-        className="py-20 px-4 md:px-8 lg:px-16"
+        className="py-10 lg:py-20"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-1 items-center">
-          {/* Left Side - Fair Field Entrance Image */}
-          <motion.div 
-            className="relative h-[500px]"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <Image
-              src="/images/about us page - ff/images/second fold image.png"
-              alt="Fair Field Shelters entrance gate"
-              fill
-              className="object-cover rounded-lg"
-              priority
-            />
-          </motion.div>
-          
-          {/* Right Side - Title on White + Dark Blue Card */}
-          <motion.div 
-            className="space-y-8"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            {/* Title on White Background */}
-            <motion.h2 
-              className="text-[40px] font-normal text-[#37405E] mb-8"
-              style={{ fontFamily: 'DM Serif Display' }}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-            >
-              Who <span 
-                className="bg-gradient-to-r from-[#D3AC4A] to-[#37405E] bg-clip-text text-transparent"
-                style={{ 
-                  background: 'radial-gradient(circle, #D3AC4A 0%, #37405E 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
-                }}
-              >
-                we are
-              </span>
-            </motion.h2>
-            
-            {/* Dark Blue Card with Content */}
+        <div className="container mx-auto px-4 md:px-4 lg:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 lg:items-end gap-8 lg:gap-0">
+            {/* Right Side - Title on White + Dark Blue Card (mobile first) */}
             <motion.div 
-              className="bg-[#37405E] p-8 rounded-lg"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              className="space-y-6 lg:flex lg:flex-col lg:justify-end lg:h-[500px] lg:space-y-8 order-1 lg:order-2"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.8 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <div className="space-y-6 text-[16px] text-white leading-relaxed" style={{ fontFamily: 'Futura-Medium' }}>
-                <p>
-                  Fair Field Shelters Pvt. Ltd. is a Coimbatore-based real estate company creating 
-                  premium plots, villas, and commercial properties for families, investors and 
-                  NRIs who value clarity, quality and long-term growth.
-                </p>
-                
-                <p>
-                  Founded in 2024, our company combines over 25 years of industry experience 
-                  with transparent systems, modern design and a deep respect for customer trust.
-                </p>
-                
-                <p>
-                  Every project we build whether it&apos;s a gated community, a luxury villa, or a 
-                  residential layout, reflects our core belief: real estate is not just about land or 
-                  buildings, it&apos;s about keeping promises.
-                </p>
-              </div>
+              {/* Title on White Background */}
+              <motion.h2 
+                className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 lg:mb-8 lg:pl-10 font-normal text-[#37405E] max-lg:text-center"
+                style={{ fontFamily: 'DM Serif Display' }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+              >
+                Who <span 
+                  className="bg-gradient-to-r from-[#D3AC4A] to-[#37405E] bg-clip-text text-transparent"
+                  style={{ 
+                    background: 'radial-gradient(circle, #D3AC4A 0%, #37405E 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text'
+                  }}
+                >
+                  we are
+                </span>
+              </motion.h2>
+              
+              {/* Dark Blue Card with Content */}
+              <motion.div 
+                className="bg-[#37405E] p-6 lg:p-8 rounded-lg lg:rounded-tl-none lg:rounded-tr-lg lg:rounded-bl-none lg:rounded-br-lg"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+              >
+                <div className="space-y-6 text-base sm:text-lg md:text-xl text-white leading-relaxed" style={{ fontFamily: 'Futura-Medium' }}>
+                  <p>
+                    Fair Field Shelters Pvt. Ltd. is a Coimbatore-based real estate company creating 
+                    premium plots, villas, and commercial properties for families, investors and 
+                    NRIs who value clarity, quality and long-term growth.
+                  </p>
+                  
+                  <p>
+                    Founded in 2024, our company combines over 25 years of industry experience 
+                    with transparent systems, modern design and a deep respect for customer trust.
+                  </p>
+                  
+                  <p>
+                    Every project we build whether it&apos;s a gated community, a luxury villa, or a 
+                    residential layout, reflects our core belief: real estate is not just about land or 
+                    buildings, it&apos;s about keeping promises.
+                  </p>
+                </div>
+              </motion.div>
             </motion.div>
-          </motion.div>
+
+            {/* Left Side - Fair Field Entrance Image (mobile second) */}
+            <motion.div 
+              className="relative h-[300px] lg:h-[500px] order-2 lg:order-1"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <Image
+                src="/images/about us page - ff/images/second fold image.png"
+                alt="Fair Field Shelters entrance gate"
+                fill
+                className="object-cover rounded-lg lg:rounded-tl-lg lg:rounded-tr-lg lg:rounded-bl-lg lg:rounded-br-none"
+                priority
+              />
+            </motion.div>
+          </div>
         </div>
       </motion.section>
 
       {/* Third Fold - Vision and Mission */}
       <motion.section 
-        className="py-20 px-4 md:px-8 lg:px-16 bg-[#F5F2E8]"
+        className="py-10 lg:py-24 bg-[#F5F2E8]"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="container mx-auto px-4 md:px-4 lg:px-6 ">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Left Image */}
             <motion.div 
               className="order-2 lg:order-1"
@@ -185,14 +193,14 @@ const AboutUsPage = () => {
             <div className="order-1 lg:order-2 grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Vision Card */}
               <motion.div 
-                className="bg-white rounded-2xl p-8 shadow-lg"
+                className="bg-white rounded-2xl p-4 lg:p-8 shadow-lg"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <div className="text-center mb-6">
-                  <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#D3AC4A]/10 to-[#D3AC4A]/5 rounded-full flex items-center justify-center">
+                <div className="text-left mb-6">
+                  <div className="w-20 h-20 mb-4 lg:mb-12 bg-gradient-to-br from-[#D3AC4A]/10 to-[#D3AC4A]/5 rounded-full flex items-center justify-center">
                     <Image
                       src="/images/about us page - ff/icons/third fold icon/vision Vector.svg"
                       alt="Vision icon"
@@ -202,7 +210,7 @@ const AboutUsPage = () => {
                     />
                   </div>
                   <h3 
-                    className="text-[28px] font-normal text-[#37405E] mb-4"
+                    className="text-2xl sm:text-2xl md:text-4xl font-normal text-[#37405E] mb-4 lg:mb-6"
                     style={{ fontFamily: 'DM Serif Display' }}
                   >
                     Our <span 
@@ -218,7 +226,7 @@ const AboutUsPage = () => {
                     </span>
                   </h3>
                   <p 
-                    className="text-[16px] text-[#37405E] leading-relaxed"
+                    className="text-base md:text-lg  text-[#37405E] leading-relaxed"
                     style={{ fontFamily: 'Futura-Medium' }}
                   >
                     To be recognized as one of South India&apos;s most trusted and premium real 
@@ -231,14 +239,14 @@ const AboutUsPage = () => {
 
               {/* Mission Card */}
               <motion.div 
-                className="bg-white rounded-2xl p-8 shadow-lg"
+                className="bg-white rounded-2xl p-4 lg:p-8 shadow-lg"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                <div className="text-center mb-6">
-                  <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#D3AC4A]/10 to-[#D3AC4A]/5 rounded-full flex items-center justify-center">
+                <div className="text-left mb-6">
+                  <div className="w-20 h-20 mb-4 lg:mb-12 bg-gradient-to-br from-[#D3AC4A]/10 to-[#D3AC4A]/5 rounded-full flex items-center justify-center">
                     <Image
                       src="/images/about us page - ff/icons/third fold icon/mission Vector.svg"
                       alt="Mission icon"
@@ -248,7 +256,7 @@ const AboutUsPage = () => {
                     />
                   </div>
                   <h3 
-                    className="text-[28px] font-normal text-[#37405E] mb-4"
+                    className="text-2xl sm:text-2xl md:text-4xl font-normal text-[#37405E] mb-4 lg:mb-6"
                     style={{ fontFamily: 'DM Serif Display' }}
                   >
                     Our <span 
@@ -264,7 +272,7 @@ const AboutUsPage = () => {
                     </span>
                   </h3>
                   <p 
-                    className="text-[16px] text-[#37405E] leading-relaxed"
+                    className="text-base md:text-lg text-[#37405E] leading-relaxed"
                     style={{ fontFamily: 'Futura-Medium' }}
                   >
                     To provide secure, legally sound, and future-ready real estate investments 
@@ -281,15 +289,15 @@ const AboutUsPage = () => {
 
       {/* Fourth Fold - Core Values */}
       <motion.section 
-        className="py-20 px-4 md:px-8 lg:px-16 bg-white"
+        className="py-10 lg:py-24  bg-white"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-        <div className="max-w-7xl mx-auto text-center">
+        <div className="container mx-auto px-4 md:px-4 lg:px-6 text-center">
           <motion.h2 
-            className="text-[48px] font-normal text-[#37405E] mb-20"
+            className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 lg:mb-12 font-normal text-[#37405E] mb-20"
             style={{ fontFamily: 'DM Serif Display' }}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -309,7 +317,7 @@ const AboutUsPage = () => {
             </span>
           </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-12 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-12 lg:gap-16">
             {/* Integrity */}
             <motion.div 
               className="text-center"
@@ -470,7 +478,7 @@ const AboutUsPage = () => {
 
       {/* Fifth Fold - Promise to Homebuyers */}
       <motion.section 
-        className="py-20 px-4 md:px-8 lg:px-16 bg-[#F5F2E8]"
+        className="py-10 lg:py-20 px-4 md:px-8 lg:px-16 bg-[#F5F2E8]"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -479,7 +487,7 @@ const AboutUsPage = () => {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <motion.h2 
-              className="text-[48px] font-normal text-[#37405E] mb-8"
+              className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl mb-8 font-normal text-[#37405E] text-center md:text-left"
               style={{ fontFamily: 'DM Serif Display' }}
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -500,7 +508,7 @@ const AboutUsPage = () => {
             </motion.h2>
             
             <motion.p 
-              className="text-[18px] text-[#37405E] leading-relaxed mb-8"
+              className="text-base sm:text-lg text-[#37405E] leading-relaxed mb-8"
               style={{ fontFamily: 'Futura-Light' }}
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -512,7 +520,7 @@ const AboutUsPage = () => {
             </motion.p>
 
             <motion.p 
-              className="text-[18px] text-[#37405E] leading-relaxed mb-8"
+              className="text-base sm:text-lg text-[#37405E] leading-relaxed mb-8"
               style={{ fontFamily: 'Futura-Light' }}
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -547,7 +555,7 @@ const AboutUsPage = () => {
                     />
                   </div>
                   <span 
-                    className="text-[18px] text-[#37405E]"
+                    className="text-base sm:text-lg text-[#37405E]"
                     style={{ fontFamily: 'Futura-Light' }}
                   >
                     {item}
@@ -570,7 +578,7 @@ const AboutUsPage = () => {
                   alt="Modern villa exterior"
                   width={400}
                   height={300}
-                  className="rounded-lg shadow-lg"
+                  className="rounded-lg"
                 />
               </motion.div>
               <motion.div
@@ -597,7 +605,7 @@ const AboutUsPage = () => {
               transition={{ duration: 0.6, delay: 0.6 }}
             >
               <p 
-                className="text-[18px] text-white font-medium"
+                className="text-base sm:text-lg text-white font-medium"
                 style={{ fontFamily: 'Futura-Medium' }}
               >
                 With Fair Field Shelters, you don&apos;t just buy land or a house you invest in peace of mind.
@@ -609,30 +617,30 @@ const AboutUsPage = () => {
 
       {/* Sixth Fold - Managing Director Message */}
       <motion.section 
-        className="py-20 px-4 md:px-8 lg:px-16 relative overflow-hidden min-h-[600px] flex items-center"
+        className="py-10 lg:py-20 px-4 md:px-8 lg:px-16 relative overflow-hidden min-h-[600px] flex items-center"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
         {/* Background Image */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 lg:inset-8 z-0 lg:rounded-lg overflow-hidden">
           <Image
             src="/images/about us page - ff/images/sixth fold image.jpg"
             alt="Managing Director with house model background"
             fill
-            className="object-cover object-left"
+            className="object-cover object-left scale-x-[-1]"
             priority
           />
         </div>
         
         {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/20 z-10" />
+        <div className="absolute inset-0 lg:inset-8 bg-black/20 z-10 lg:rounded-lg" />
 
-        <div className="max-w-7xl mx-auto relative z-20 flex justify-end">
-          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-gray-100 max-w-md lg:max-w-lg">
+        <div className="w-full relative z-20 flex justify-center lg:justify-end pr-0 lg:pr-40">
+          <div className="bg-white/95 backdrop-blur-sm rounded-md p-8 lg:py-12 shadow-2xl border border-gray-100 max-w-md lg:max-w-xl">
             <motion.h2 
-              className="text-[32px] lg:text-[36px] font-normal text-[#37405E] mb-6"
+              className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-normal text-[#37405E] mb-6"
               style={{ fontFamily: 'DM Serif Display' }}
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
