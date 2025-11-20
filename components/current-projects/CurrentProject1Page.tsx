@@ -3,7 +3,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Link from 'next/link';
+import { UniversalHeader } from '@/components/shared/header/UniversalHeader';
 import UniversalFooter from '@/components/shared/footer/UniversalFooter';
 
 // Project Image Carousel Component
@@ -37,19 +38,29 @@ const ProjectImageCarousel = () => {
         className="object-cover transition-opacity duration-300"
       />
       
-      {/* Navigation Arrows - Yellow as in reference */}
+      {/* Navigation Arrows */}
       <button
         onClick={prevImage}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-[#D3AC4A] hover:bg-[#B8941F] text-[#37405E] p-2 rounded-full opacity-80 group-hover:opacity-100 transition-all duration-300 shadow-lg"
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 p-2 opacity-50 group-hover:opacity-100 transition-all duration-300"
       >
-        <ChevronLeft size={20} />
+        <Image
+          src="/images/current project page - ff/Anicham/icons/second fold/left Vector.svg"
+          alt="Previous"
+          width={40}
+          height={40}
+        />
       </button>
       
       <button
         onClick={nextImage}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-[#D3AC4A] hover:bg-[#B8941F] text-[#37405E] p-2 rounded-full opacity-80 group-hover:opacity-100 transition-all duration-300 shadow-lg"
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 p-2 opacity-50 group-hover:opacity-100 transition-all duration-300"
       >
-        <ChevronRight size={20} />
+        <Image
+          src="/images/current project page - ff/Anicham/icons/second fold/right Vector.svg"
+          alt="Next"
+          width={40}
+          height={40}
+        />
       </button>
       
       {/* Dots Indicator */}
@@ -111,8 +122,8 @@ export default function CurrentProjectsPage() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
-        {/* Step Cut Design Layer Only */}
-        <div className="absolute inset-0">
+        {/* Step Cut Design Layer */}
+        <div className="absolute inset-2 sm:inset-4 rounded-lg overflow-hidden">
           <Image
             src="/images/layer 1.jpg"
             alt="Step Cut Design Layer"
@@ -123,71 +134,14 @@ export default function CurrentProjectsPage() {
           />
         </div>
 
-        {/* Logo and Navigation Menu - Over building image */}
-        <div className="absolute top-0 left-0 right-0 z-30">
-          <div className="px-8 py-6">
-            <div className="flex items-center justify-between max-w-7xl mx-auto">
-              {/* Logo */}
-              <motion.div 
-                className="flex items-center"
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <Image
-                  src="/images/logo/FFS LOGO DIFFERENCE-02.png"
-                  alt="Fair Field Shelters Logo"
-                  width={80}
-                  height={60}
-                  className="mr-2"
-                />
-              </motion.div>
+        {/* Universal Header */}
+        <UniversalHeader transparent={true} showScheduleButton={true} />
 
-              {/* Navigation Menu - Over building image with white text */}
-              <motion.nav 
-                className="hidden md:flex items-center space-x-8"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                <a href="/" className="text-[16px] text-white font-medium hover:text-[#D3AC4A] transition-colors drop-shadow-lg" style={{ fontFamily: 'Alata' }}>Home</a>
-                <a href="/about-us" className="text-[16px] text-white font-medium hover:text-[#D3AC4A] transition-colors drop-shadow-lg" style={{ fontFamily: 'Alata' }}>About us</a>
-                <span className="text-[16px] text-[#D3AC4A] font-medium drop-shadow-lg cursor-pointer" style={{ fontFamily: 'Alata' }}>Project</span>
-                <a href="/blog" className="text-[16px] text-white font-medium hover:text-[#D3AC4A] transition-colors drop-shadow-lg" style={{ fontFamily: 'Alata' }}>Blog</a>
-                <a href="/careers" className="text-[16px] text-white font-medium hover:text-[#D3AC4A] transition-colors drop-shadow-lg" style={{ fontFamily: 'Alata' }}>Careers</a>
-                <a href="/contact" className="text-[16px] text-white font-medium hover:text-[#D3AC4A] transition-colors drop-shadow-lg" style={{ fontFamily: 'Alata' }}>Contact</a>
-              </motion.nav>
-
-              {/* Empty space for button */}
-              <div className="w-48"></div>
-            </div>
-          </div>
-        </div>
-
-        {/* Schedule a Visit Button - Positioned over step-cut area */}
-        <motion.div 
-          className="absolute top-4 right-4 md:right-8 z-40"
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-        >
-          <button 
-            className="bg-[#D3AC4A] text-[#37405E] px-4 md:px-6 py-2 md:py-3 rounded-lg font-bold text-[14px] md:text-[16px] hover:bg-[#C19B42] transition-colors flex items-center space-x-2 book-visit-button"
-            style={{ fontFamily: 'Futura-Heavy' }}
-          >
-            <span className="hidden sm:inline">Schedule a visit</span>
-            <span className="sm:hidden">Schedule</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6L16 12L10 18L8.59 16.59Z"/>
-            </svg>
-          </button>
-        </motion.div>
-
-        {/* Our Current Projects Title - Centered over building image */}
+        {/* Title - Centered over building image */}
         <div className="absolute inset-0 flex items-center justify-center z-20">
-          <div className="text-center px-4">
+          <div className="text-center">
             <motion.h1 
-              className="text-[32px] md:text-[48px] font-normal text-white drop-shadow-2xl"
+              className="text-3xl sm:text-4xl lg:text-5xl font-normal text-white drop-shadow-2xl"
               style={{ fontFamily: 'DM Serif Display' }}
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -198,22 +152,40 @@ export default function CurrentProjectsPage() {
           </div>
         </div>
 
-        {/* Cream Breadcrumb Bar - Full width at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 z-20">
+        {/* Cream Breadcrumb Bar */}
+        <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 right-2 sm:right-4 z-20">
           <motion.div 
-            className="bg-[#F5F2E8] py-6 px-8"
+            className="bg-[#F5F2E8] py-3 px-4 sm:py-6 sm:px-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.0 }}
           >
-            <div className="max-w-7xl mx-auto">
-              <div className="flex items-center space-x-2 text-[16px] text-[#37405E] font-medium" style={{ fontFamily: 'Futura-Medium' }}>
-                <span>Home</span>
-                <span>›</span>
-                <span>Project</span>
-                <span>›</span>
-                <span>Our Current Projects</span>
-                <span>›</span>
+            <div className="container mx-auto">
+              <div className="flex items-center space-x-1 sm:space-x-2 text-sm sm:text-[16px] text-[#37405E] font-medium" style={{ fontFamily: 'Futura-Medium' }}>
+                <Link href="/" className="hover:text-[#D3AC4A] transition-colors cursor-pointer">
+                  Home
+                </Link>
+                <img
+                  src="/images/current project page - ff/icons/first fold icon.svg"
+                  alt="Arrow"
+                  className="w-6 h-6 sm:w-8 sm:h-8"
+                />
+                <span className="text-[#37405E]">
+                  Project
+                </span>
+                <img
+                  src="/images/current project page - ff/icons/first fold icon.svg"
+                  alt="Arrow"
+                  className="w-6 h-6 sm:w-8 sm:h-8"
+                />
+                <Link href="/current-projects" className="hover:text-[#D3AC4A] transition-colors cursor-pointer">
+                  Our Current Projects
+                </Link>
+                <img
+                  src="/images/current project page - ff/icons/first fold icon.svg"
+                  alt="Arrow"
+                  className="w-6 h-6 sm:w-8 sm:h-8"
+                />
                 <span>Anicham</span>
               </div>
             </div>
@@ -222,7 +194,7 @@ export default function CurrentProjectsPage() {
       </motion.section>
 
       {/* Second Fold - Project Details */}
-      <section className="py-16 bg-white">
+      <section className="py-10 lg:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           {/* Project Title */}
           <motion.div
@@ -230,20 +202,21 @@ export default function CurrentProjectsPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mb-16"
+            className="mb-6 lg:mb-16"
           >
-            <h2 className="text-[36px] md:text-[48px] font-normal text-[#37405E] mb-2" style={{ fontFamily: 'DM Serif Display' }}>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl lg:mb-8 font-normal text-[#37405E] mb-2" style={{ fontFamily: 'DM Serif Display' }}>
               Anicham & Magilam – <span className="text-[#D3AC4A]">Ramanathapuram, Coimbatore</span>
             </h2>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+          <div className="lg:flex gap-4 lg:gap-12 space-y-12 lg:space-y-0">
             {/* Left Side - Main Project Image Carousel */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
+              className='lg:w-3/5'
             >
               <ProjectImageCarousel />
             </motion.div>
@@ -254,9 +227,9 @@ export default function CurrentProjectsPage() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="space-y-6"
+              className="space-y-6 lg:w-2/5"
             >
-              <div className="relative h-[400px] rounded-lg overflow-hidden bg-[#8B7B6E]">
+              <div className="relative h-[400px] rounded-lg overflow-hidden bg-[#8B7B6E] ">
                 {/* Embed Google Maps using iframe */}
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15679.456!2d76.9475!3d11.0156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba859b82b3d2b35%3A0x123456789!2sVedapatti%20Road%2C%20Coimbatore%2C%20Tamil%20Nadu!5e1!3m2!1sen!2sin!4v1699999999999!5m2!1sen!2sin&q=Vedapatti+road+Coimbatore+Karthik+villa"
@@ -270,7 +243,7 @@ export default function CurrentProjectsPage() {
                 />
                 
                 {/* Red Location Marker - Custom overlay to show exact project location */}
-                <div className="absolute top-[60%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+                {/* <div className="absolute top-[60%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
                   <div className="relative">
                     <div className="w-6 h-6 bg-[#E53E3E] rounded-full border-2 border-white shadow-lg relative z-10">
                       <div className="absolute inset-0 flex items-center justify-center">
@@ -279,10 +252,10 @@ export default function CurrentProjectsPage() {
                     </div>
                     <div className="absolute top-full left-1/2 transform -translate-x-1/2 -translate-y-1 w-0 h-0 border-l-[3px] border-r-[3px] border-t-[4px] border-l-transparent border-r-transparent border-t-[#E53E3E]"></div>
                   </div>
-                </div>
+                </div> */}
 
                 {/* Location Info Card - Bottom Right as in reference with yellow accent */}
-                <div className="absolute bottom-4 right-4 bg-white rounded-lg p-3 shadow-lg max-w-[200px] z-20">
+                {/* <div className="absolute bottom-4 right-4 bg-white rounded-lg p-3 shadow-lg max-w-[200px] z-20">
                   <div className="flex items-start gap-3">
                     <div className="w-6 h-6 bg-[#D3AC4A] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <Image
@@ -301,7 +274,7 @@ export default function CurrentProjectsPage() {
                       </p>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </motion.div>
           </div>
@@ -335,12 +308,12 @@ export default function CurrentProjectsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="bg-[#F5F2E8] rounded-lg p-8"
+              className="bg-[#D3AC4A1A] rounded-lg p-8 lg:py-12"
             >
               <h4 className="text-[20px] font-bold text-[#37405E] mb-6" style={{ fontFamily: 'DM Serif Display' }}>
                 Pricing & Units
               </h4>
-              <div className="space-y-4">
+              <div className="space-y-6">
                 <div className="flex items-center gap-3">
                   <Image
                     src="/images/current project page - ff/Anicham/icons/second fold/project unit icons/Vector 1.svg"
@@ -349,7 +322,7 @@ export default function CurrentProjectsPage() {
                     height={20}
                   />
                   <span className="text-[#37405E] font-medium" style={{ fontFamily: 'Futura-Medium' }}>
-                    Land Price: From ₹19.90 Lakhs per Cent
+                    <strong>Land Price:</strong> From ₹19.90 Lakhs per Cent
                   </span>
                 </div>
                 <div className="flex items-center gap-3">
@@ -360,7 +333,7 @@ export default function CurrentProjectsPage() {
                     height={20}
                   />
                   <span className="text-[#37405E] font-medium" style={{ fontFamily: 'Futura-Medium' }}>
-                    Villas: From ₹1.79 Cr onwards
+                     <strong>Villas:</strong> From ₹1.79 Cr onwards
                   </span>
                 </div>
                 <div className="flex items-center gap-3">
@@ -371,7 +344,7 @@ export default function CurrentProjectsPage() {
                     height={20}
                   />
                   <span className="text-[#37405E] font-medium" style={{ fontFamily: 'Futura-Medium' }}>
-                    Project Size: 5 Acres | Total Units: 73 (Plots + Villas)
+                     <strong>Project Size:</strong> 5 Acres |  <strong>Total Units:</strong> 73 (Plots + Villas)
                   </span>
                 </div>
               </div>
@@ -383,12 +356,12 @@ export default function CurrentProjectsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="bg-[#F5F2E8] rounded-lg p-8"
+              className="bg-[#D3AC4A1A] rounded-lg p-8 lg:py-12"
             >
               <h4 className="text-[20px] font-bold text-[#37405E] mb-6" style={{ fontFamily: 'DM Serif Display' }}>
                 Project Type
               </h4>
-              <div className="space-y-4">
+              <div className="space-y-6">
                 <div className="flex items-center gap-3">
                   <Image
                     src="/images/current project page - ff/Anicham/icons/second fold/tick Vector.svg"
@@ -432,9 +405,9 @@ export default function CurrentProjectsPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mt-20"
+            className="mt-4 lg:mt-20"
           >
-            <h4 className="text-[28px] font-normal text-[#37405E] text-center mb-12" style={{ fontFamily: 'DM Serif Display' }}>
+            <h4 className="text-[28px] font-normal text-[#937B37] text-center mb-4 lg:mb-12" style={{ fontFamily: 'DM Serif Display' }}>
               Villa Options
             </h4>
             
@@ -446,25 +419,27 @@ export default function CurrentProjectsPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: villa.id * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300"
+                  className="bg-white rounded-lg overflow-hidden border border-[#00684F20] shadow-md hover:shadow-lg transition-all duration-300 flex flex-col"
                 >
-                  <div className="relative h-[200px]">
+                  <div className="relative h-[300px] mx-2 mt-2">
                     <Image
                       src={villa.image}
                       alt={villa.title}
                       fill
-                      className="object-cover"
+                      className="object-cover rounded-md"
                     />
                   </div>
-                  <div className="p-6 text-center">
+                  <div className="p-6 text-center flex-grow flex flex-col">
                     <h5 className="text-lg font-bold text-[#37405E] mb-2" style={{ fontFamily: 'DM Serif Display' }}>
                       {villa.title}
                     </h5>
-                    <p className="text-sm text-[#37405E] font-medium mb-1" style={{ fontFamily: 'Futura-Medium' }}>
+                    <p className="text-sm text-[#37405E] font-medium mb-4 flex-grow" style={{ fontFamily: 'Futura-Medium' }}>
                       {villa.cents} | {villa.type} | {villa.sqft}
                     </p>
+                  </div>
+                  <div>
                     <button 
-                      className="mt-4 px-6 py-2 rounded-lg font-bold text-sm transition-colors bg-[#D3AC4A] text-[#37405E]"
+                      className="w-full py-4 font- text-sm lsm:text-base md:text-lg transition-colors bg-[#D3AC4A] text-[#37405E] hover:bg-[#C19B42]"
                       style={{ fontFamily: 'Futura-Heavy' }}
                     >
                       {villa.status}
@@ -478,16 +453,16 @@ export default function CurrentProjectsPage() {
       </section>
 
       {/* Third Fold - Key Features & Benefits */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-6 lg:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-4 lg:mb-16"
           >
-            <h3 className="text-[36px] md:text-[48px] font-normal text-[#37405E] mb-4" style={{ fontFamily: 'DM Serif Display' }}>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal text-[#37405E] mb-4" style={{ fontFamily: 'DM Serif Display' }}>
               Key Features & <span className="bg-gradient-to-r from-[#5764B3] to-[#8B7ED8] bg-clip-text text-transparent">Benefits</span>
             </h3>
           </motion.div>
@@ -497,15 +472,15 @@ export default function CurrentProjectsPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="bg-white rounded-lg overflow-hidden shadow-lg"
+            className="bg-white rounded-md overflow-hidden shadow-lg"
           >
-            <div className="overflow-x-auto">
-              <table className="w-full border-collapse">
+            <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-[#D3AC4A] scrollbar-track-gray-100">
+              <table className="w-full border-collapse min-w-[640px]">
                 <thead>
                   <tr className="bg-[#37405E] text-white">
-                    <th className="px-8 py-6 text-center text-lg font-bold border-r border-white/20" style={{ fontFamily: 'Futura-Heavy' }}>Feature</th>
-                    <th className="px-8 py-6 text-center text-lg font-bold border-r border-white/20" style={{ fontFamily: 'Futura-Heavy' }}>Benefit</th>
-                    <th className="px-8 py-6 text-center text-lg font-bold" style={{ fontFamily: 'Futura-Heavy' }}>Advantage</th>
+                    <th className="px-4 sm:px-6 lg:px-8 py-4 sm:py-6 text-center text-sm sm:text-base lg:text-lg font-bold border-r border-white/20" style={{ fontFamily: 'Futura-Heavy' }}>Feature</th>
+                    <th className="px-4 sm:px-6 lg:px-8 py-4 sm:py-6 text-center text-sm sm:text-base lg:text-lg font-bold border-r border-white/20" style={{ fontFamily: 'Futura-Heavy' }}>Benefit</th>
+                    <th className="px-4 sm:px-6 lg:px-8 py-4 sm:py-6 text-center text-sm sm:text-base lg:text-lg font-bold" style={{ fontFamily: 'Futura-Heavy' }}>Advantage</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -551,13 +526,13 @@ export default function CurrentProjectsPage() {
                         index % 2 === 0 ? 'bg-white' : 'bg-gray-50'
                       }`}
                     >
-                      <td className="px-8 py-6 text-[#37405E] font-medium text-base text-center border-r border-gray-200" style={{ fontFamily: 'Futura-Medium' }}>
+                      <td className="px-4 sm:px-6 lg:px-8 py-4 sm:py-6 text-[#37405E] font-medium text-sm sm:text-base text-center border-r border-gray-200" style={{ fontFamily: 'Futura-Medium' }}>
                         {row.feature}
                       </td>
-                      <td className="px-8 py-6 text-[#37405E] font-medium text-base text-center border-r border-gray-200" style={{ fontFamily: 'Futura-Medium' }}>
+                      <td className="px-4 sm:px-6 lg:px-8 py-4 sm:py-6 text-[#37405E] font-medium text-sm sm:text-base text-center border-r border-gray-200" style={{ fontFamily: 'Futura-Medium' }}>
                         {row.benefit}
                       </td>
-                      <td className="px-8 py-6 text-[#37405E] font-medium text-base text-center" style={{ fontFamily: 'Futura-Medium' }}>
+                      <td className="px-4 sm:px-6 lg:px-8 py-4 sm:py-6 text-[#37405E] font-medium text-sm sm:text-base text-center" style={{ fontFamily: 'Futura-Medium' }}>
                         {row.advantage}
                       </td>
                     </motion.tr>
@@ -570,93 +545,107 @@ export default function CurrentProjectsPage() {
       </section>
 
       {/* Fourth Fold - Amenities */}
-      <section className="py-20 bg-gradient-to-b from-[#37405E] to-[#2A2F45] relative overflow-hidden rounded-3xl mx-4 md:mx-8">
+      <section className="pt-10 lg:pt-20 bg-gradient-to-b from-[#37405E] to-[#2A2F45] relative overflow-hidden rounded-3xl">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-0 lg:mb-16"
           >
-            <h3 className="text-[36px] md:text-[48px] font-normal mb-4" style={{ fontFamily: 'DM Serif Display' }}>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal" style={{ fontFamily: 'DM Serif Display' }}>
               <span className="bg-gradient-to-r from-[#D3AC4A] to-[#F5D76E] bg-clip-text text-transparent">Amenities</span>
             </h3>
           </motion.div>
 
-          {/* Amenities Section with Background SVG and Content */}
-          <div className="relative max-w-5xl mx-auto h-[500px] md:h-[600px] flex items-center justify-center">
-            {/* Background SVG with connecting lines and circles */}
-            <div className="absolute inset-0 w-full h-full">
+          <div className="relative h-[250px] sm:h-[400px] lg:h-[500px] flex items-center justify-center">
+            {/* Use the complete SVG design with overlaid house image and text labels */}
+            <motion.div 
+              className="relative w-full max-w-4xl"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              {/* Background SVG with amenity circles */}
               <Image
                 src="/images/current project page - ff/Anicham/icons/fourth fold/fourth fold Vector- amenities.svg"
                 alt="Amenities Background"
-                fill
-                className="object-contain"
+                width={1314}
+                height={729}
+                className="object-contain w-full h-auto"
               />
-            </div>
-            
-            {/* Central House Image */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="absolute z-0 w-[580px] h-[420px] md:w-[735px] md:h-[525px] bottom-[-50px] left-[50%] -translate-x-1/2"
-            >
-              <Image
-                src="/images/current project page - ff/Anicham/images/fourth fold image - anicham.png"
-                alt="Anicham Villa"
-                fill
-                className="object-contain rounded-lg"
-              />
-            </motion.div>
 
-            {/* Amenity Text Labels positioned BELOW each SVG circle */}
-            {[
-              { name: "Street Lights", position: "top-[18%] left-[51%] -translate-x-1/2" },
-              { name: "Water\nConnection", position: "top-[24%] right-[26%] -translate-x-1/2" },
-              { name: "Borewell", position: "top-[40%] right-[11%] -translate-x-1/2" },
-              { name: "Children's Park", position: "bottom-[32%] right-[2%] -translate-x-1/2" },
-              { name: "Landscaped\nSpaces", position: "bottom-[8%] left-[94%] -translate-x-1/2" },
-              { name: "Gated Entrance\nArch", position: "bottom-[6%] left-[6%] -translate-x-1/2" },
-              { name: "CCTV\nSurveillance", position: "top-[63%] left-[9%] -translate-x-1/2" },
-              { name: "Security Cabin", position: "top-[40%] left-[18%] -translate-x-1/2" },
-              { name: "Tar Roads", position: "top-[27%] left-[34%] -translate-x-1/2" }
-            ].map((amenity, index) => (
-              <motion.div
-                key={amenity.name}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-                viewport={{ once: true }}
-                className={`absolute ${amenity.position} z-20 text-center w-16 md:w-20`}
-              >
-                <span className="text-[#37405E] text-xs md:text-sm font-semibold leading-tight block" style={{ fontFamily: 'Futura-Medium' }}>
-                  {amenity.name}
-                </span>
-              </motion.div>
-            ))}
+              {/* House Image positioned in the center area */}
+              <div className="absolute -bottom-25 sm:-bottom-20 left-[50%] transform -translate-x-1/2  z-10">
+                <div className="relative w-[230px] h-[250px] md:w-[500px] md:h-[380px]">
+                  <Image
+                    src="/images/current project page - ff/Anicham/images/fourth fold image - anicham.png"
+                    alt="Anicham Villa"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+
+              {/* Amenity Text Labels positioned over the SVG circles */}
+              {[
+                { top: '14%', left: '50.5%', name: 'Street Lights' },
+                { top: '24%', left: '66%', name: 'Water \n Connection' },
+                { top: '40%', left: '81.5%', name: 'Borewell' },
+                { top: '67%', left: '90%', name: 'Children\'s Park' },
+                { top: '93%', left: '93.5%', name: 'Landscaped\nSpaces' },
+                { top: '92.5%', left: '6.5%', name: 'Gated \nEntrance\nArch' },
+                { top: '64%', left: '8.70%', name: 'CCTV\nSurveillance' },
+                { top: '40%', left: '18%', name: 'Security\n Cabin' },
+                { top: '25%', left: '34%', name: 'Tar Roads' }
+              ].map((amenity, index) => (
+                <motion.div
+                  key={index}
+                  className="absolute transform -translate-x-1/2 -translate-y-1/2"
+                  style={{
+                    top: amenity.top,
+                    left: amenity.left,
+                  }}
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="text-center">
+                    <span className="text-[#37405E] text-[7px] md:text-sm font-semibold leading-tight block" style={{ fontFamily: 'Futura-Medium' }}>
+                      {amenity.name.split('\n').map((line, lineIndex) => (
+                        <span key={lineIndex}>
+                          {line}
+                          {lineIndex < amenity.name.split('\n').length - 1 && <br />}
+                        </span>
+                      ))}
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Fifth Fold - Approvals */}
-      <section className="py-20 bg-white">
+      <section className="py-10 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-2 lg:mb-16"
           >
-            <h3 className="text-[36px] md:text-[48px] font-normal text-[#37405E] mb-4" style={{ fontFamily: 'DM Serif Display' }}>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal text-[#37405E] mb-4" style={{ fontFamily: 'DM Serif Display' }}>
               <span className="bg-gradient-to-r from-[#5764B3] to-[#8B7ED8] bg-clip-text text-transparent">Approvals</span>
             </h3>
           </motion.div>
 
-          <div className="flex flex-col md:flex-row justify-center items-center gap-12 md:gap-20 max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-around items-start gap-12 md:gap-20 max-w-7xl mx-auto">
             {/* DTCP approved */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -665,7 +654,7 @@ export default function CurrentProjectsPage() {
               viewport={{ once: true }}
               className="flex items-center gap-4"
             >
-              <div className="w-16 h-16 flex-shrink-0">
+              <div className="w-10 h-10 flex-shrink-0">
                 <Image
                   src="/images/current project page - ff/Anicham/icons/fifth fold/Vector 1.svg"
                   alt="DTCP approved"
@@ -685,9 +674,9 @@ export default function CurrentProjectsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="flex items-center gap-4"
+              className="flex items-start gap-4"
             >
-              <div className="w-16 h-16 flex-shrink-0">
+              <div className="w-10 h-10 flex-shrink-0">
                 <Image
                   src="/images/current project page - ff/Anicham/icons/fifth fold/Vector 2.svg"
                   alt="RERA registered"
@@ -712,9 +701,9 @@ export default function CurrentProjectsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true }}
-              className="flex items-center gap-4"
+              className="flex items-start gap-4"
             >
-              <div className="w-16 h-16 flex-shrink-0">
+              <div className="w-10 h-10 flex-shrink-0">
                 <Image
                   src="/images/current project page - ff/Anicham/icons/fifth fold/Vector 3.svg"
                   alt="Bank Loan Assistance"
@@ -737,7 +726,7 @@ export default function CurrentProjectsPage() {
       </section>
 
       {/* Sixth Fold - Contact CTA */}
-      <section className="py-20 relative overflow-hidden rounded-3xl mx-4 md:mx-8">
+      <section className="py-10 lg:py-20 relative overflow-hidden rounded-3xl">
         <div className="absolute inset-0 rounded-3xl overflow-hidden">
           <Image
             src="/images/current project page - ff/Anicham/images/sixth fold image.png"
@@ -755,9 +744,9 @@ export default function CurrentProjectsPage() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="bg-white rounded-[20px] p-8 md:p-12 max-w-lg shadow-2xl"
+              className="bg-white rounded-tl-sm rounded-br-sm rounded-tr-[50px] rounded-bl-[50px] px-4 py-6 md:py-10 md:px-2 md:px-6 max-w-lg shadow-2xl"
             >
-              <h3 className="text-[32px] md:text-[40px] font-normal text-[#37405E] mb-8 leading-tight" style={{ fontFamily: 'DM Serif Display' }}>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal text-[#37405E] mb-8 leading-tight" style={{ fontFamily: 'DM Serif Display' }}>
                 Book your <span className="bg-gradient-to-r from-[#37405E] to-[#D3AC4A] bg-clip-text text-transparent">site visit today</span>
               </h3>
 
@@ -801,23 +790,26 @@ export default function CurrentProjectsPage() {
                 </div>
               </div>
 
-              <div className="flex gap-4">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-[#D3AC4A] text-[#37405E] px-6 py-3 rounded-lg font-bold text-base hover:bg-[#C19B42] transition-colors flex items-center space-x-2 book-visit-button flex-1"
+                  className="bg-[#D3AC4A] text-[#37405E] px-3 py-3 md:px-6 md:py-3 rounded-sm font-bold text-base hover:bg-[#C19B42] transition-colors flex items-center justify-center space-x-2 book-visit-button w-full sm:w-1/2"
                   style={{ fontFamily: 'Futura-Heavy' }}
                 >
                   <span>Book your visit today</span>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6L16 12L10 18L8.59 16.59Z"/>
-                  </svg>
+                  <Image
+                    src="/images/current project page - ff/vaagai/icons/cta arrow Vector.svg"
+                    alt="Arrow"
+                    width={16}
+                    height={16}
+                  />
                 </motion.button>
 
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-[#37405E] text-white px-6 py-3 rounded-lg font-bold text-base hover:bg-[#2A2F45] transition-colors call-us-button"
+                  className="bg-[#37405E] text-white px-3 py-3 md:px-6 md:py-3 rounded-sm font-bold text-base hover:bg-[#2A2F45] transition-colors call-us-button w-full sm:w-1/2"
                   style={{ fontFamily: 'Futura-Heavy' }}
                 >
                   Call us now

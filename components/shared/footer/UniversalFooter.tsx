@@ -124,14 +124,21 @@ const UniversalFooter = () => {
                 Links
               </h3>
               <ul className="space-y-4">
-                {['Home', 'About Us', 'Projects', 'Blog', 'Careers', 'Contact Us'].map((link, index) => (
+                {[
+                  { name: 'Home', href: '/' },
+                  { name: 'About Us', href: '/about-us' },
+                  { name: 'Projects', href: '/current-projects' },
+                  { name: 'Blog', href: '/blog' },
+                  { name: 'Careers', href: '/careers' },
+                  { name: 'Contact Us', href: '/contact-us' }
+                ].map((link, index) => (
                   <li key={index}>
                     <Link 
-                      href="#"
+                      href={link.href}
                       className="text-[16px] text-white hover:text-[#D3AC4A] transition-colors duration-300 capitalize"
                       style={{ fontFamily: 'Futura-Medium' }}
                     >
-                      {link}
+                      {link.name}
                     </Link>
                   </li>
                 ))}

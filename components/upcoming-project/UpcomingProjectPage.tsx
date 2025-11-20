@@ -4,127 +4,40 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import { UniversalHeader } from '@/components/shared/header/UniversalHeader';
 import UniversalFooter from '@/components/shared/footer/UniversalFooter';
 
 export default function UpcomingProjectPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* First Fold - Hero Section */}
+      {/* Hero Section - Following Completed Projects Layout Structure */}
       <motion.section 
         className="relative overflow-hidden"
-        style={{ height: '100vh' }}
+        style={{ height: '75vh' }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
-        {/* Background Image - using layer 1.jpg as the blue gradient background */}
-        <div className="absolute inset-0">
+        {/* Step Cut Design Layer Only */}
+        <div className="absolute inset-4 rounded-lg overflow-hidden">
           <Image
             src="/images/layer 1.jpg"
-            alt="Blue Gradient Background"
+            alt="Step Cut Design Layer"
             fill
-            className="object-cover"
-            style={{ objectPosition: 'center center' }}
+            className="object-cover object-center"
+            style={{ objectPosition: 'center top' }}
             priority
           />
         </div>
 
-        {/* Header Navigation */}
-        <div className="absolute top-0 left-0 right-0 z-30">
-          <div className="px-8 py-6">
-            <div className="flex items-center justify-between max-w-7xl mx-auto">
-              {/* Logo */}
-              <motion.div 
-                className="flex items-center"
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <Image
-                  src="/images/logo/FFS LOGO DIFFERENCE-02.png"
-                  alt="Fair Field Shelters Logo"
-                  width={158}
-                  height={158}
-                  className="mr-2"
-                />
-              </motion.div>
+        {/* Universal Header */}
+        <UniversalHeader transparent={true} showScheduleButton={true} />
 
-              {/* Navigation Menu */}
-              <motion.nav 
-                className="hidden md:flex items-center space-x-8"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                <Link 
-                  href="/" 
-                  className="text-[16px] text-[#D3AC4A] font-medium hover:text-white transition-colors drop-shadow-lg" 
-                  style={{ fontFamily: 'Alata' }}
-                >
-                  Home
-                </Link>
-                <a 
-                  href="/about-us" 
-                  className="text-[16px] text-white font-medium hover:text-[#D3AC4A] transition-colors drop-shadow-lg" 
-                  style={{ fontFamily: 'Alata' }}
-                >
-                  About us
-                </a>
-                <span 
-                  className="text-[16px] text-white font-medium hover:text-[#D3AC4A] transition-colors drop-shadow-lg cursor-pointer" 
-                  style={{ fontFamily: 'Alata' }}
-                >
-                  Project
-                </span>
-                <a 
-                  href="/blog" 
-                  className="text-[16px] text-white font-medium hover:text-[#D3AC4A] transition-colors drop-shadow-lg" 
-                  style={{ fontFamily: 'Alata' }}
-                >
-                  Blog
-                </a>
-                <a 
-                  href="/careers" 
-                  className="text-[16px] text-white font-medium hover:text-[#D3AC4A] transition-colors drop-shadow-lg" 
-                  style={{ fontFamily: 'Alata' }}
-                >
-                  Careers
-                </a>
-                <a 
-                  href="/contact" 
-                  className="text-[16px] text-white font-medium hover:text-[#D3AC4A] transition-colors drop-shadow-lg" 
-                  style={{ fontFamily: 'Alata' }}
-                >
-                  Contact
-                </a>
-              </motion.nav>
-
-              {/* Schedule a Visit Button */}
-              <motion.div 
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-              >
-                <button 
-                  className="bg-[#D3AC4A] text-[#37405E] px-4 md:px-6 py-2 md:py-3 rounded-lg font-bold text-[14px] md:text-[16px] hover:bg-[#C19B42] transition-colors flex items-center space-x-2 book-visit-button"
-                  style={{ fontFamily: 'Futura-Heavy' }}
-                >
-                  <span className="hidden sm:inline">Schedule a visit</span>
-                  <span className="sm:hidden">Schedule</span>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6L16 12L10 18L8.59 16.59Z"/>
-                  </svg>
-                </button>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-
-        {/* Main Title */}
+        {/* Upcoming Project Title - Centered over building image */}
         <div className="absolute inset-0 flex items-center justify-center z-20">
-          <div className="text-center px-4">
+          <div className="text-center">
             <motion.h1 
-              className="text-[48px] md:text-[64px] font-normal text-white drop-shadow-2xl"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal text-white drop-shadow-2xl px-4"
               style={{ fontFamily: 'DM Serif Display' }}
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -135,24 +48,32 @@ export default function UpcomingProjectPage() {
           </div>
         </div>
 
-        {/* Breadcrumb Bar */}
-        <div className="absolute bottom-0 left-0 right-0 z-20">
+        {/* Cream Breadcrumb Bar - With spacing */}
+        <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 right-2 sm:right-4 z-20">
           <motion.div 
-            className="bg-[#F5F5DC] py-6 px-8"
+            className="bg-[#F5F2E8] py-3 px-4 sm:py-6 sm:px-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.0 }}
           >
-            <div className="max-w-7xl mx-auto">
-              <div className="flex items-center space-x-2 text-[16px] text-[#37405E] font-medium" style={{ fontFamily: 'Futura-Medium' }}>
-                <span>Home</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6L16 12L10 18L8.59 16.59Z"/>
-                </svg>
-                <span>Project</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6L16 12L10 18L8.59 16.59Z"/>
-                </svg>
+            <div className="container mx-auto">
+              <div className="flex items-center space-x-1 sm:space-x-2 text-sm sm:text-[16px] text-[#37405E] font-medium" style={{ fontFamily: 'Futura-Medium' }}>
+                <Link href="/" className="hover:text-[#D3AC4A] transition-colors cursor-pointer">
+                  Home
+                </Link>
+                <img
+                  src="/images/legal & approval page - ff/icon/first fold icon.svg"
+                  alt="Arrow"
+                  className="w-6 h-6 sm:w-8 sm:h-8"
+                />
+                <span className="text-[#37405E]">
+                  Project
+                </span>
+                <img
+                  src="/images/legal & approval page - ff/icon/first fold icon.svg"
+                  alt="Arrow"
+                  className="w-6 h-6 sm:w-8 sm:h-8"
+                />
                 <span>Upcoming project</span>
               </div>
             </div>

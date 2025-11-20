@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { UniversalHeader } from '../shared/header/UniversalHeader';
 import UniversalFooter from '../shared/footer/UniversalFooter';
 import { Timeline } from '@/components/ui/timeline';
@@ -953,6 +954,7 @@ export function HomePage() {
               viewport={{ once: true }}
               className="group relative bg-white rounded-2xl overflow-hidden border border-[#00684F20] shadow-lg hover:shadow-xl transition-all duration-300 p-2"
             >
+              <Link href="/kotagiri-serene-villas" className="block">
               <div className="relative h-48 sm:h-60 lg:h-70 overflow-hidden rounded-md">
                 <img
                   src="/images/home page - ff/images/fifth fold/image 1.png"
@@ -986,6 +988,7 @@ export function HomePage() {
                 <h3 className="text-lg sm:text-xl font-semibold text-[#37405E] mb-2 sm:mb-3" style={{ fontFamily: 'DM Serif Display' }}>Kotagiri Serene Villas</h3>
                 <p className="text-sm sm:text-base text-gray-600" style={{ fontFamily: 'Futura-Medium' }}>Nilgiris</p>
               </div>
+              </Link>
             </motion.div>
 
             {/* Project 2 - Kurinjee Nagar Phase 1 */}
@@ -996,6 +999,7 @@ export function HomePage() {
               viewport={{ once: true }}
               className="group relative bg-white rounded-2xl border border-[#00684F20] overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 p-2"
             >
+              <Link href="/kurinjee-nagar-phase-1" className="block">
               <div className="relative h-48 sm:h-60 lg:h-70 overflow-hidden rounded-md">
                 <img
                   src="/images/home page - ff/images/fifth fold/image 2.png"
@@ -1028,6 +1032,7 @@ export function HomePage() {
                 <h3 className="text-lg sm:text-xl font-semibold text-[#37405E] mb-2 sm:mb-3" style={{ fontFamily: 'DM Serif Display' }}>Kurinjee Nagar Phase 1</h3>
                 <p className="text-sm sm:text-base text-gray-600" style={{ fontFamily: 'Futura-Medium' }}>Vedapatty</p>
               </div>
+              </Link>
             </motion.div>
 
             {/* Project 3 - Kurinjee Nagar Phase 2 */}
@@ -1038,6 +1043,7 @@ export function HomePage() {
               viewport={{ once: true }}
               className="group relative bg-white rounded-2xl border border-[#00684F20] overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 p-2"
             >
+              <Link href="/kurinjee-nagar-phase-2" className="block">
               <div className="relative h-48 sm:h-60 lg:h-70 overflow-hidden rounded-md">
                 <img
                   src="/images/home page - ff/images/fifth fold/image 3.png"
@@ -1070,6 +1076,7 @@ export function HomePage() {
                 <h3 className="text-lg sm:text-xl font-semibold text-[#37405E] mb-2 sm:mb-3" style={{ fontFamily: 'DM Serif Display' }}>Kurinjee Nagar Phase 2</h3>
                 <p className="text-sm sm:text-base text-gray-600" style={{ fontFamily: 'Futura-Medium' }}>Vedapatty</p>
               </div>
+              </Link>
             </motion.div>
           </div>
         </div>

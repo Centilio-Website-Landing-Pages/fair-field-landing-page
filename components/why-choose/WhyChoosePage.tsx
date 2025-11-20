@@ -50,22 +50,22 @@ export function WhyChoosePage() {
         </div>
 
         {/* Cream Breadcrumb Bar - With spacing */}
-        <div className="absolute bottom-4 left-4 right-4 z-20">
+        <div className="absolute bottom-2 sm:bottom-4 left-4 sm:left-4 right-4 sm:right-4 z-20">
           <motion.div 
-            className="bg-[#F5F2E8] py-6 px-8"
+            className="bg-[#F5F2E8] py-3 px-4 sm:py-6 sm:px-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.0 }}
           >
             <div className="container mx-auto">
-              <div className="flex items-center space-x-2 text-[16px] text-[#37405E] font-medium" style={{ fontFamily: 'Futura-Medium' }}>
+              <div className="flex items-center space-x-1 sm:space-x-2 text-sm sm:text-[16px] text-[#37405E] font-medium" style={{ fontFamily: 'Futura-Medium' }}>
                 <Link href="/" className="hover:text-[#D3AC4A] transition-colors cursor-pointer">
                   Home
                 </Link>
                 <img
                   src="/images/about us page - ff/icons/first fold icon.svg"
                   alt="Arrow"
-                  className="w-8 h-8"
+                  className="w-6 h-6 sm:w-8 sm:h-8"
                 />
                 <Link href="/about-us" className="hover:text-[#D3AC4A] transition-colors cursor-pointer">
                   About us
@@ -73,7 +73,7 @@ export function WhyChoosePage() {
                 <img
                   src="/images/about us page - ff/icons/first fold icon.svg"
                   alt="Arrow"
-                  className="w-8 h-8"
+                  className="w-6 h-6 sm:w-8 sm:h-8"
                 />
                 <span>Why choose us</span>
               </div>

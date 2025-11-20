@@ -3,6 +3,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
+import { ShiningText } from '../ui/shining-text'
+import { UniversalHeader } from '../shared/header/UniversalHeader';
 import UniversalFooter from '@/components/shared/footer/UniversalFooter';
 
 const tableOfContents = [
@@ -126,8 +129,8 @@ export function LegalApprovalsPage() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-white">
-      {/* First Fold - Step-shaped Background with Building Image */}
+    <div className="min-h-screen bg-white overflow-x-hidden">
+      {/* Hero Section - First Fold - Following WhyChoose Layout Structure */}
       <motion.section 
         className="relative overflow-hidden"
         style={{ height: '75vh' }}
@@ -136,7 +139,7 @@ export function LegalApprovalsPage() {
         transition={{ duration: 0.8 }}
       >
         {/* Step Cut Design Layer Only */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-4 rounded-lg overflow-hidden">
           <Image
             src="/images/layer 1.jpg"
             alt="Step Cut Design Layer"
@@ -147,82 +150,14 @@ export function LegalApprovalsPage() {
           />
         </div>
 
-        {/* White background area for Schedule button */}
-        <div className="absolute top-0 right-0 z-15">
-          <div 
-            className="bg-white"
-            style={{
-              width: '300px',
-              height: '100px',
-              clipPath: 'polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%)'
-            }}
-          />
-        </div>
-
-        {/* Logo and Navigation Menu - Over building image */}
-        <div className="absolute top-0 left-0 right-0 z-30">
-          <div className="px-8 py-6">
-            <div className="flex items-center justify-between max-w-7xl mx-auto">
-              {/* Logo */}
-              <motion.div 
-                className="flex items-center"
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <Image
-                  src="/images/logo/FFS LOGO DIFFERENCE-02.png"
-                  alt="Fair Field Shelters Logo"
-                  width={80}
-                  height={60}
-                  className="mr-2"
-                />
-              </motion.div>
-
-              {/* Navigation Menu - Over building image with white text */}
-              <motion.nav 
-                className="hidden md:flex items-center space-x-8"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                <span className="text-[16px] text-white font-medium hover:text-[#D3AC4A] transition-colors drop-shadow-lg cursor-pointer" style={{ fontFamily: 'Alata' }}>Home</span>
-                <a href="/about-us" className="text-[16px] text-white font-medium hover:text-[#D3AC4A] transition-colors drop-shadow-lg" style={{ fontFamily: 'Alata' }}>About us</a>
-                <a href="/projects" className="text-[16px] text-[#D3AC4A] font-medium hover:text-white transition-colors drop-shadow-lg" style={{ fontFamily: 'Alata' }}>Project</a>
-                <a href="/blog" className="text-[16px] text-white font-medium hover:text-[#D3AC4A] transition-colors drop-shadow-lg" style={{ fontFamily: 'Alata' }}>Blog</a>
-                <a href="/careers" className="text-[16px] text-white font-medium hover:text-[#D3AC4A] transition-colors drop-shadow-lg" style={{ fontFamily: 'Alata' }}>Careers</a>
-                <a href="/contact" className="text-[16px] text-white font-medium hover:text-[#D3AC4A] transition-colors drop-shadow-lg" style={{ fontFamily: 'Alata' }}>Contact</a>
-              </motion.nav>
-
-              {/* Empty space for button */}
-              <div className="w-48"></div>
-            </div>
-          </div>
-        </div>
-
-        {/* Schedule a Visit Button - Positioned over step-cut area */}
-        <motion.div 
-          className="absolute top-4 right-8 z-40"
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-        >
-          <button 
-            className="bg-[#D3AC4A] text-[#37405E] px-6 py-3 rounded-lg font-bold text-[16px] hover:bg-[#C19B42] transition-colors flex items-center space-x-2"
-            style={{ fontFamily: 'Futura-Heavy' }}
-          >
-            <span>Schedule a visit</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6L16 12L10 18L8.59 16.59Z"/>
-            </svg>
-          </button>
-        </motion.div>
+        {/* Universal Header */}
+        <UniversalHeader transparent={true} showScheduleButton={true} />
 
         {/* Legal & Approvals Title - Centered over building image */}
         <div className="absolute inset-0 flex items-center justify-center z-20">
           <div className="text-center">
             <motion.h1 
-              className="text-[48px] font-normal text-white drop-shadow-2xl"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal text-white drop-shadow-2xl px-4"
               style={{ fontFamily: 'DM Serif Display' }}
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -233,40 +168,52 @@ export function LegalApprovalsPage() {
           </div>
         </div>
 
-        {/* Cream Breadcrumb Bar - Full width at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 z-20">
+        {/* Cream Breadcrumb Bar - With spacing */}
+        <div className="absolute bottom-4 sm:bottom-4 left-4 sm:left-4 right-4 sm:right-4 z-20">
           <motion.div 
-            className="bg-[#F5F2E8] py-6 px-8"
+            className="bg-[#F5F2E8] py-3 px-4 sm:py-6 sm:px-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.0 }}
           >
-            <div className="max-w-7xl mx-auto">
-              <div className="flex items-center space-x-2 text-[16px] text-[#37405E] font-medium" style={{ fontFamily: 'Futura-Medium' }}>
-                <span>Home</span>
-                <span>›</span>
-                <span>Project</span>
-                <span>›</span>
-                <span>Legal & approvals</span>
+            <div className="container mx-auto">
+              <div className="flex items-center space-x-1 sm:space-x-2 text-sm sm:text-[16px] text-[#37405E] font-medium" style={{ fontFamily: 'Futura-Medium' }}>
+                <Link href="/" className="hover:text-[#D3AC4A] transition-colors cursor-pointer">
+                  Home
+                </Link>
+                <img
+                  src="/images/legal & approval page - ff/icon/first fold icon.svg"
+                  alt="Arrow"
+                  className="w-6 h-6 sm:w-8 sm:h-8"
+                />
+                <span className="text-[#37405E]">
+                  Project
+                </span> 
+                <img
+                  src="/images/legal & approval page - ff/icon/first fold icon.svg"
+                  alt="Arrow"
+                  className="w-6 h-6 sm:w-8 sm:h-8"
+                />                               
+                <span>Legal & Approvals</span>
               </div>
-            </div>
+            </div>            
           </motion.div>
         </div>
       </motion.section>
 
       {/* Main Content Section - Second Fold */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 lg:px-8">
-          <div className="grid lg:grid-cols-4 gap-12">
-            {/* Table of Contents - Left Sidebar */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="lg:col-span-1"
-            >
-              <div className="bg-white p-6 sticky top-8">
+      <section className="py-6 sm:py-8 lg:py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="lg:grid lg:grid-cols-14 gap-6 lg:gap-12">
+            {/* Table of Contents - Left Sidebar - Hidden on mobile, sticky on desktop */}
+            <div className="hidden lg:block lg:col-span-4">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+                className="bg-white p-6 sticky top-8"
+              >
                 <h3 className="text-[20px] font-normal text-[#D3AC4A] mb-6" style={{ fontFamily: 'Alata' }}>Table of Content</h3>
                 <nav className="space-y-2">
                   {tableOfContents.map((item) => (
@@ -301,7 +248,7 @@ export function LegalApprovalsPage() {
                 </nav>
                 
                 {/* Navigation Progress Indicator */}
-                <div className="mt-6 pt-4 border-t border-gray-200">
+                {/* <div className="mt-6 pt-4 border-t border-gray-200">
                   <div className="flex items-center justify-between text-xs text-[#37405E]" style={{ fontFamily: 'Alata' }}>
                     <span>Progress</span>
                     <span>{Math.round((activeSection / 6) * 100)}%</span>
@@ -314,12 +261,12 @@ export function LegalApprovalsPage() {
                       transition={{ duration: 0.5, ease: "easeOut" }}
                     />
                   </div>
-                </div>
-              </div>
-            </motion.div>
-
+                </div> */}
+              </motion.div>
+            </div>
+            <div className='lg:col-span-1'></div>
             {/* Main Content - Right Side */}
-            <div className="lg:col-span-3 space-y-16">
+            <div className="lg:col-span-9 space-y-8 lg:space-y-16">
               {/* Header Section */}
               <motion.div
                 id="section-1"
@@ -327,15 +274,12 @@ export function LegalApprovalsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                className="text-center"
               >
-                <h2 className="text-[32px] lg:text-[36px] text-[#37405E] mb-6" style={{ fontFamily: 'DM Serif Display' }}>
-                  Your property is <span className="text-[#D3AC4A]">100% legally clear</span>
-                </h2>
-                <p className="text-[18px] text-[#37405E] font-normal leading-relaxed max-w-3xl mx-auto mb-4" style={{ fontFamily: 'Alata' }}>
+                <ShiningText customStyle="text-xl sm:text-2xl md:text-3xl font-medium font-['DM_Serif_Display'] mb-4 sm:mb-6 lg:mb-8" textLeft={"Your property is "} textRight={"100% legally clear"} />                
+                <p className="text-base sm:text-lg text-[#37405E] font-normal leading-relaxed  mb-4" style={{ fontFamily: 'Alata' }}>
                   Every property purchase. Every plot purchase. Every approval — 100% Verified.
                 </p>
-                <p className="text-[18px] text-[#37405E] font-normal leading-relaxed max-w-3xl mx-auto" style={{ fontFamily: 'Alata' }}>
+                <p className="text-base sm:text-lg text-[#37405E] font-normal leading-relaxed max-w-3xl" style={{ fontFamily: 'Alata' }}>
                   Fair property is on Good Projects that ensure legal clarity; that means in the title 
                   Every property we develop is fully approved, legally verified, and bank loan-eligible, giving 
                   every buyer total peace of mind.
@@ -351,14 +295,11 @@ export function LegalApprovalsPage() {
                 viewport={{ once: true }}
                 className="space-y-8"
               >
-                <h3 className="text-[24px] lg:text-[28px] text-[#37405E] mb-6" style={{ fontFamily: 'DM Serif Display' }}>
-                  Project-Wise approvals
-                </h3>
-                
+                <ShiningText customStyle="text-xl sm:text-2xl md:text-3xl font-medium font-['DM_Serif_Display'] mb-4 sm:mb-6 lg:mb-8" textLeft={"Project-Wise approvals"} textRight={""} />                
                 {projects.map((project, index) => (
                   <div key={index} className="space-y-4">
-                    <h4 className="text-[20px] font-normal text-[#D3AC4A] mb-3" style={{ fontFamily: 'DM Serif Display' }}>
-                      {project.name} – <span className="text-[#37405E]">{project.location}</span>
+                    <h4 className="text-lg sm:text-xl md:text-2xl font-normal text-[#37405E] mb-3" style={{ fontFamily: 'DM Serif Display' }}>
+                      {project.name} – <span className=" text-[#D3AC4A]">{project.location}</span>
                     </h4>
                     <ul className="space-y-3">
                       {project.details.map((detail, idx) => (
@@ -381,22 +322,21 @@ export function LegalApprovalsPage() {
                 viewport={{ once: true }}
                 className="space-y-8"
               >
-                <h3 className="text-[24px] lg:text-[28px] text-[#37405E] mb-4" style={{ fontFamily: 'DM Serif Display' }}>
-                  Our legal <span className="text-[#D3AC4A]">transparency promise</span>
-                </h3>
+                <ShiningText customStyle="text-xl sm:text-2xl md:text-3xl font-medium font-['DM_Serif_Display'] mb-4 sm:mb-6 lg:mb-8" textLeft={"Our legal"} textRight={" transparency promise"} />                                
                 <p className="text-[#37405E] font-normal text-[18px] mb-6" style={{ fontFamily: 'Alata' }}>
                   Before any project is launched for sale, we ensure:
                 </p>
                 
                 <div className="space-y-6">
                   {legalPromises.map((promise, index) => (
-                    <div key={index} className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-6 h-6 bg-[#D3AC4A] rounded-full flex items-center justify-center text-white font-bold text-xs">
-                        {index + 1}
+                    <div key={index} className="flex items-start gap-1">
+                      <div className="flex-shrink-0 text-[#37405E] font-bold text-base">
+                        {index + 1}.
                       </div>
                       <div>
-                        <h5 className="font-medium text-[#37405E] mb-1 text-[16px]" style={{ fontFamily: 'Alata' }}>{promise.title}:</h5>
-                        <p className="text-[#37405E] font-normal text-[16px]" style={{ fontFamily: 'Alata' }}>{promise.description}</p>
+
+                        <span className="font-bold text-[#37405E] mb-1 text-[16px]" style={{ fontFamily: 'Alata' }}>{promise.title} - </span>
+                        <span className="text-[#37405E] font-normal text-[16px]" style={{ fontFamily: 'Alata' }}>{promise.description}</span>
                       </div>
                     </div>
                   ))}
@@ -412,9 +352,7 @@ export function LegalApprovalsPage() {
                 viewport={{ once: true }}
                 className="space-y-8"
               >
-                <h3 className="text-[24px] lg:text-[28px] text-[#37405E] mb-4" style={{ fontFamily: 'DM Serif Display' }}>
-                  Loan & Registration <span className="text-[#D3AC4A]">support</span>
-                </h3>
+                <ShiningText customStyle="text-xl sm:text-2xl md:text-3xl font-medium font-['DM_Serif_Display'] mb-4 sm:mb-6 lg:mb-8" textLeft={"Loan & Registration"} textRight={"support "} />                                
                 <p className="text-[#37405E] font-normal text-[18px] mb-6" style={{ fontFamily: 'Alata' }}>
                   Our team provides professional guidance with your property purchase:
                 </p>
@@ -438,16 +376,14 @@ export function LegalApprovalsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
                 viewport={{ once: true }}
-                className="bg-gray-50 rounded-2xl p-8"
+                className=""
               >
-                <h3 className="text-[24px] lg:text-[28px] text-[#37405E] mb-6" style={{ fontFamily: 'DM Serif Display' }}>
-                  Legal Consultant&apos;s statement
-                </h3>
-                <blockquote className="text-[18px] text-[#37405E] font-normal leading-relaxed italic mb-6" style={{ fontFamily: 'Alata' }}>
+                <ShiningText customStyle="text-xl sm:text-2xl md:text-3xl font-medium font-['DM_Serif_Display'] mb-4 sm:mb-6 lg:mb-8" textLeft={"Legal Consultant's statement"} textRight={""} />                                
+                <p className="text-[18px] text-[#37405E] font-normal leading-relaxed mb-6" style={{ fontFamily: 'Alata' }}>
                   &ldquo;All Fair Field Shelters projects undergo strict legal scrutiny for title, approval and compliance being 
                   sales begin. Each layout follows DTCP and RERA norms, ensuring that every buyer gets a safe, 
                   clear and immediately transferable property.&rdquo;
-                </blockquote>
+                </p>
                 <p className="text-right text-[#37405E] font-normal text-[16px]" style={{ fontFamily: 'Alata' }}>
                   &mdash; Legal, Adv. Jeyaraj
                 </p>
@@ -462,10 +398,7 @@ export function LegalApprovalsPage() {
                 viewport={{ once: true }}
                 className="space-y-8"
               >
-                <h3 className="text-[24px] lg:text-[28px] text-[#37405E] mb-6" style={{ fontFamily: 'DM Serif Display' }}>
-                  Our <span className="text-[#D3AC4A]">Commitment to compliance</span>
-                </h3>
-                
+                <ShiningText customStyle="text-xl sm:text-2xl md:text-3xl font-medium font-['DM_Serif_Display'] mb-4 sm:mb-6 lg:mb-8" textLeft={" Our Commitment "} textRight={"to compliance"} />                                
                 <div className="space-y-4">
                   {commitments.map((commitment, index) => (
                     <div key={index} className="flex items-start gap-3">
@@ -482,6 +415,6 @@ export function LegalApprovalsPage() {
 
       {/* Footer */}
       <UniversalFooter />
-    </main>
+    </div>
   );
 }

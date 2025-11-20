@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
+import { UniversalHeader } from '@/components/shared/header/UniversalHeader';
 import UniversalFooter from '@/components/shared/footer/UniversalFooter';
 
 export default function CurrentProject2Page() {
@@ -186,8 +188,8 @@ export default function CurrentProject2Page() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
-        {/* Step Cut Design Layer Only */}
-        <div className="absolute inset-0">
+        {/* Step Cut Design Layer */}
+        <div className="absolute inset-2 sm:inset-4 rounded-lg overflow-hidden">
           <Image
             src="/images/layer 1.jpg"
             alt="Step Cut Design Layer"
@@ -198,71 +200,14 @@ export default function CurrentProject2Page() {
           />
         </div>
 
-        {/* Logo and Navigation Menu - Over building image */}
-        <div className="absolute top-0 left-0 right-0 z-30">
-          <div className="px-8 py-6">
-            <div className="flex items-center justify-between max-w-7xl mx-auto">
-              {/* Logo */}
-              <motion.div 
-                className="flex items-center"
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <Image
-                  src="/images/logo/FFS LOGO DIFFERENCE-02.png"
-                  alt="Fair Field Shelters Logo"
-                  width={80}
-                  height={60}
-                  className="mr-2"
-                />
-              </motion.div>
+        {/* Universal Header */}
+        <UniversalHeader transparent={true} showScheduleButton={true} />
 
-              {/* Navigation Menu - Over building image with white text */}
-              <motion.nav 
-                className="hidden md:flex items-center space-x-8"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                <a href="/" className="text-[16px] text-[#D3AC4A] font-medium hover:text-white transition-colors drop-shadow-lg" style={{ fontFamily: 'Alata' }}>Home</a>
-                <a href="/about-us" className="text-[16px] text-white font-medium hover:text-[#D3AC4A] transition-colors drop-shadow-lg" style={{ fontFamily: 'Alata' }}>About us</a>
-                <span className="text-[16px] text-white font-medium hover:text-[#D3AC4A] transition-colors drop-shadow-lg cursor-pointer" style={{ fontFamily: 'Alata' }}>Project</span>
-                <a href="/blog" className="text-[16px] text-white font-medium hover:text-[#D3AC4A] transition-colors drop-shadow-lg" style={{ fontFamily: 'Alata' }}>Blog</a>
-                <a href="/careers" className="text-[16px] text-white font-medium hover:text-[#D3AC4A] transition-colors drop-shadow-lg" style={{ fontFamily: 'Alata' }}>Careers</a>
-                <a href="/contact" className="text-[16px] text-white font-medium hover:text-[#D3AC4A] transition-colors drop-shadow-lg" style={{ fontFamily: 'Alata' }}>Contact</a>
-              </motion.nav>
-
-              {/* Empty space for button */}
-              <div className="w-48"></div>
-            </div>
-          </div>
-        </div>
-
-        {/* Schedule a Visit Button - Positioned over step-cut area */}
-        <motion.div 
-          className="absolute top-4 right-4 md:right-8 z-40"
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-        >
-          <button 
-            className="bg-[#D3AC4A] text-[#37405E] px-4 md:px-6 py-2 md:py-3 rounded-lg font-bold text-[14px] md:text-[16px] hover:bg-[#C19B42] transition-colors flex items-center space-x-2 book-visit-button"
-            style={{ fontFamily: 'Futura-Heavy' }}
-          >
-            <span className="hidden sm:inline">Schedule a visit</span>
-            <span className="sm:hidden">Schedule</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6L16 12L10 18L8.59 16.59Z"/>
-            </svg>
-          </button>
-        </motion.div>
-
-        {/* Our Current Projects Title - Centered over building image */}
+        {/* Title - Centered over building image */}
         <div className="absolute inset-0 flex items-center justify-center z-20">
-          <div className="text-center px-4">
+          <div className="text-center">
             <motion.h1 
-              className="text-[32px] md:text-[48px] font-normal text-white drop-shadow-2xl"
+              className="text-3xl sm:text-4xl lg:text-5xl font-normal text-white drop-shadow-2xl"
               style={{ fontFamily: 'DM Serif Display' }}
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -273,22 +218,40 @@ export default function CurrentProject2Page() {
           </div>
         </div>
 
-        {/* Cream Breadcrumb Bar - Absolutely positioned at bottom with no gap */}
-        <div className="absolute bottom-0 left-0 right-0 z-20">
+        {/* Cream Breadcrumb Bar */}
+        <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 right-2 sm:right-4 z-20">
           <motion.div 
-            className="bg-[#F5F2E8] py-6 px-8"
+            className="bg-[#F5F2E8] py-3 px-4 sm:py-6 sm:px-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.0 }}
           >
-            <div className="max-w-7xl mx-auto">
-              <div className="flex items-center space-x-2 text-[16px] text-[#37405E] font-medium" style={{ fontFamily: 'Futura-Medium' }}>
-                <span>Home</span>
-                <span>›</span>
-                <span>Project</span>
-                <span>›</span>
-                <span>Our Current Projects</span>
-                <span>›</span>
+            <div className="container mx-auto">
+              <div className="flex items-center space-x-1 sm:space-x-2 text-sm sm:text-[16px] text-[#37405E] font-medium" style={{ fontFamily: 'Futura-Medium' }}>
+                <Link href="/" className="hover:text-[#D3AC4A] transition-colors cursor-pointer">
+                  Home
+                </Link>
+                <img
+                  src="/images/current project page - ff/icons/first fold icon.svg"
+                  alt="Arrow"
+                  className="w-6 h-6 sm:w-8 sm:h-8"
+                />
+                <span className="text-[#37405E]">
+                  Project
+                </span>
+                <img
+                  src="/images/current project page - ff/icons/first fold icon.svg"
+                  alt="Arrow"
+                  className="w-6 h-6 sm:w-8 sm:h-8"
+                />
+                <Link href="/current-projects" className="hover:text-[#D3AC4A] transition-colors cursor-pointer">
+                  Our Current Projects
+                </Link>
+                <img
+                  src="/images/current project page - ff/icons/first fold icon.svg"
+                  alt="Arrow"
+                  className="w-6 h-6 sm:w-8 sm:h-8"
+                />
                 <span>Vaagai</span>
               </div>
             </div>
@@ -297,62 +260,62 @@ export default function CurrentProject2Page() {
       </motion.section>
 
       {/* Second Fold - Project Details */}
-      <section className="py-12 md:py-20 bg-white">
+      <section className="py-10 lg:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           {/* Project Title */}
           <motion.div
-            className="mb-8 md:mb-12"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
+            className="mb-6 lg:mb-16"
           >
-            <h2 
-              className="text-[28px] md:text-[32px] lg:text-[40px] font-normal"
-              style={{ fontFamily: 'DM Serif Display' }}
-            >
-              <span className="text-[#37405E]">Vaagai – </span>
-              <span className="text-[#D3AC4A]">Telungupalayam, Coimbatore</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl lg:mb-8 font-normal text-[#37405E] mb-2" style={{ fontFamily: 'DM Serif Display' }}>
+              Vaagai – <span className="text-[#D3AC4A]">Telungupalayam, Coimbatore</span>
             </h2>
           </motion.div>
 
-          {/* Images Section - Two Column Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-8">
-            {/* Left Side - Image Carousel */}
-            <motion.div 
-              className="space-y-6"
-              initial={{ opacity: 0, x: -50 }}
+          <div className="lg:flex gap-4 lg:gap-12 space-y-12 lg:space-y-0">
+            {/* Left Side - Main Project Image Carousel */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
+              className='lg:w-3/5'
             >
-              <div className="relative">
-                <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden">
-                  <Image
-                    src={projectImages[currentImageIndex]}
-                    alt={`Vaagai Project - View ${currentImageIndex + 1}`}
-                    fill
-                    className="object-cover object-center"
-                  />
-                </div>
+              <div className="relative h-[400px] rounded-lg overflow-hidden group">
+                {/* Main Image */}
+                <Image
+                  src={projectImages[currentImageIndex]}
+                  alt="Vaagai Project"
+                  fill
+                  className="object-cover transition-opacity duration-300"
+                />
                 
                 {/* Navigation Arrows */}
                 <button
                   onClick={prevImage}
-                  className="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-[#D3AC4A] rounded-full shadow-lg flex items-center justify-center hover:bg-[#C19B42] transition-colors"
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 p-2 opacity-50 group-hover:opacity-100 transition-all duration-300"
                 >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="m15 18-6-6 6-6"/>
-                  </svg>
+                  <Image
+                    src="/images/current project page - ff/Anicham/icons/second fold/left Vector.svg"
+                    alt="Previous"
+                    width={40}
+                    height={40}
+                  />
                 </button>
                 
                 <button
                   onClick={nextImage}
-                  className="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-[#D3AC4A] rounded-full shadow-lg flex items-center justify-center hover:bg-[#C19B42] transition-colors"
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 p-2 opacity-50 group-hover:opacity-100 transition-all duration-300"
                 >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="m9 18 6-6-6-6"/>
-                  </svg>
+                  <Image
+                    src="/images/current project page - ff/Anicham/icons/second fold/right Vector.svg"
+                    alt="Next"
+                    width={40}
+                    height={40}
+                  />
                 </button>
                 
                 {/* Dots Indicator */}
@@ -370,16 +333,16 @@ export default function CurrentProject2Page() {
               </div>
             </motion.div>
 
-            {/* Right Side - Location Map - Interactive Google Maps */}
+            {/* Right Side - Location Map - Exact Reference Design */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="space-y-6"
+              className="space-y-6 lg:w-2/5"
             >
-              <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden bg-[#8B7B6E]">
-                {/* Embed Google Maps using iframe for Vaagai location */}
+              <div className="relative h-[400px] rounded-lg overflow-hidden bg-[#8B7B6E]">
+                {/* Embed Google Maps using iframe */}
                 <iframe
                   src="https://maps.google.com/maps?q=Telungupalayam,Coimbatore,Tamil+Nadu&t=&z=15&ie=UTF8&iwloc=&output=embed"
                   width="100%"
@@ -390,247 +353,209 @@ export default function CurrentProject2Page() {
                   referrerPolicy="no-referrer-when-downgrade"
                   className="absolute inset-0"
                 />
-                
-                {/* Red Location Marker - Custom overlay to show exact project location */}
-                <div className="absolute top-[60%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-                  <div className="relative">
-                    <div className="w-6 h-6 bg-[#E53E3E] rounded-full border-2 border-white shadow-lg relative z-10">
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-2 h-2 bg-white rounded-full"></div>
-                      </div>
-                    </div>
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 -translate-y-1 w-0 h-0 border-l-[3px] border-r-[3px] border-t-[4px] border-l-transparent border-r-transparent border-t-[#E53E3E]"></div>
-                  </div>
-                </div>
-
-                {/* Location Info Card - Bottom Right with yellow accent and proper location icon */}
-                <div className="absolute bottom-4 right-4 bg-white rounded-lg p-3 shadow-lg max-w-[200px] z-20">
-                  <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 bg-[#D3AC4A] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M23.9858 23.1562L21.642 11.8594C21.6096 11.7006 21.5233 11.558 21.3979 11.4555C21.2724 11.353 21.1154 11.297 20.9534 11.2969H20.2033C19.5644 12.8241 18.5725 14.6086 17.2159 16.6758C15.4374 19.3861 13.658 21.6155 13.583 21.7087C13.3854 21.9555 13.1348 22.1546 12.8499 22.2914C12.5649 22.4282 12.2528 22.4993 11.9367 22.4993C11.6206 22.4993 11.3085 22.4282 11.0236 22.2914C10.7386 22.1546 10.4881 21.9555 10.2904 21.7087C10.215 21.615 8.43553 19.3847 6.65704 16.6744C5.30232 14.6086 4.31229 12.8241 3.67149 11.2969H3.04663C2.88462 11.297 2.7276 11.353 2.60212 11.4555C2.47665 11.558 2.39042 11.7006 2.35802 11.8594L0.0142064 23.1562C-0.00664145 23.2584 -0.00452043 23.3639 0.0204159 23.4651C0.0453523 23.5663 0.0924801 23.6607 0.158388 23.7414C0.224296 23.8222 0.307335 23.8873 0.401495 23.932C0.495655 23.9767 0.59858 24 0.702819 24H23.2972C23.4014 24 23.5043 23.9767 23.5985 23.932C23.6927 23.8873 23.7757 23.8222 23.8416 23.7414C23.9075 23.6607 23.9546 23.5663 23.9796 23.4651C24.0045 23.3639 24.0066 23.2584 23.9858 23.1562Z" fill="white"/>
-                        <path d="M11.9381 10.3125C13.362 10.3125 14.5163 9.15823 14.5163 7.73438C14.5163 6.31052 13.362 5.15625 11.9381 5.15625C10.5142 5.15625 9.35993 6.31052 9.35993 7.73438C9.35993 9.15823 10.5142 10.3125 11.9381 10.3125Z" fill="white"/>
-                        <path d="M11.3906 20.8303C11.4565 20.9125 11.54 20.9789 11.635 21.0245C11.7299 21.0701 11.8339 21.0937 11.9393 21.0937C12.0446 21.0937 12.1486 21.0701 12.2436 21.0245C12.3386 20.9789 12.4221 20.9125 12.488 20.8303C12.5058 20.8083 14.2871 18.5803 16.0426 15.9047C18.452 12.233 19.6736 9.48281 19.6736 7.73438C19.6736 3.46875 16.2048 0 11.9391 0C7.67332 0 4.20448 3.46875 4.20448 7.73438C4.20448 9.48422 5.42607 12.2344 7.83551 15.9047C9.59056 18.5803 11.3719 20.8083 11.3906 20.8303ZM11.9381 3.75C12.7262 3.75 13.4965 3.98368 14.1518 4.42149C14.807 4.8593 15.3177 5.48157 15.6193 6.20962C15.9209 6.93767 15.9998 7.73879 15.846 8.51169C15.6923 9.28458 15.3128 9.99453 14.7556 10.5518C14.1983 11.109 13.4884 11.4885 12.7155 11.6422C11.9425 11.7959 11.1414 11.717 10.4133 11.4155C9.68526 11.1139 9.06297 10.6032 8.62515 9.94798C8.18733 9.29275 7.95364 8.52241 7.95364 7.73438C7.95488 6.67803 8.37507 5.66531 9.12204 4.91837C9.86901 4.17142 10.8818 3.75124 11.9381 3.75Z" fill="white"/>
-                      </svg>
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="font-bold text-[#37405E] text-sm leading-tight" style={{ fontFamily: 'Futura-Heavy' }}>
-                        Vaagai
-                      </h4>
-                      <p className="text-[#37405E] font-medium text-xs leading-tight mt-1" style={{ fontFamily: 'Futura-Medium' }}>
-                        Telungupalayam, Coimbatore
-                      </p>
-                    </div>
-                  </div>
-                </div>
               </div>
             </motion.div>
           </div>
 
-          {/* Project Description - Full Width */}
+          {/* Project Description */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mb-8"
+            className="mt-16 text-left"
           >
-            <div className="space-y-4">
-              <h3 className="text-[22px] md:text-[24px] font-medium text-[#37405E]" style={{ fontFamily: 'Futura-Medium' }}>
-                DTCP approved premium layout in a fast growing neighbourhood
-              </h3>
-              <p className="text-[18px] md:text-[20px] text-gray-700 leading-relaxed" style={{ fontFamily: 'Futura-Medium' }}>
-                Located at No. 28, Subramaniya Udaiyar Street, Telungupalayam, Vaagai is a 2.3-acre premium layout offering excellent connectivity to Perur, Palakkad Bypass and Coimbatore Airport. Enjoy peaceful surroundings with city access in under 20 minutes, ideal for both families and investors.
-              </p>
-            </div>
+            <h3 className="text-[24px] font-normal text-[#37405E] mb-4" style={{ fontFamily: 'DM Serif Display' }}>
+              DTCP approved premium layout in a fast growing neighbourhood
+            </h3>
+            <p className="text-[#37405E] font-medium text-lg leading-relaxed" style={{ fontFamily: 'Futura-Medium' }}>
+              Located at No. 28, Subramaniya Udaiyar Street, Telungupalayam, Vaagai is a 2.3-acre premium layout offering excellent connectivity to Perur, Palakkad Bypass and Coimbatore Airport. Enjoy peaceful surroundings with city access in under 20 minutes, ideal for both families and investors.
+            </p>
           </motion.div>
 
-          {/* Dashed Separator Line */}
-          <div className="w-full border-t-2 border-dashed border-gray-300 mb-8"></div>
+          {/* Dotted Line Separator - From image position to end of map */}
+          <div className="mt-12 mb-8">
+            <div className="w-full border-t-2 border-dotted border-[#D1D1D1]"></div>
+          </div>
 
-          {/* Pricing & Units and Project Type - Two Columns */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
-          >
-            <div className="bg-[#F5F2E8] p-6 rounded-lg">
-              <h4 className="text-[18px] md:text-[20px] font-medium text-[#37405E] mb-4" style={{ fontFamily: 'Futura-Medium' }}>
+          {/* Pricing & Units and Project Type */}
+          <div className="grid md:grid-cols-2 gap-8 mt-8">
+            {/* Pricing & Units */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="bg-[#D3AC4A1A] rounded-lg p-8 lg:py-12"
+            >
+              <h4 className="text-[20px] font-bold text-[#37405E] mb-6" style={{ fontFamily: 'DM Serif Display' }}>
                 Pricing & Units
               </h4>
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3">
-                  <div className="w-7 h-7 bg-[#D3AC4A] rounded-full flex items-center justify-center">
-                    <Image
-                      src="/images/current project page - ff/vaagai/icons/second fold icon/project unit group/Vector 1.svg"
-                      alt="Land Price Icon"
-                      width={14}
-                      height={14}
-                      className="brightness-0 invert"
-                    />
-                  </div>
-                  <span className="text-[16px] md:text-[18px] text-[#37405E]" style={{ fontFamily: 'Futura-Medium' }}>
+              <div className="space-y-6">
+                <div className="flex items-center gap-3">
+                  <Image
+                    src="/images/current project page - ff/vaagai/icons/second fold icon/project unit group/Vector 1.svg"
+                    alt="Land Price"
+                    width={20}
+                    height={20}
+                  />
+                  <span className="text-[#37405E] font-medium" style={{ fontFamily: 'Futura-Medium' }}>
                     <strong>Land Price:</strong> ₹21 Lakhs per Cent
                   </span>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-7 h-7 bg-[#D3AC4A] rounded-full flex items-center justify-center">
-                    <Image
-                      src="/images/current project page - ff/vaagai/icons/second fold icon/project unit group/Vector 2.svg"
-                      alt="Project Size Icon"
-                      width={14}
-                      height={14}
-                      className="brightness-0 invert"
-                    />
-                  </div>
-                  <span className="text-[16px] md:text-[18px] text-[#37405E]" style={{ fontFamily: 'Futura-Medium' }}>
-                    <strong>Project Size:</strong> 2.3 Acres | Total Units: 49
+                <div className="flex items-center gap-3">
+                  <Image
+                    src="/images/current project page - ff/vaagai/icons/second fold icon/project unit group/Vector 2.svg"
+                    alt="Project Size"
+                    width={20}
+                    height={20}
+                  />
+                  <span className="text-[#37405E] font-medium" style={{ fontFamily: 'Futura-Medium' }}>
+                    <strong>Project Size:</strong> 2.3 Acres | <strong>Total Units:</strong> 49
                   </span>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-7 h-7 bg-[#D3AC4A] rounded-full flex items-center justify-center">
-                    <Image
-                      src="/images/current project page - ff/vaagai/icons/second fold icon/project unit group/Vector 3.svg"
-                      alt="Completion Date Icon"
-                      width={14}
-                      height={14}
-                      className="brightness-0 invert"
-                    />
-                  </div>
-                  <span className="text-[16px] md:text-[18px] text-[#37405E]" style={{ fontFamily: 'Futura-Medium' }}>
+                <div className="flex items-center gap-3">
+                  <Image
+                    src="/images/current project page - ff/vaagai/icons/second fold icon/project unit group/Vector 3.svg"
+                    alt="Completion Date"
+                    width={20}
+                    height={20}
+                  />
+                  <span className="text-[#37405E] font-medium" style={{ fontFamily: 'Futura-Medium' }}>
                     <strong>Completion Date:</strong> December 2025
                   </span>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="bg-[#F5F2E8] p-6 rounded-lg">
-              <h4 className="text-[18px] md:text-[20px] font-medium text-[#37405E] mb-4" style={{ fontFamily: 'Futura-Medium' }}>
+            {/* Project Type - Yellow Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="bg-[#D3AC4A1A] rounded-lg p-8 lg:py-12"
+            >
+              <h4 className="text-[20px] font-bold text-[#37405E] mb-6" style={{ fontFamily: 'DM Serif Display' }}>
                 Project Type
               </h4>
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3">
-                  <div className="w-7 h-7 bg-[#D3AC4A] rounded-full flex items-center justify-center">
-                    <Image
-                      src="/images/current project page - ff/vaagai/icons/second fold icon/project unit group/tick vector - fifth fold.svg"
-                      alt="Checkmark"
-                      width={14}
-                      height={14}
-                      className="brightness-0 invert"
-                    />
-                  </div>
-                  <span className="text-[16px] md:text-[18px] text-[#37405E]" style={{ fontFamily: 'Futura-Medium' }}>
+              <div className="space-y-6">
+                <div className="flex items-center gap-3">
+                  <Image
+                    src="/images/current project page - ff/vaagai/icons/second fold icon/project unit group/tick vector - fifth fold.svg"
+                    alt="Check"
+                    width={20}
+                    height={20}
+                  />
+                  <span className="text-[#37405E] font-medium" style={{ fontFamily: 'Futura-Medium' }}>
                     DTCP approved premium layout
                   </span>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-7 h-7 bg-[#D3AC4A] rounded-full flex items-center justify-center">
-                    <Image
-                      src="/images/current project page - ff/vaagai/icons/second fold icon/project unit group/tick vector - fifth fold.svg"
-                      alt="Checkmark"
-                      width={14}
-                      height={14}
-                      className="brightness-0 invert"
-                    />
-                  </div>
-                  <span className="text-[16px] md:text-[18px] text-[#37405E]" style={{ fontFamily: 'Futura-Medium' }}>
+                <div className="flex items-center gap-3">
+                  <Image
+                    src="/images/current project page - ff/vaagai/icons/second fold icon/project unit group/tick vector - fifth fold.svg"
+                    alt="Check"
+                    width={20}
+                    height={20}
+                  />
+                  <span className="text-[#37405E] font-medium" style={{ fontFamily: 'Futura-Medium' }}>
                     Developed Residential Plots
                   </span>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-7 h-7 bg-[#D3AC4A] rounded-full flex items-center justify-center">
-                    <Image
-                      src="/images/current project page - ff/vaagai/icons/second fold icon/project unit group/tick vector - fifth fold.svg"
-                      alt="Checkmark"
-                      width={14}
-                      height={14}
-                      className="brightness-0 invert"
-                    />
-                  </div>
-                  <span className="text-[16px] md:text-[18px] text-[#37405E]" style={{ fontFamily: 'Futura-Medium' }}>
+                <div className="flex items-center gap-3">
+                  <Image
+                    src="/images/current project page - ff/vaagai/icons/second fold icon/project unit group/tick vector - fifth fold.svg"
+                    alt="Check"
+                    width={20}
+                    height={20}
+                  />
+                  <span className="text-[#37405E] font-medium" style={{ fontFamily: 'Futura-Medium' }}>
                     Ready for Registration & Construction
                   </span>
                 </div>
               </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Third Fold - Key Features & Benefits */}
+      <section className="py-6 lg:py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-4 lg:mb-16"
+          >
+            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal text-[#37405E] mb-4" style={{ fontFamily: 'DM Serif Display' }}>
+              Key Features & <span className="bg-gradient-to-r from-[#5764B3] to-[#8B7ED8] bg-clip-text text-transparent">Benefits</span>
+            </h3>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-md overflow-hidden shadow-lg"
+          >
+            <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-[#D3AC4A] scrollbar-track-gray-100">
+              <table className="w-full border-collapse min-w-[640px]">
+                <thead>
+                  <tr className="bg-[#37405E] text-white">
+                    <th className="px-4 sm:px-6 lg:px-8 py-4 sm:py-6 text-center text-sm sm:text-base lg:text-lg font-bold border-r border-white/20" style={{ fontFamily: 'Futura-Heavy' }}>Feature</th>
+                    <th className="px-4 sm:px-6 lg:px-8 py-4 sm:py-6 text-center text-sm sm:text-base lg:text-lg font-bold border-r border-white/20" style={{ fontFamily: 'Futura-Heavy' }}>Benefit</th>
+                    <th className="px-4 sm:px-6 lg:px-8 py-4 sm:py-6 text-center text-sm sm:text-base lg:text-lg font-bold" style={{ fontFamily: 'Futura-Heavy' }}>Advantage</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {featuresData.map((row, index) => (
+                    <motion.tr
+                      key={index}
+                      initial={{ opacity: 0, x: -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                      className={`border-b border-gray-200 transition-colors ${
+                        index % 2 === 0 ? 'bg-white' : 'bg-gray-50'
+                      }`}
+                    >
+                      <td className="px-4 sm:px-6 lg:px-8 py-4 sm:py-6 text-[#37405E] font-medium text-sm sm:text-base text-center border-r border-gray-200" style={{ fontFamily: 'Futura-Medium' }}>
+                        {row.feature}
+                      </td>
+                      <td className="px-4 sm:px-6 lg:px-8 py-4 sm:py-6 text-[#37405E] font-medium text-sm sm:text-base text-center border-r border-gray-200" style={{ fontFamily: 'Futura-Medium' }}>
+                        {row.benefit}
+                      </td>
+                      <td className="px-4 sm:px-6 lg:px-8 py-4 sm:py-6 text-[#37405E] font-medium text-sm sm:text-base text-center" style={{ fontFamily: 'Futura-Medium' }}>
+                        {row.advantage}
+                      </td>
+                    </motion.tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Third Fold - Key Features & Benefits */}
-      <section className="py-12 md:py-20 bg-gray-50">
+      {/* Amenities Section */}
+      <section className="pt-10 lg:pt-20 bg-gradient-to-b from-[#37405E] to-[#2A2F45] relative overflow-hidden rounded-3xl">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-0 lg:mb-16"
           >
-            <h2 className="text-[32px] md:text-[40px] font-normal bg-gradient-to-br from-[#37405E] to-[#7285C4] bg-clip-text text-transparent" style={{ fontFamily: 'DM Serif Display' }}>
-              Key Features & Benefits
-            </h2>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal" style={{ fontFamily: 'DM Serif Display' }}>
+              <span className="bg-gradient-to-r from-[#D3AC4A] to-[#F5D76E] bg-clip-text text-transparent">Amenities</span>
+            </h3>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="overflow-x-auto"
-          >
-            <table className="w-full bg-white rounded-lg shadow-sm overflow-hidden border border-gray-300">
-              <thead>
-                <tr className="bg-[#37405E] text-white">
-                  <th className="px-8 py-6 text-center text-[18px] font-medium border-r border-gray-400" style={{ fontFamily: 'Futura-Medium' }}>
-                    Feature
-                  </th>
-                  <th className="px-8 py-6 text-center text-[18px] font-medium border-r border-gray-400" style={{ fontFamily: 'Futura-Medium' }}>
-                    Benefit
-                  </th>
-                  <th className="px-8 py-6 text-center text-[18px] font-medium" style={{ fontFamily: 'Futura-Medium' }}>
-                    Advantage
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {featuresData.map((row, index) => (
-                  <tr key={index} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
-                    <td className="px-8 py-6 text-[16px] text-[#37405E] border-r border-b border-gray-300 text-center" style={{ fontFamily: 'Futura-Medium' }}>
-                      {row.feature}
-                    </td>
-                    <td className="px-8 py-6 text-[16px] text-[#37405E] border-r border-b border-gray-300 text-center" style={{ fontFamily: 'Futura-Medium' }}>
-                      {row.benefit}
-                    </td>
-                    <td className="px-8 py-6 text-[16px] text-[#37405E] border-b border-gray-300 text-center" style={{ fontFamily: 'Futura-Medium' }}>
-                      {row.advantage}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Fourth Fold - Amenities */}
-      <section className="py-12 md:py-20 bg-[#37405E]">
-        <div className="max-w-7xl mx-auto px-4 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-[32px] md:text-[40px] font-normal bg-gradient-to-r from-white via-white to-[#D3AC4A] bg-clip-text text-transparent" style={{ fontFamily: 'DM Serif Display', backgroundImage: 'linear-gradient(to right, #FFFFFF 19.23%, #D3AC4A 79.81%)' }}>
-              Amenities
-            </h2>
-          </motion.div>
-
-          <div className="relative min-h-[600px] flex items-center justify-center">
+          <div className="relative h-[250px] sm:h-[400px] lg:h-[500px] flex items-center justify-center">
             {/* Use the complete SVG design with overlaid house image and text labels */}
             <motion.div 
               className="relative w-full max-w-4xl"
@@ -642,202 +567,219 @@ export default function CurrentProject2Page() {
               {/* Background SVG with amenity circles */}
               <Image
                 src="/images/current project page - ff/vaagai/icons/fourth fold/fourth fold Vector-vaagai.svg"
-                alt="Amenities Layout"
+                alt="Amenities Background"
                 width={1314}
                 height={729}
                 className="object-contain w-full h-auto"
               />
 
-              {/* House Image positioned in the center area between Tar Roads and CCTV Coverage */}
-              <div className="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 z-10">
-                <div className="relative w-[380px] h-[260px] md:w-[450px] md:h-[320px]">
+              {/* House Image positioned in the center area */}
+              <div className="absolute -bottom-18 sm:bottom-0 md:bottom-10 lg:-bottom-20 left-[50%] transform -translate-x-1/2  z-10">
+                <div className="relative w-[230px] h-[250px] md:w-[500px] md:h-[380px]">
                   <Image
                     src="/images/current project page - ff/vaagai/images/fourth fold image - vaagai.png"
-                    alt="Vaagai Sample House"
+                    alt="Vaagai Villa"
                     fill
                     className="object-contain"
                   />
                 </div>
               </div>
 
-              {/* Amenity Text Labels positioned over the SVG circles - calculated from SVG coordinates */}
-              {amenities.map((amenity, index) => {
-                // Precise position mapping based on actual SVG circle centers - positioned below icons
-                // SVG viewBox: 0 0 1314 729, circles positioned around center (657, 365)
-                const positions = [
-                  { top: '17.6%', left: '50.7%', name: 'Water Supply' }, // Below circle at (666, 85)
-                  { top: '26.3%', left: '33.6%', name: 'Compound Wall' }, // Below circle at (443, 148) 
-                  { top: '26.3%', left: '66.3%', name: 'EB Line' }, // Below circle at (871, 148)
-                  { top: '42.8%', left: '17.8%', name: 'Tar Roads' }, // Below circle at (234, 268)
-                  { top: '42.8%', left: '81.3%', name: 'Street Lights' }, // Below circle at (1069, 268)
-                  { top: '67.7%', left: '8.7%', name: 'Storm Water Drainage' }, // Below circle at (114, 450)
-                  { top: '67.7%', left: '90.1%', name: 'CCTV Coverage' }, // Below circle at (1184, 450)
-                  { top: '94.3%', left: '6.5%', name: 'Entrance Arch' }, // Below circle at (85, 644)
-                  { top: '94.3%', left: '93.5%', name: 'Security Cabin' }, // Below circle at (1229, 644)
-                ];
-
-                const position = positions[index];
-                if (!position) return null;
-
-                return (
-                  <motion.div
-                    key={index}
-                    className="absolute transform -translate-x-1/2 -translate-y-1/2"
-                    style={{
-                      top: position.top,
-                      left: position.left,
-                    }}
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                    viewport={{ once: true }}
-                  >
-                    <div className="text-center">
-                      <span className="text-[10px] md:text-[12px] font-medium text-[#37405E]" style={{ fontFamily: 'Futura-Medium' }}>
-                        {amenity.name}
-                      </span>
-                    </div>
-                  </motion.div>
-                );
-              })}
+              {/* Amenity Text Labels positioned over the SVG circles */}
+              {[
+                { top: '14%', left: '50.5%', name: 'Street Lights' },
+                { top: '24%', left: '66%', name: 'Water \nSupply' },
+                { top: '40%', left: '81.5%', name: 'EB Line' },
+                { top: '67%', left: '90%', name: 'CCTV\nCoverage' },
+                { top: '93%', left: '93.5%', name: 'Storm Water\nDrainage' },
+                { top: '92.5%', left: '6.5%', name: 'Entrance\nArch' },
+                { top: '64%', left: '8.70%', name: 'Security\nCabin' },
+                { top: '40%', left: '18%', name: 'Compound\nWall' },
+                { top: '25%', left: '34%', name: 'Tar Roads' }
+              ].map((amenity, index) => (
+                <motion.div
+                  key={index}
+                  className="absolute transform -translate-x-1/2 -translate-y-1/2"
+                  style={{
+                    top: amenity.top,
+                    left: amenity.left,
+                  }}
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="text-center">
+                    <span className="text-[#37405E] text-[6.5px] md:text-sm font-semibold leading-tight block" style={{ fontFamily: 'Futura-Medium' }}>
+                      {amenity.name.split('\n').map((line, lineIndex) => (
+                        <span key={lineIndex}>
+                          {line}
+                          {lineIndex < amenity.name.split('\n').length - 1 && <br />}
+                        </span>
+                      ))}
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Fifth Fold - Approvals */}
-      <section className="py-12 md:py-20 bg-white">
+      <section className="py-10 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="flex flex-col md:flex-row items-center md:items-center justify-between space-y-8 md:space-y-0"
+            className="text-center mb-2 lg:mb-16"
           >
-            <h2 className="text-[32px] md:text-[40px] font-normal" style={{ fontFamily: 'DM Serif Display' }}>
-              <span className="bg-gradient-to-r from-[#37405E] to-[#D3AC4A] bg-clip-text text-transparent">Approvals</span>
-            </h2>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal text-[#37405E] mb-4" style={{ fontFamily: 'DM Serif Display' }}>
+              <span className="bg-gradient-to-r from-[#5764B3] to-[#8B7ED8] bg-clip-text text-transparent">Approvals</span>
+            </h3>
+          </motion.div>
 
-            <div className="flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-16">
-            <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 bg-[#D3AC4A] rounded-lg flex items-center justify-center">
+          <div className="flex flex-col md:flex-row justify-center items-start gap-12 md:gap-20 max-w-7xl mx-auto">
+            {/* DTCP approved */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-4"
+            >
+              <div className="w-10 h-10 flex-shrink-0">
                 <Image
                   src="/images/current project page - ff/vaagai/icons/fifth fold/Vector 1.svg"
-                  alt="DTCP approved icon"
-                  width={24}
-                  height={24}
-                  className="brightness-0 invert"
+                  alt="DTCP approved"
+                  width={64}
+                  height={64}
+                  className="w-full h-full object-contain"
                 />
               </div>
-              <span className="text-[18px] font-medium text-[#37405E]" style={{ fontFamily: 'Futura-Medium' }}>
+              <h4 className="text-lg md:text-xl font-bold text-[#37405E]" style={{ fontFamily: 'Futura-Heavy' }}>
                 DTCP approved
-              </span>
-            </div>
+              </h4>
+            </motion.div>
 
-            <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 bg-[#D3AC4A] rounded-lg flex items-center justify-center">
+            {/* Bank Loan Assistance */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="flex items-start gap-4"
+            >
+              <div className="w-10 h-10 flex-shrink-0">
                 <Image
                   src="/images/current project page - ff/vaagai/icons/fifth fold/Vector 2.svg"
-                  alt="Bank Loan Assistance icon"
-                  width={24}
-                  height={24}
-                  className="brightness-0 invert"
+                  alt="Bank Loan Assistance"
+                  width={64}
+                  height={64}
+                  className="w-full h-full object-contain"
                 />
               </div>
-              <span className="text-[18px] font-medium text-[#37405E]" style={{ fontFamily: 'Futura-Medium' }}>
+              <h4 className="text-lg md:text-xl font-bold text-[#37405E]" style={{ fontFamily: 'Futura-Heavy' }}>
                 Bank Loan Assistance available
-              </span>
-            </div>
-            </div>
-          </motion.div>
+              </h4>
+            </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Sixth Fold - Book Your Site Visit */}
-      <section className="py-12 md:py-20">
-        <div className="relative overflow-hidden rounded-3xl mx-4 md:mx-8">
-          {/* Background Image */}
-          <div className="absolute inset-0">
-            <Image
-              src="/images/current project page - ff/vaagai/images/sixth fold.png"
-              alt="Site Visit Background"
-              fill
-              className="object-cover object-center"
-            />
-          </div>
+      {/* Sixth Fold - Contact CTA */}
+      <section className="py-10 lg:py-20 relative overflow-hidden rounded-3xl">
+        <div className="absolute inset-0 rounded-3xl overflow-hidden">
+          <Image
+            src="/images/current project page - ff/vaagai/images/sixth fold.png"
+            alt="Contact Background"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-black/20" />
+        </div>
 
-          {/* Content */}
-          <div className="relative z-10 max-w-7xl mx-auto px-4 lg:px-8 py-12 md:py-20">
-            <div className="flex items-center justify-end">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 lg:px-8">
+          <div className="flex justify-end">
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="bg-white rounded-3xl p-8 md:p-12 max-w-lg w-full shadow-2xl"
+              className="bg-white rounded-tl-sm rounded-br-sm rounded-tr-[50px] rounded-bl-[50px] px-4 py-6 md:py-10 md:px-6 max-w-lg shadow-2xl"
             >
-              <h3 className="text-[28px] md:text-[32px] font-normal mb-8" style={{ fontFamily: 'DM Serif Display' }}>
-                <span className="bg-gradient-to-r from-[#37405E] to-[#D3AC4A] bg-clip-text text-transparent">Book your site visit today</span>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal text-[#37405E] mb-8 leading-tight" style={{ fontFamily: 'DM Serif Display' }}>
+                Book your <span className="bg-gradient-to-r from-[#37405E] to-[#D3AC4A] bg-clip-text text-transparent">site visit today</span>
               </h3>
 
-              <div className="space-y-6">
-                <div className="flex items-center space-x-4">
-                  <div className="w-10 h-10 bg-[#37405E] rounded-full flex items-center justify-center">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="white" stroke="white" strokeWidth="2">
-                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-[16px] font-medium text-[#37405E]" style={{ fontFamily: 'Futura-Medium' }}>
-                      +91 79008 82288 | +91 79008 84488
-                    </p>
-                  </div>
+              <div className="space-y-6 mb-8">
+                <div className="flex items-center gap-4">
+                  <Image
+                    src="/images/current project page - ff/vaagai/icons/sixth fold/call (1).svg"
+                    alt="Call"
+                    width={24}
+                    height={24}
+                  />
+                  <span className="text-[#37405E] font-medium text-lg" style={{ fontFamily: 'Futura-Medium' }}>
+                    +91 79008 82288 | +91 79008 84488
+                  </span>
                 </div>
 
-                <div className="flex items-center space-x-4">
-                  <div className="w-10 h-10 bg-[#37405E] rounded-full flex items-center justify-center">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="white" stroke="white" strokeWidth="2">
-                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                      <polyline points="22,6 12,13 2,6"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-[16px] font-medium text-[#37405E]" style={{ fontFamily: 'Futura-Medium' }}>
-                      fairfieldsales2024@gmail.com
-                    </p>
-                  </div>
+                <div className="flex items-center gap-4">
+                  <Image
+                    src="/images/current project page - ff/vaagai/icons/sixth fold/mail Vector.svg"
+                    alt="Email"
+                    width={24}
+                    height={24}
+                  />
+                  <span className="text-[#37405E] font-medium text-lg" style={{ fontFamily: 'Futura-Medium' }}>
+                    fairfieldsales2024@gmail.com
+                  </span>
                 </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="w-10 h-10 bg-[#37405E] rounded-full flex items-center justify-center">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="white" stroke="white" strokeWidth="2">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                      <circle cx="12" cy="10" r="3"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-[16px] font-medium text-[#37405E]" style={{ fontFamily: 'Futura-Medium' }}>
-                      No. 28, Subramaniya Udaiyar Street,<br />
-                      Telungupalayam, Coimbatore – 641039
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
-                  <button className="bg-[#D3AC4A] text-[#37405E] px-6 py-3 rounded-lg font-bold text-[16px] hover:bg-[#C19B42] transition-colors flex items-center justify-center space-x-2 book-visit-button flex-1" style={{ fontFamily: 'Futura-Heavy' }}>
-                    <span>Book your visit today</span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6L16 12L10 18L8.59 16.59Z"/>
-                    </svg>
-                  </button>
-                  <button className="bg-[#37405E] text-white px-6 py-3 rounded-lg font-bold text-[16px] hover:bg-[#2A2F47] transition-colors call-us-button flex-1" style={{ fontFamily: 'Futura-Heavy' }}>
-                    Call us now
-                  </button>
+                <div className="flex items-start gap-4">
+                  <Image
+                    src="/images/current project page - ff/vaagai/icons/sixth fold/address.svg"
+                    alt="Address"
+                    width={24}
+                    height={24}
+                    className="mt-1"
+                  />
+                  <span className="text-[#37405E] font-medium text-lg" style={{ fontFamily: 'Futura-Medium' }}>
+                    No. 28, Subramaniya Udaiyar Street,<br />
+                    Telungupalayam, Coimbatore – 641039
+                  </span>
                 </div>
               </div>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-[#D3AC4A] text-[#37405E] px-3 py-3 md:px-6 md:py-3 rounded-sm font-bold text-base hover:bg-[#C19B42] transition-colors flex items-center justify-center space-x-2 book-visit-button w-full sm:w-1/2"
+                  style={{ fontFamily: 'Futura-Heavy' }}
+                >
+                  <span>Book your visit today</span>
+                  <Image
+                    src="/images/current project page - ff/vaagai/icons/cta arrow Vector.svg"
+                    alt="Arrow"
+                    width={16}
+                    height={16}
+                  />
+                </motion.button>
+
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-[#37405E] text-white px-3 py-3 md:px-6 md:py-3 rounded-sm font-bold text-base hover:bg-[#2A2F45] transition-colors call-us-button w-full sm:w-1/2"
+                  style={{ fontFamily: 'Futura-Heavy' }}
+                >
+                  Call us now
+                </motion.button>
+              </div>
             </motion.div>
-            </div>
           </div>
         </div>
       </section>

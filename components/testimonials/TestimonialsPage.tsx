@@ -53,12 +53,13 @@ export function TestimonialsPage() {
         transition={{ duration: 0.8 }}
       >
         {/* Step Cut Design Layer Only */}
-        <div className="absolute inset-4 rounded-lg overflow-hidden">
+        <div className="absolute inset-2 sm:inset-4 rounded-lg overflow-hidden">
           <Image
             src="/images/layer 1.jpg"
             alt="Step Cut Design Layer"
             fill
-            className="object-cover"
+            className="object-cover object-center"
+            style={{ objectPosition: 'center top' }}
             priority
           />
         </div>
@@ -70,7 +71,7 @@ export function TestimonialsPage() {
         <div className="absolute inset-0 flex items-center justify-center z-20">
           <div className="text-center">
             <motion.h1 
-              className="text-3xl sm:text-4xl lg:text-5xl font-normal text-white drop-shadow-2xl"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal text-white drop-shadow-2xl px-4"
               style={{ fontFamily: 'DM Serif Display' }}
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -82,22 +83,22 @@ export function TestimonialsPage() {
         </div>
 
         {/* Cream Breadcrumb Bar - With spacing */}
-        <div className="absolute bottom-4 left-4 right-4 z-20">
+        <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 right-2 sm:right-4 z-20">
           <motion.div 
-            className="bg-[#F5F2E8] py-6 px-8 "
+            className="bg-[#F5F2E8] py-3 px-4 sm:py-6 sm:px-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.0 }}
           >
             <div className="container mx-auto">
-              <div className="flex items-center space-x-2 text-[16px] text-[#37405E] font-medium" style={{ fontFamily: 'Futura-Medium' }}>
+              <div className="flex items-center space-x-1 sm:space-x-2 text-sm sm:text-[16px] text-[#37405E] font-medium" style={{ fontFamily: 'Futura-Medium' }}>
                 <Link href="/" className="hover:text-[#D3AC4A] transition-colors cursor-pointer">
                   Home
                 </Link>
                 <img
                   src="/images/about us page - ff/icons/first fold icon.svg"
                   alt="Arrow"
-                  className="w-8 h-8"
+                  className="w-6 h-6 sm:w-8 sm:h-8"
                 />
                 <span>Testimonials</span>
               </div>
