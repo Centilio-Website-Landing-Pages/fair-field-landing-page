@@ -84,11 +84,18 @@ const CurrentProjectsPage = () => {
                 {breadcrumbs.map((item, index) => (
                   <React.Fragment key={index}>
                     {index > 0 && (
-                      <img
-                        src="/images/current project page - ff/icons/first fold icon.svg"
+                      // <img
+                      //   src="/images/current project page - ff/icons/first fold icon.svg"
+                      //   alt="Arrow"
+                      //   className="w-6 h-6 sm:w-8 sm:h-8"
+                      // />
+                      <Image
+                        src="/images/about us page - ff/icons/first fold icon.svg"
                         alt="Arrow"
+                        fill
                         className="w-6 h-6 sm:w-8 sm:h-8"
-                      />
+                        priority
+                      />                      
                     )}
                     {item.active ? (
                       <span className="text-[#37405E]">
@@ -131,11 +138,18 @@ const CurrentProjectsPage = () => {
                     {/* Project Image */}
                     <div className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-[1.02]">
                       <div className="aspect-[4/3] overflow-hidden">
-                        <img
+                        {/* <img
                           src={project.image}
                           alt={project.alt}
                           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                        />
+                        /> */}
+                        <Image
+                          src={project.image}
+                          alt={project.alt}
+                          fill
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          priority
+                        />                        
                       </div>
 
                       {/* Hover Overlay */}

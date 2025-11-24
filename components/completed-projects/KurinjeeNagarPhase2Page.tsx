@@ -80,27 +80,48 @@ export default function KurinjeeNagarPhase2Page() {
                 <Link href="/" className="hover:text-[#D3AC4A] transition-colors cursor-pointer">
                   Home
                 </Link>
-                <img
+                {/* <img
                   src="/images/legal & approval page - ff/icon/first fold icon.svg"
                   alt="Arrow"
                   className="w-6 h-6 sm:w-8 sm:h-8"
-                />
+                /> */}
+                <Image
+                  src="/images/about us page - ff/icons/first fold icon.svg"
+                  alt="Arrow"
+                  fill
+                  className="w-6 h-6 sm:w-8 sm:h-8"
+                  priority
+                />                
                 <span className="text-[#37405E]">
                   Project
                 </span> 
-                <img
+                {/* <img
                   src="/images/legal & approval page - ff/icon/first fold icon.svg"
                   alt="Arrow"
                   className="w-6 h-6 sm:w-8 sm:h-8"
-                />
+                /> */}
+                <Image
+                  src="/images/about us page - ff/icons/first fold icon.svg"
+                  alt="Arrow"
+                  fill
+                  className="w-6 h-6 sm:w-8 sm:h-8"
+                  priority
+                />                
                 <Link href="/completed-projects" className="hover:text-[#D3AC4A] transition-colors cursor-pointer">
                   Completed Projects
                 </Link>
-                <img
+                {/* <img
                   src="/images/legal & approval page - ff/icon/first fold icon.svg"
                   alt="Arrow"
                   className="w-6 h-6 sm:w-8 sm:h-8"
-                />
+                /> */}
+                <Image
+                  src="/images/about us page - ff/icons/first fold icon.svg"
+                  alt="Arrow"
+                  fill
+                  className="w-6 h-6 sm:w-8 sm:h-8"
+                  priority
+                />                
                 <span>Kurinjee Nagar Phase II</span>
               </div>
             </div>

@@ -23,19 +23,33 @@ function FairFieldTimeline() {
           className="relative w-full max-w-lg sm:max-w-lg md:max-w-md lg:max-w-lg"
         >
           {/* Card Background */}
-          <img
+          {/* <img
             src="/images/home page - ff/icons/Third Fold - home page-ffs/RecVector 1.svg"
             alt=""
             className="w-full h-auto scale-y-110 sm:scale-y-100 md:scale-y-100"
-          />
+          /> */}
+          <Image
+            src="/images/home page - ff/icons/Third Fold - home page-ffs/RecVector 1.svg"
+            alt="Arrow"
+            fill
+            className="w-full h-auto scale-y-110 sm:scale-y-100 md:scale-y-100"
+            priority
+          />           
           
           {/* Icon positioned in rounded cutout (top-left) */}
           <div className="absolute top-0 left-0 sm:top-0 lg:left-0 lg:top-0">
-            <img
+            {/* <img
               src="/images/home page - ff/icons/Third Fold - home page-ffs/Vector 1.svg"
               alt="Legal Clarity"
               className="w-8 h-8 sm:w-10 sm:h-10 md:w-18 md:h-18"
-            />
+            /> */}
+            <Image
+              src="/images/home page - ff/icons/Third Fold - home page-ffs/Vector 1.svg"
+              alt="Legal Clarity"
+              fill
+              className="w-8 h-8 sm:w-10 sm:h-10 md:w-18 md:h-18"
+              priority
+            />                
           </div>
           
           {/* Text content positioned in center of main rectangle */}

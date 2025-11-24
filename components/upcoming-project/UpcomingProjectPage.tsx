@@ -63,19 +63,23 @@ export default function UpcomingProjectPage() {
                 <Link href="/" className="hover:text-[#D3AC4A] transition-colors cursor-pointer">
                   Home
                 </Link>
-                <img
+                <Image
                   src="/images/legal & approval page - ff/icon/first fold icon.svg"
                   alt="Arrow"
+                  fill
                   className="w-6 h-6 sm:w-8 sm:h-8"
-                />
+                  priority
+                />                
                 <span className="text-[#37405E]">
                   Project
                 </span>
-                <img
+                <Image
                   src="/images/legal & approval page - ff/icon/first fold icon.svg"
                   alt="Arrow"
+                  fill
                   className="w-6 h-6 sm:w-8 sm:h-8"
-                />
+                  priority
+                />  
                 <span>Upcoming project</span>
               </div>
             </div>

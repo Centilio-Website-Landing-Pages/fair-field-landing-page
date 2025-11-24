@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 
 interface UniversalHeaderProps {
   transparent?: boolean;
@@ -72,11 +73,18 @@ export function UniversalHeader({ transparent = false, showScheduleButton = fals
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <img
+            {/* <img
               src="/images/logo/FFS LOGO DIFFERENCE-01.png"
               alt="FFS Logo"
               className="h-16 sm:h-24 lg:h-32 w-auto"
-            />
+            /> */}
+            <Image
+              src="/images/logo/FFS LOGO DIFFERENCE-01.png"
+              alt="FFS Logo"
+              fill
+              className="h-16 sm:h-24 lg:h-32 w-auto"
+              priority
+            />               
           </motion.div>
           
           {/* Desktop Navigation Menu */}
@@ -174,11 +182,18 @@ export function UniversalHeader({ transparent = false, showScheduleButton = fals
               >
                 <span className="hidden sm:inline">Schedule</span>
                 <span className="sm:hidden">Visit</span>
-                <img 
+                {/* <img 
                   src="/images/home page - ff/icons/cta arrow Vector.svg"
                   alt="Arrow"
                   className="w-3 h-3"
-                />
+                /> */}
+                <Image
+                  src="/images/home page - ff/icons/cta arrow Vector.svg"
+                  alt="Arrow"
+                  fill
+                  className="w-3 h-3"
+                  priority
+                />                  
               </motion.button>
             )}
             <button
@@ -209,11 +224,18 @@ export function UniversalHeader({ transparent = false, showScheduleButton = fals
                 style={{ fontFamily: 'Futura-Heavy' }}
               >
                 <span>Schedule a visit</span>
-                <img 
+                {/* <img 
                   src="/images/home page - ff/icons/cta arrow Vector.svg"
                   alt="Arrow"
                   className="w-4 h-4"
-                />
+                /> */}
+                <Image
+                  src="/images/home page - ff/icons/cta arrow Vector.svg"
+                  alt="Arrow"
+                  fill
+                  className="w-4 h-4"
+                  priority
+                />                   
               </button>
             </motion.div>
           )}
@@ -328,11 +350,18 @@ export function UniversalHeader({ transparent = false, showScheduleButton = fals
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <span>Schedule a visit</span>
-                    <img 
+                    {/* <img 
                       src="/images/home page - ff/icons/cta arrow Vector.svg"
                       alt="Arrow"
                       className="w-4 h-4"
-                    />
+                    /> */}
+                    <Image
+                      src="/images/home page - ff/icons/cta arrow Vector.svg"
+                      alt="Arrow"
+                      fill
+                      className="w-3 h-3"
+                      priority
+                    />                       
                   </button>
                 )}
               </div>

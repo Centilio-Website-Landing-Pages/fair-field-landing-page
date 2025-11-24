@@ -62,18 +62,22 @@ export function WhyChoosePage() {
                 <Link href="/" className="hover:text-[#D3AC4A] transition-colors cursor-pointer">
                   Home
                 </Link>
-                <img
+                <Image
                   src="/images/about us page - ff/icons/first fold icon.svg"
                   alt="Arrow"
+                  fill
                   className="w-6 h-6 sm:w-8 sm:h-8"
+                  priority
                 />
                 <Link href="/about-us" className="hover:text-[#D3AC4A] transition-colors cursor-pointer">
                   About us
                 </Link>
-                <img
+                <Image
                   src="/images/about us page - ff/icons/first fold icon.svg"
                   alt="Arrow"
+                  fill
                   className="w-6 h-6 sm:w-8 sm:h-8"
+                  priority
                 />
                 <span>Why choose us</span>
               </div>

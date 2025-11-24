@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { Mail, Phone, MapPin, ChevronRight, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { UniversalHeader } from '@/components/shared/header/UniversalHeader';
 import UniversalFooter from '@/components/shared/footer/UniversalFooter';
@@ -84,11 +83,18 @@ export function ContactUsPage() {
                 <Link href="/" className="hover:text-[#D3AC4A] transition-colors cursor-pointer">
                   Home
                 </Link>
-                <img
+                {/* <img
                   src="/images/about us page - ff/icons/first fold icon.svg"
                   alt="Arrow"
                   className="w-6 h-6 sm:w-8 sm:h-8"
-                />
+                /> */}
+                <Image
+                  src="/images/about us page - ff/icons/first fold icon.svg"
+                  alt="Arrow"
+                  fill
+                  className="w-6 h-6 sm:w-8 sm:h-8"
+                  priority
+                />                
                 <span>Contact</span>
               </div>
             </div>

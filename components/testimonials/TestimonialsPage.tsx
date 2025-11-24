@@ -97,11 +97,13 @@ export function TestimonialsPage() {
                 <Link href="/" className="hover:text-[#D3AC4A] transition-colors cursor-pointer">
                   Home
                 </Link>
-                <img
+                <Image
                   src="/images/about us page - ff/icons/first fold icon.svg"
                   alt="Arrow"
+                  fill
                   className="w-6 h-6 sm:w-8 sm:h-8"
-                />
+                  priority
+                />                  
                 <span>Testimonials</span>
               </div>
             </div>
@@ -226,11 +228,18 @@ export function TestimonialsPage() {
                   animate={{ scale: 1 }}
                   transition={{ delay: 0.2, duration: 0.4 }}
                 >
-                  <img
+                  {/* <img
                     src="/images/testimonial page - ff/icons/second fold/quote-icon.png"
                     alt="Quote"
                     className="w-8 h-6 sm:w-10 sm:h-8 lg:w-12 lg:h-10"
-                  />
+                  /> */}
+                  <Image
+                    src="/images/testimonial page - ff/icons/second fold/quote-icon.png"
+                    alt="Quote"
+                    fill
+                    className="w-8 h-6 sm:w-10 sm:h-8 lg:w-12 lg:h-10"
+                    priority
+                  />                  
                 </motion.div>
                 
                 <motion.blockquote 
@@ -265,11 +274,18 @@ export function TestimonialsPage() {
                   onClick={prevTestimonial}
                   className="flex items-center justify-center transition-all bg-[#D3AC4A] rounded-full shadow-md hover:shadow-lg p-3"
                 >
-                  <img
+                  {/* <img
                     src="/images/testimonial page - ff/icons/second fold/left Vector.svg"
                     alt="Previous"
                     className="w-8 h-8"
-                  />
+                  /> */}
+                  <Image
+                    src="/images/testimonial page - ff/icons/second fold/left Vector.svg"
+                    alt="Previous"
+                    fill
+                    className="w-8 h-8"
+                    priority
+                  />                  
                 </motion.button>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
@@ -277,11 +293,18 @@ export function TestimonialsPage() {
                   onClick={nextTestimonial}
                   className="flex items-center justify-center transition-all bg-[#D3AC4A] rounded-full shadow-md hover:shadow-lg p-3"
                 >
-                  <img
+                  {/* <img
                     src="/images/testimonial page - ff/icons/second fold/right Vector.svg"
                     alt="Next"
                     className="w-8 h-8"
-                  />
+                  /> */}
+                  <Image
+                    src="/images/testimonial page - ff/icons/second fold/right Vector.svg"
+                    alt="Next"
+                    fill
+                    className="w-8 h-8"
+                    priority
+                  />                     
                 </motion.button>
               </div>
               </motion.div>
@@ -336,30 +359,44 @@ export function TestimonialsPage() {
                       {/* Navigation Arrows - Below second card only */}
                       {index === 1 && (
                         <div className="flex justify-end gap-4 mt-4">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={prevTestimonial}
-              className="flex items-center justify-center transition-all"
-            >
-              <img
-                src="/images/testimonial page - ff/icons/second fold/left Vector.svg"
-                alt="Previous"
-                className="w-10 h-10 lg:w-12 lg:h-12"
-              />
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={nextTestimonial}
-              className="flex items-center justify-center transition-all"
-            >
-              <img
-                src="/images/testimonial page - ff/icons/second fold/right Vector.svg"
-                alt="Next"
-                className="w-10 h-10 lg:w-12 lg:h-12"
-              />
-            </motion.button>
+                          <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            onClick={prevTestimonial}
+                            className="flex items-center justify-center transition-all"
+                          >
+                            {/* <img
+                              src="/images/testimonial page - ff/icons/second fold/left Vector.svg"
+                              alt="Previous"
+                              className="w-10 h-10 lg:w-12 lg:h-12"
+                            /> */}
+                            <Image
+                              src="/images/testimonial page - ff/icons/second fold/left Vector.svg"
+                              alt="Previous"
+                              fill
+                              className="w-10 h-10 lg:w-12 lg:h-12"
+                              priority
+                            />                            
+                          </motion.button>
+                          <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            onClick={nextTestimonial}
+                            className="flex items-center justify-center transition-all"
+                          >
+                            {/* <img
+                              src="/images/testimonial page - ff/icons/second fold/right Vector.svg"
+                              alt="Next"
+                              className="w-10 h-10 lg:w-12 lg:h-12"
+                            /> */}
+                            <Image
+                              src="/images/testimonial page - ff/icons/second fold/left Vector.svg"
+                              alt="Next"
+                              fill
+                              className="w-10 h-10 lg:w-12 lg:h-12"
+                              priority
+                            />                              
+                          </motion.button>
                         </div>
                       )}
                     </div>
