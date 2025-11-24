@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { UniversalHeader } from '../shared/header/UniversalHeader';
 import UniversalFooter from '../shared/footer/UniversalFooter';
 import { Timeline } from '@/components/ui/timeline';
+import { ShiningText } from '../ui/shining-text'
 
 // Fair Field Timeline Component
 function FairFieldTimeline() {
@@ -38,7 +39,7 @@ function FairFieldTimeline() {
           </div>
           
           {/* Text content positioned in center of main rectangle */}
-          <div className="absolute top-[10%] left-[25%] right-0 bottom-[10%] flex items-center justify-center px-1 py-2 sm:px-3 sm:py-3 md:px-6 md:py-6 lg:justify-start lg:pl-20">
+          <div className="absolute top-[10%] left-[25%] right-0 bottom-[10%] flex items-center justify-center px-1 py-2 sm:px-3 sm:py-3 md:px-6 md:py-6 lg:justify-start">
             <div className="text-white text-left w-full max-w-[180px] sm:max-w-[220px] md:max-w-[200px] lg:max-w-xs">
               <h3 className="sm:block text-base sm:text-base md:text-lg lg:text-xl font-bold mb-1 sm:mb-2 md:mb-2 lg:mb-3" style={{ fontFamily: 'DM Serif Display' }}>
                 Legal Clarity
@@ -118,7 +119,7 @@ function FairFieldTimeline() {
           </div>
           
           {/* Text content positioned in center of main rectangle */}
-          <div className="absolute top-[10%] left-[25%] right-[6%] bottom-[10%] flex items-center justify-center px-1 py-2 sm:px-3 sm:py-3 md:px-6 md:py-6 lg:justify-start lg:pl-20">
+          <div className="absolute top-[10%] left-[25%] right-[6%] bottom-[10%] flex items-center justify-center px-1 py-2 sm:px-3 sm:py-3 md:px-6 md:py-6 lg:justify-start">
             <div className="text-white text-left w-full max-w-[180px] sm:max-w-[220px] md:max-w-[200px] lg:max-w-xs">
               <h3 className=" sm:block text-base sm:text-base md:text-lg lg:text-xl font-bold mb-1 sm:mb-2 md:mb-2 lg:mb-3" style={{ fontFamily: 'DM Serif Display' }}>
                 Premium Quality
@@ -221,12 +222,12 @@ function TestimonialCarousel() {
       className="bg-[#37405E] rounded-md p-8 lg:p-12 lg:py-16 text-white relative text-center"
     >
       <div className="z-10 lg:h-45 flex flex-col justify-between">
-        <blockquote className="text-base md:text-lg lg:text-xl leading-relaxed font-light flex-grow flex items-center">
+        <blockquote className="text-base md:text-lg lg:text-xl leading-relaxed font-light flex-grow flex items-center" style={{fontFamily:"Futura-Medium"}}>
           &ldquo;{current.quote}&rdquo;
         </blockquote>
         
         <div className="mt-6">
-          <div className=" text-lg md:text-lg mb-1">{current.name}</div>
+          <div className=" text-lg md:text-lg mb-1" style={{fontFamily:"Futura-Medium"}}>{current.name}</div>
           <div className="text-[#D3AC4A] text-sm md:text-base">{current.location}</div>
         </div>
       </div>
@@ -286,9 +287,9 @@ export function HomePage() {
               </h1>
               
               <motion.button
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.0 }}
+                // initial={{ opacity: 0, y: 20 }}
+                // animate={{ opacity: 1, y: 0 }}
+                // transition={{ duration: 0.8, delay: 1.0 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-[#D3AC4A] text-[#37405E] px-6 sm:px-8 lg:px-10 py-2 sm:py-3 rounded-md font-bold text-sm sm:text-base flex items-center gap-2 sm:gap-3 hover:bg-[#C19A3A] transition-all shadow-2xl"
@@ -374,14 +375,14 @@ export function HomePage() {
                     borderRadius: '24px 24px 8px 24px'
                   }}
                 >
-                  <div className='text-center'>
+                  <div className='text-center md:text-left'>
                     <h3 className="text-4xl font-bold text-white mb-2" style={{ 
-                      fontFamily: 'DM Serif Display', 
+                      fontFamily: 'FuturaOrto-Bold', 
                       textShadow: '0 2px 8px rgba(0,0,0,0.6)',
                       fontWeight: '700'
                     }}>100+</h3>
                     <p className="text-white text-base font-bold leading-relaxed" style={{ 
-                      fontFamily: 'Futura-Heavy', 
+                      fontFamily: 'FuturaOrto-Bold', 
                       textShadow: '0 1px 4px rgba(0,0,0,0.6)',
                       fontWeight: '700'
                     }}>
@@ -405,14 +406,14 @@ export function HomePage() {
                     borderRadius: '8px 24px 8px 8px'
                   }}
                 >
-                  <div className='text-center'>
+                  <div className='text-center md:text-left'>
                     <h3 className="text-2xl font-bold text-white mb-2" style={{ 
-                      fontFamily: 'DM Serif Display', 
+                      fontFamily: 'FuturaOrto-Bold', 
                       textShadow: '0 2px 8px rgba(0,0,0,0.6)',
                       fontWeight: '700'
                     }}>DTCP Approved</h3>
                     <p className="text-white text-base font-bold leading-relaxed" style={{ 
-                      fontFamily: 'Futura-Heavy', 
+                      fontFamily: 'FuturaOrto-Bold', 
                       textShadow: '0 1px 4px rgba(0,0,0,0.6)',
                       fontWeight: '700'
                     }}>
@@ -429,7 +430,7 @@ export function HomePage() {
       </section>
 
       {/* Company Introduction - Second Fold */}
-      <section className="container mx-auto px-4 sm:px-6 lg:px-8 bg-white py-12 lg:py-0 min-h-96 lg:h-[674px]">
+      <section className="container mx-auto px-4 sm:px-6 lg:px-8 bg-white py-10 lg:py-20 min-h-96 lg:h-[674px]">
         <div className="mx-auto flex items-center min-h-full lg:h-full">
           <div className="flex flex-col lg:flex-row items-center justify-between w-full px-0 max-sm:px-6 gap-8 sm:gap-12 lg:gap-24">
             {/* Left Content - Text */}
@@ -489,7 +490,7 @@ export function HomePage() {
               className="relative"
             >
               {/* Title */}
-              <motion.h2
+              {/* <motion.h2
                 initial={{ opacity: 0, y: -30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -499,7 +500,8 @@ export function HomePage() {
               >
                 <span className="text-[#37405E]">Our </span>
                 <span className="bg-gradient-to-r from-[#D3AC4A] to-[#37405E] bg-clip-text text-transparent">Four Promises</span>
-              </motion.h2>
+              </motion.h2> */}
+              <ShiningText customStyle="text-2xl sm:text-2xl md:text-3xl lg:text-5xl font-medium font-['DM_Serif_Display'] mb-8 sm:mb-16 md:mb-24 text-center md:text-left" textLeft={"Our "} textRight={"Four Promises"} />   
 
               {/* Paint Brush Image Container with Artistic Effect */}
               <motion.div
@@ -549,9 +551,10 @@ export function HomePage() {
               viewport={{ once: true }}
               className="text-center mb-6 lg:mb-12 px-4"
             >
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl " style={{ fontFamily: 'DM Serif Display' }}>
+              {/* <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl " style={{ fontFamily: 'DM Serif Display' }}>
                 <span className="text-[#37405E]">Ongoing </span><span className="bg-gradient-to-r from-[#D3AC4A] to-[#37405E] bg-clip-text text-transparent">Projects</span>
-              </h2>
+              </h2> */}
+              <ShiningText customStyle="text-2xl sm:text-2xl md:text-3xl lg:text-5xl font-medium font-['DM_Serif_Display'] mb-8 sm:mb-16 md:mb-24 text-center leading-tight" textLeft={"Ongoing "} textRight={"Projects"} />   
             </motion.div>
 
             {/* Anicham & Magilam Project */}
@@ -566,13 +569,13 @@ export function HomePage() {
                   className="space-y-4"
                 >
                   <div className="text-left max-md:text-center">
-                    <h3 className="text-xl lg:text-4xl mb-2 font-medium" style={{ fontFamily: 'DM Serif Display' }}>
+                    <h3 className="text-xl lg:text-3xl mb-2 font-bold" style={{ fontFamily: 'FuturaOrto-Bold' }}>
                       <span className="text-[#37405E]">Anicham & </span>
                       <span className="text-[#37405E]">Magilam</span>
                     </h3>
-                    <h4 className="text-lg lg:text-3xl leading-tight" style={{ fontFamily: 'DM Serif Display' }}>
-                      <span className="text-[#D3AC4A]">Ramanathapuram,</span><br />
-                      <span className="text-[#D3AC4A]">Coimbatore</span>
+                    <h4 className="text-xl lg:text-3xl leading-tight" style={{ fontFamily: 'FuturaOrto-Bold' }}>
+                      <span className="text-[#D3AC4A]">Ramanathapuram,</span><br className="hidden md:block" />
+                      <span className="text-[#D3AC4A]"> Coimbatore</span>
                     </h4>
                   </div>
                 </motion.div>
@@ -760,12 +763,12 @@ export function HomePage() {
                 className="space-y-4"
               >
                 <div className="text-left max-md:text-center">
-                  <h3 className="text-2xl sm:text-3xl lg:text-4xl mb-2 font-medium" style={{ fontFamily: 'DM Serif Display' }}>
-                    <span className="text-[#D3AC4A]">Vaagai</span><span className="text-[#37405E]"> -</span>
+                  <h3 className="text-xl lg:text-3xl mb-2 font-bold" style={{ fontFamily: 'FuturaOrto-Bold' }}>
+                    <span className="text-[#37405E]">Vaagai </span>
                   </h3>
-                  <h4 className="text-lg lg:text-3xl leading-tight" style={{ fontFamily: 'DM Serif Display' }}>
-                    <span className="text-[#D3AC4A]">Telungupalayam,</span><br />
-                    <span className="text-[#D3AC4A]">Coimbatore</span>
+                  <h4 className="text-xl lg:text-3xl leading-tight" style={{ fontFamily: 'FuturaOrto-Bold' }}>
+                    <span className="text-[#D3AC4A]">Telungupalayam,</span><br className="hidden md:block" />
+                    <span className="text-[#D3AC4A]"> Coimbatore</span>
                   </h4>
                 </div>
               </motion.div>
@@ -937,9 +940,10 @@ export function HomePage() {
             viewport={{ once: true }}
             className="text-center mb-8 lg:mb-16"
           >
-            <h2 className="text-2xl md:text-3xl lg:text-5xl mb-6" style={{ fontFamily: 'DM Serif Display' }}>
+            {/* <h2 className="text-2xl md:text-3xl lg:text-5xl mb-6" style={{ fontFamily: 'DM Serif Display' }}>
               <span className="text-[#37405E]">Completed </span><span className="bg-gradient-to-r from-[#D3AC4A] to-[#37405E] bg-clip-text text-transparent">Projects</span>
-            </h2>
+            </h2> */}
+            <ShiningText customStyle="text-2xl sm:text-2xl md:text-3xl lg:text-5xl font-medium font-['DM_Serif_Display'] mb-6 text-center leading-tight" textLeft={"Completed "} textRight={"Projects"} />   
             <p className="sm:text-base md:text-lg text-gray-600 max-w-3xl mx-auto font-sans">
               Explore our successfully delivered projects that showcase our commitment to quality and excellence in residential development.
             </p>
@@ -1092,9 +1096,11 @@ export function HomePage() {
             viewport={{ once: true }}
             className="text-center mb-8 lg:mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-serif text-[#37405E] mb-4 sm:mb-6">
+            {/* <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-serif text-[#37405E] mb-4 sm:mb-6">
               Happy Buyer <span className="bg-gradient-to-r from-[#D3AC4A] to-[#37405E] bg-clip-text text-transparent">Stories</span>
-            </h2>
+            </h2> */}
+            <ShiningText customStyle="text-2xl sm:text-2xl md:text-3xl lg:text-5xl font-medium font-['DM_Serif_Display'] mb-6 text-center leading-tight" textLeft={"Happy Buyer "} textRight={"Stories"} />   
+            
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -1133,7 +1139,7 @@ export function HomePage() {
             viewport={{ once: true }}
             className="text-center mb-6 lg:mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-serif text-[#37405E] mb-6 lg:mb-10">
+            {/* <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-serif text-[#37405E] mb-6 lg:mb-10">
               How we <span 
                 style={{
                   background: 'radial-gradient(circle, #37405E 0%, #D3AC4A 100%)',
@@ -1142,8 +1148,10 @@ export function HomePage() {
                   backgroundClip: 'text'
                 }}
               >work</span>
-            </h2>
-            <p className="text-base lg:text-lg text-[#37405E] max-w-4xl mx-auto font-sans">
+            </h2> */}
+            <ShiningText customStyle="text-2xl sm:text-2xl md:text-3xl lg:text-5xl font-medium font-['DM_Serif_Display'] mb-6 text-center leading-tight" textLeft={"How we "} textRight={"work"} />   
+            
+            <p className="text-base lg:text-lg text-[#37405E] max-w-4xl mx-auto font-sans" style={{fontFamily:"Futura-Medium"}}>
               We take care of every step from documents and loans to construction and after-sale service. So, your property journey stays simple and stress-free.
             </p>
           </motion.div>
@@ -1520,6 +1528,7 @@ export function HomePage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
               className="bg-white rounded-xl lg:rounded-tl-none lg:rounded-tr-[40px] lg:rounded-bl-[40px] lg:rounded-br-none py-6 px-4 sm:py-8 sm:px-6 lg:py-12 lg:px-8 w-full max-w-sm sm:max-w-md lg:max-w-lg shadow-2xl"
+              style={{fontFamily:"Futura-Medium"}}
             >
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif text-[#37405E] mb-6 sm:mb-8">
                 Book your site visit today
@@ -1589,7 +1598,7 @@ export function HomePage() {
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="flex-1 bg-[#37405E] text-white py-2 px-4 lg:py-2 lg:px-2 rounded-sm text-base sm:text-lg hover:bg-[#37405E]/90 transition-colors"
+                  className="flex-1 bg-[#37405E] text-white py-2 px-4 lg:py-2 lg:px-2 rounded-sm text-base  hover:bg-[#37405E]/90 transition-colors"
                 >
                   Call us now
                 </motion.button>
@@ -1610,7 +1619,7 @@ export function HomePage() {
             viewport={{ once: true }}
             className="text-center"
           >
-            <p className="text-2xl lg:text-3xl font-serif text-[#37405E]">
+            <p className="text-2xl lg:text-3xl font-serif text-[#37405E]" style={{fontFamily:"Futura-Medium"}}>
               &ldquo;Fair Field Shelters — Premium Projects built on Promise&rdquo;
             </p>
           </motion.div>

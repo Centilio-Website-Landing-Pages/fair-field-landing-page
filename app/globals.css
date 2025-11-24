@@ -168,6 +168,31 @@
 
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Futura-Medium';
+  src: url('../public/fonts/futura/Futura_Other_Fonts/Futura_ICG.ttf');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Futura-Heavy';
+  src: url('../public/fonts/futura/Futura_Other_Fonts/FuturaDemiCTT-Normal.ttf');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'FuturaOrto-Bold';
+  src: url('../public/fonts/futura/Futura_Other_Fonts/FuturaOrto-Bold.ttf');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+/* Futura_Book-Bold */
+
 body {
   margin: 0;
   font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;

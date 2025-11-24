@@ -113,9 +113,8 @@ export default function CompletedProjectsPage() {
           <motion.div
             className="text-center mb-12 md:mb-16"
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
           >
             <h2 
               className="text-xl sm:text-2xl md:text-3xl font-normal mb-4 lg:mb-6"
@@ -362,7 +361,7 @@ export default function CompletedProjectsPage() {
               </motion.div>
 
               {/* Title */}
-              <motion.h2
+              {/* <motion.h2
                 className="text-[32px] md:text-[48px] font-normal leading-tight"
                 style={{ fontFamily: 'DM Serif Display' }}
                 initial={{ opacity: 0, y: 30 }}
@@ -372,7 +371,8 @@ export default function CompletedProjectsPage() {
               >
                 <span className="text-[#37405E]">Our </span>
                 <span className="text-[#D3AC4A]">Commitment</span>
-              </motion.h2>
+              </motion.h2> */}
+              <ShiningText customStyle="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-medium font-['DM_Serif_Display'] mb-4 sm:mb-6 lg:mb-8" textLeft={"Our "} textRight={"Commitment"} />                
 
               {/* Description */}
               <motion.p

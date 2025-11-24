@@ -16,7 +16,7 @@ export default function Blog() {
   const [hasNextPage, setHasNextPage] = useState(false);
 
   // Replace with your organization ID from Centilio SEO Bot
-  const ORG_ID = '5'; // Update this with your actual org ID
+  const ORG_ID = '407'; // Update this with your actual org ID
   const POSTS_PER_PAGE = 6;
 
   // Date formatting function to handle DD/MM/YYYY format
@@ -142,7 +142,7 @@ export default function Blog() {
         </div>
 
         {/* Cream Breadcrumb Bar - With spacing */}
-        <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 right-2 sm:right-4 z-20">
+        <div className="absolute bottom-2 sm:bottom-4 left-4 sm:left-4 right-4 sm:right-4 z-20">
           <motion.div 
             className="bg-[#F5F2E8] py-3 px-4 sm:py-6 sm:px-8"
             initial={{ opacity: 0, y: 20 }}

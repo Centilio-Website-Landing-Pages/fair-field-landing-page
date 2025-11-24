@@ -7,6 +7,8 @@ import { Mail, Phone, MapPin, ChevronRight, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { UniversalHeader } from '@/components/shared/header/UniversalHeader';
 import UniversalFooter from '@/components/shared/footer/UniversalFooter';
+import { ShiningText } from '../ui/shining-text'
+
 
 export function ContactUsPage() {
   const [formData, setFormData] = useState({
@@ -70,22 +72,22 @@ export function ContactUsPage() {
         </div>
 
         {/* Cream Breadcrumb Bar - With spacing */}
-        <div className="absolute bottom-4 left-4 right-4 z-20">
+        <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 right-2 sm:right-4 z-20">
           <motion.div 
-            className="bg-[#F5F2E8] py-6 px-8 rounded-lg"
+            className="bg-[#F5F2E8] py-3 px-4 sm:py-6 sm:px-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.0 }}
           >
-            <div className="max-w-7xl mx-auto">
-              <div className="flex items-center space-x-2 text-[16px] text-[#37405E] font-medium" style={{ fontFamily: 'Futura-Medium' }}>
+            <div className="container mx-auto">
+              <div className="flex items-center space-x-1 sm:space-x-2 text-sm sm:text-[16px] text-[#37405E] font-medium" style={{ fontFamily: 'Futura-Medium' }}>
                 <Link href="/" className="hover:text-[#D3AC4A] transition-colors cursor-pointer">
                   Home
                 </Link>
                 <img
                   src="/images/about us page - ff/icons/first fold icon.svg"
                   alt="Arrow"
-                  className="w-8 h-8"
+                  className="w-6 h-6 sm:w-8 sm:h-8"
                 />
                 <span>Contact</span>
               </div>
@@ -229,7 +231,7 @@ export function ContactUsPage() {
               className="rounded-2xl overflow-hidden w-full lg:w-1/2"
             >
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.2704!2d76.9366!3d11.0168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTHCsDAxJzAwLjQiTiA3NsKwNTYnMTEuOCJF!5e0!3m2!1sen!2sin!4v1234567890"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5543.6178016461645!2d77.0050692!3d10.982842!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba859004af70d41%3A0x26f827bd348ccc28!2sFair%20Field!5e1!3m2!1sen!2sin!4v1763708552049!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -416,9 +418,10 @@ export function ContactUsPage() {
               
               <div className="bg-[#F5F2E8] rounded-2xl p-8 lg:p-12 relative z-10">
                 <div className="space-y-6">
-                  <h2 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-serif text-[#37405E]" style={{ fontFamily: 'DM Serif Display' }}>
+                  {/* <h2 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-serif text-[#37405E]" style={{ fontFamily: 'DM Serif Display' }}>
                     Our <span className="text-[#D3AC4A]">Commitment</span>
-                  </h2>
+                  </h2> */}
+                  <ShiningText customStyle="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-medium font-['DM_Serif_Display'] mb-4 sm:mb-6 lg:mb-8" textLeft={"Our "} textRight={"Commitment"} />                
                   <blockquote className="text-lg lg:text-xl text-[#37405E] font-medium leading-relaxed" style={{ fontFamily: 'Futura-Medium' }}>
                     "We believe a good conversation is the first step to a great home. Reach out, we'll make sure your experience with Fair Field Shelters is simple, transparent and truly premium."
                   </blockquote>

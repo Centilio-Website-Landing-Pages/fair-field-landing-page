@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { UniversalHeader } from '@/components/shared/header/UniversalHeader';
 import UniversalFooter from '@/components/shared/footer/UniversalFooter';
+import { ShiningText } from '../ui/shining-text'
 
 const AboutUsPage = () => {
   return (
@@ -92,7 +93,7 @@ const AboutUsPage = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               {/* Title on White Background */}
-              <motion.h2 
+              {/* <motion.h2 
                 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 lg:mb-8 lg:pl-10 font-normal text-[#37405E] max-lg:text-center"
                 style={{ fontFamily: 'DM Serif Display' }}
                 initial={{ opacity: 0, y: 30 }}
@@ -111,7 +112,8 @@ const AboutUsPage = () => {
                 >
                   we are
                 </span>
-              </motion.h2>
+              </motion.h2> */}
+              <ShiningText customStyle="text-2xl sm:text-2xl md:text-3xl lg:text-5xl font-medium font-['DM_Serif_Display'] mb-6 max-lg:text-center leading-tight lg:pl-10" textLeft={"Who "} textRight={"we are"} />   
               
               {/* Dark Blue Card with Content */}
               <motion.div 
@@ -296,7 +298,7 @@ const AboutUsPage = () => {
         transition={{ duration: 0.8 }}
       >
         <div className="container mx-auto px-4 md:px-4 lg:px-6 text-center">
-          <motion.h2 
+          {/* <motion.h2 
             className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 lg:mb-12 font-normal text-[#37405E] mb-20"
             style={{ fontFamily: 'DM Serif Display' }}
             initial={{ opacity: 0, y: 30 }}
@@ -315,7 +317,8 @@ const AboutUsPage = () => {
             >
               Core Values
             </span>
-          </motion.h2>
+          </motion.h2> */}
+          <ShiningText customStyle="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-medium font-['DM_Serif_Display'] mb-4 lg:mb-12" textLeft={"Our "} textRight={"Core Values"} />                
 
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-12 lg:gap-16">
             {/* Integrity */}
@@ -336,14 +339,14 @@ const AboutUsPage = () => {
                 />
               </div>
               <h3 
-                className="text-[22px] font-medium text-[#37405E] mb-6"
+                className="text-[22px] font-medium text-[#37405E] mb-6 lg:min-h-[56px]"
                 style={{ fontFamily: 'Futura-Medium' }}
               >
                 Integrity
               </h3>
               <p 
-                className="text-[16px] text-[#37405E] leading-relaxed max-w-xs mx-auto"
-                style={{ fontFamily: 'Futura-Light' }}
+                className="text-[16px] text-black/60 leading-relaxed max-w-xs mx-auto"
+                style={{fontFamily:"Futura-Medium"}}
               >
                 We stay honest and transparent in every deal. No hidden details, no false promises.
               </p>
@@ -367,14 +370,14 @@ const AboutUsPage = () => {
                 />
               </div>
               <h3 
-                className="text-[22px] font-medium text-[#37405E] mb-6"
+                className="text-[22px] font-medium text-[#37405E] mb-6 lg:min-h-[56px]"
                 style={{ fontFamily: 'Futura-Medium' }}
               >
                 Customer<br />Commitment
               </h3>
               <p 
-                className="text-[16px] text-[#37405E] leading-relaxed max-w-xs mx-auto"
-                style={{ fontFamily: 'Futura-Light' }}
+                className="text-[16px] text-black/60 leading-relaxed max-w-xs mx-auto"
+                style={{fontFamily:"Futura-Medium"}}
               >
                 Your satisfaction comes first. Every project begins and ends with your trust in mind.
               </p>
@@ -398,14 +401,14 @@ const AboutUsPage = () => {
                 />
               </div>
               <h3 
-                className="text-[22px] font-medium text-[#37405E] mb-6"
+                className="text-[22px] font-medium text-[#37405E] mb-6 lg:min-h-[56px]"
                 style={{ fontFamily: 'Futura-Medium' }}
               >
                 Execution<br />Excellence
               </h3>
               <p 
-                className="text-[16px] text-[#37405E] leading-relaxed max-w-xs mx-auto"
-                style={{ fontFamily: 'Futura-Light' }}
+                className="text-[16px] text-black/60 leading-relaxed max-w-xs mx-auto"
+                style={{ fontFamily: 'Futura-Medium' }}
               >
                 We focus on quality construction, timely completion and legally clear assets.
               </p>
@@ -429,14 +432,14 @@ const AboutUsPage = () => {
                 />
               </div>
               <h3 
-                className="text-[22px] font-medium text-[#37405E] mb-6"
+                className="text-[22px] font-medium text-[#37405E] mb-6 lg:min-h-[56px]"
                 style={{ fontFamily: 'Futura-Medium' }}
               >
                 Innovation
               </h3>
               <p 
-                className="text-[16px] text-[#37405E] leading-relaxed max-w-xs mx-auto"
-                style={{ fontFamily: 'Futura-Light' }}
+                className="text-[16px] text-black/60 leading-relaxed max-w-xs mx-auto"
+                style={{ fontFamily: 'Futura-Medium' }}
               >
                 Modern layouts, green spaces and smart planning for a better living experience.
               </p>
@@ -460,14 +463,14 @@ const AboutUsPage = () => {
                 />
               </div>
               <h3 
-                className="text-[22px] font-medium text-[#37405E] mb-6"
+                className="text-[22px] font-medium text-[#37405E] mb-6 lg:min-h-[56px]"
                 style={{ fontFamily: 'Futura-Medium' }}
               >
                 Trust Building
               </h3>
               <p 
-                className="text-[16px] text-[#37405E] leading-relaxed max-w-xs mx-auto"
-                style={{ fontFamily: 'Futura-Light' }}
+                className="text-[16px] text-black/60 leading-relaxed max-w-xs mx-auto"
+                style={{ fontFamily: 'Futura-Medium' }}
               >
                 We believe in relationships that last built through clarity, care and consistent delivery.
               </p>
@@ -486,7 +489,7 @@ const AboutUsPage = () => {
       >
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
-            <motion.h2 
+            {/* <motion.h2 
               className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl mb-8 font-normal text-[#37405E] text-center md:text-left"
               style={{ fontFamily: 'DM Serif Display' }}
               initial={{ opacity: 0, x: -30 }}
@@ -505,11 +508,12 @@ const AboutUsPage = () => {
               >
                 Homebuyers
               </span>
-            </motion.h2>
+            </motion.h2> */}
+            <ShiningText customStyle="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-medium font-['DM_Serif_Display'] mb-4 lg:mb-12" textLeft={"Our Promise to "} textRight={"Homebuyers"} />                
             
             <motion.p 
               className="text-base sm:text-lg text-[#37405E] leading-relaxed mb-8"
-              style={{ fontFamily: 'Futura-Light' }}
+              style={{ fontFamily: 'Futura-Medium' }}
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -520,8 +524,8 @@ const AboutUsPage = () => {
             </motion.p>
 
             <motion.p 
-              className="text-base sm:text-lg text-[#37405E] leading-relaxed mb-8"
-              style={{ fontFamily: 'Futura-Light' }}
+              className="text-base sm:text-lg text-[#37405E] leading-8 mb-8"
+              style={{ fontFamily: 'Futura-Medium' }}
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -556,7 +560,7 @@ const AboutUsPage = () => {
                   </div>
                   <span 
                     className="text-base sm:text-lg text-[#37405E]"
-                    style={{ fontFamily: 'Futura-Light' }}
+                    style={{ fontFamily: 'Futura-Medium' }}
                   >
                     {item}
                   </span>
@@ -639,7 +643,7 @@ const AboutUsPage = () => {
 
         <div className="w-full relative z-20 flex justify-center lg:justify-end pr-0 lg:pr-40">
           <div className="bg-white/95 backdrop-blur-sm rounded-md p-8 lg:py-12 shadow-2xl border border-gray-100 max-w-md lg:max-w-xl">
-            <motion.h2 
+            {/* <motion.h2 
               className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-normal text-[#37405E] mb-6"
               style={{ fontFamily: 'DM Serif Display' }}
               initial={{ opacity: 0, x: 30 }}
@@ -658,10 +662,11 @@ const AboutUsPage = () => {
               >
                 Managing Director
               </span>
-            </motion.h2>
+            </motion.h2> */}
+            <ShiningText customStyle="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-medium font-['DM_Serif_Display'] mb-6" textLeft={"From the "} textRight={"Managing Director"} />                
             
             <motion.blockquote 
-              className="text-[14px] lg:text-[16px] text-[#37405E] leading-relaxed mb-6 italic"
+              className="text-[14px] lg:text-[16px] text-[#37405E] leading-relaxed mb-6"
               style={{ fontFamily: 'Futura-Medium' }}
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}

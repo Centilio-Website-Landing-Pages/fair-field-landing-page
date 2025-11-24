@@ -232,7 +232,7 @@ export default function CurrentProjectsPage() {
               <div className="relative h-[400px] rounded-lg overflow-hidden bg-[#8B7B6E] ">
                 {/* Embed Google Maps using iframe */}
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15679.456!2d76.9475!3d11.0156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba859b82b3d2b35%3A0x123456789!2sVedapatti%20Road%2C%20Coimbatore%2C%20Tamil%20Nadu!5e1!3m2!1sen!2sin!4v1699999999999!5m2!1sen!2sin&q=Vedapatti+road+Coimbatore+Karthik+villa"
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5543.6178016461645!2d77.0050692!3d10.982842!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba859004af70d41%3A0x26f827bd348ccc28!2sFair%20Field!5e1!3m2!1sen!2sin!4v1763708552049!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

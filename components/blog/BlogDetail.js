@@ -13,7 +13,7 @@ export default function BlogDetail({ slug }) {
   const [error, setError] = useState(null);
 
   // Replace with your organization ID from Centilio SEO Bot
-  const ORG_ID = '5'; // Update this with your actual org ID
+  const ORG_ID = '407'; // Update this with your actual org ID
 
   // Date formatting function to handle DD/MM/YYYY format
   const formatDate = (dateString) => {

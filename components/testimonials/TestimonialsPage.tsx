@@ -6,6 +6,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { UniversalHeader } from '@/components/shared/header/UniversalHeader';
 import UniversalFooter from '@/components/shared/footer/UniversalFooter';
+import { ShiningText } from '../ui/shining-text'
+
 
 const testimonials = [
   {
@@ -108,14 +110,13 @@ export function TestimonialsPage() {
       </motion.section>
 
       {/* Main Content Section - Second Fold */}
-      <section className="py-20 bg-white">
+      <section className="py-10 lg:py-20 bg-white">
         {/* <div className="mx-auto px-8 lg:px-16"> */}
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
             className="text-center mb-16"
           >
             <div className="space-y-6 max-w-4xl mx-auto px-4">
@@ -160,14 +161,15 @@ export function TestimonialsPage() {
                   </svg>
                 </div>
               </div>
-              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight text-center" style={{ fontFamily: 'DM Serif Display' }}>
+              {/* <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight text-center" style={{ fontFamily: 'DM Serif Display' }}>
                 <span className="text-[#37405E]">Real </span>
                 <span 
                   className="bg-gradient-to-r from-[#D3AC4A] via-[#B8954A] to-[#8B6914] bg-clip-text text-transparent"
                 >
                   stories
                 </span>
-              </h3>
+              </h3> */}
+              <ShiningText customStyle="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-medium font-['DM_Serif_Display'] mb-4 sm:mb-6 lg:mb-8" textLeft={"Real "} textRight={"stories"} />                
               <p className="text-base sm:text-lg md:text-xl text-[#37405E] font-medium leading-relaxed max-w-3xl mx-auto text-center" style={{ fontFamily: 'Futura-Medium' }}>
                 At Fair Field Shelters, every project is more than land or buildings, it's a journey of trust, happiness and fulfilled dreams. 
                 Here's what our proud customers have to say about their experience with us.
@@ -191,7 +193,7 @@ export function TestimonialsPage() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6 }}
-                className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[716px] overflow-hidden"
+                className="relative w-full h-[450px] sm:h-[500px] md:h-[600px] lg:h-[716px] overflow-hidden"
               >
                 <Image
                   src={testimonials[currentTestimonial].image}
@@ -212,7 +214,7 @@ export function TestimonialsPage() {
                   duration: 0.7,
                   ease: [0.25, 0.46, 0.45, 0.94]
                 }}
-                className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 sm:left-auto sm:right-4 sm:translate-x-0 lg:right-0 bg-white py-4 px-4 sm:py-8 sm:px-12 lg:py-12 lg:px-20 shadow-xl max-sm:rounded-sm w-[calc(100%-1rem)] max-w-[300px] sm:max-w-none sm:w-[350px] lg:w-[550px] min-h-[200px] sm:min-h-[280px] lg:min-h-[320px]"
+                className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 sm:left-auto sm:right-4 sm:translate-x-0 lg:right-0 bg-white py-6 px-5 sm:py-8 sm:px-12 lg:py-12 lg:px-20 shadow-xl max-sm:rounded-sm w-[calc(100%-1rem)] max-w-[350px] sm:max-w-none sm:w-[350px] lg:w-[550px] min-h-[240px] sm:min-h-[280px] lg:min-h-[320px]"
                 style={{ 
                   zIndex: 10
                 }}
@@ -254,16 +256,46 @@ export function TestimonialsPage() {
                     {testimonials[currentTestimonial].location}
                   </p>
                 </motion.div>
+
+                {/* Mobile Navigation - Below the testimonial card, show only on small screens */}
+              <div className="lg:hidden flex justify-center gap-4 mt-6">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={prevTestimonial}
+                  className="flex items-center justify-center transition-all bg-[#D3AC4A] rounded-full shadow-md hover:shadow-lg p-3"
+                >
+                  <img
+                    src="/images/testimonial page - ff/icons/second fold/left Vector.svg"
+                    alt="Previous"
+                    className="w-8 h-8"
+                  />
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={nextTestimonial}
+                  className="flex items-center justify-center transition-all bg-[#D3AC4A] rounded-full shadow-md hover:shadow-lg p-3"
+                >
+                  <img
+                    src="/images/testimonial page - ff/icons/second fold/right Vector.svg"
+                    alt="Next"
+                    className="w-8 h-8"
+                  />
+                </motion.button>
+              </div>
               </motion.div>
+              
+              
             </motion.div>
 
-            {/* Right - Thumbnail Cards */}
+            {/* Right - Thumbnail Cards - Hidden on small screens */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="relative bg-[#F5F2E8] p-4 sm:p-6 lg:p-0 w-full lg:w-1/2 min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:h-[716px]"
+              className="relative bg-[#F5F2E8] p-4 sm:p-6 lg:p-0 w-full lg:w-1/2 min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:h-[716px] hidden lg:block"
             >
               {/* Yellow Background Accent */}
               <div className="absolute top-0 right-0 bg-[#D3AC4A]/10 w-full h-full" />
@@ -284,18 +316,18 @@ export function TestimonialsPage() {
                           boxShadow: "0 10px 30px rgba(0,0,0,0.1)"
                         }}
                         whileTap={{ scale: 0.98 }}
-                        className="bg-white p-4 sm:p-6 transition-all duration-300 cursor-pointer rounded-sm shadow-md hover:shadow-lg border border-gray-100 w-full sm:w-[240px] lg:w-[280px] h-[200px] sm:h-[280px] lg:h-[320px] flex flex-col justify-center"
+                        className="bg-white p-3 sm:p-6 transition-all duration-300 cursor-pointer rounded-sm shadow-md hover:shadow-lg border border-gray-100 w-full sm:w-[240px] lg:w-[280px] h-[160px] sm:h-[280px] lg:h-[320px] flex flex-col justify-center"
                         onClick={() => setCurrentTestimonial(testimonials.findIndex(t => t.id === testimonial.id))}
                       >
                         {/* Content without quote icon */}
-                        <p className="text-[#37405E] font-medium leading-relaxed mb-4 text-sm" style={{ fontFamily: 'Futura-Medium' }}>
-                          "{testimonial.quote.length > 140 ? testimonial.quote.substring(0, 140) + '...' : testimonial.quote}"
+                        <p className="text-[#37405E] font-medium leading-relaxed mb-3 text-xs sm:text-sm" style={{ fontFamily: 'Futura-Medium' }}>
+                          "{testimonial.quote.length > 80 ? testimonial.quote.substring(0, 80) + '...' : testimonial.quote}"
                         </p>
                         <div className="space-y-1">
-                          <h4 className="font-bold text-[#37405E] text-base" style={{ fontFamily: 'Futura-Heavy' }}>
+                          <h4 className="font-bold text-[#37405E] text-sm sm:text-base" style={{ fontFamily: 'Futura-Heavy' }}>
                             {testimonial.name}
                           </h4>
-                          <p className="text-sm text-[#37405E] font-medium" style={{ fontFamily: 'Futura-Medium' }}>
+                          <p className="text-xs sm:text-sm text-[#37405E] font-medium" style={{ fontFamily: 'Futura-Medium' }}>
                             {testimonial.location}
                           </p>
                         </div>

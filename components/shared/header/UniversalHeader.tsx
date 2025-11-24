@@ -75,7 +75,7 @@ export function UniversalHeader({ transparent = false, showScheduleButton = fals
             <img
               src="/images/logo/FFS LOGO DIFFERENCE-01.png"
               alt="FFS Logo"
-              className="h-20 sm:h-28 lg:h-40 w-auto"
+              className="h-16 sm:h-24 lg:h-32 w-auto"
             />
           </motion.div>
           
@@ -85,7 +85,7 @@ export function UniversalHeader({ transparent = false, showScheduleButton = fals
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            style={{fontFamily:" Alata, sans-serif"}}
+            style={{fontFamily:"Futura-Medium,sans-serif"}}
           >
             <Link href="/" className={getLinkClasses('/')} >Home</Link>
             
@@ -98,7 +98,7 @@ export function UniversalHeader({ transparent = false, showScheduleButton = fals
                 <Link href="/about-us" className={getLinkClasses('about', true)}>
                   About us
                 </Link>
-                <svg className={`w-4 h-4 mt-1 ${transparent ? 'text-white' : 'text-[#37405E]'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className={`w-4 h-4 mt-1 ${isAboutActive() ? 'text-[#D3AC4A]' : (transparent ? 'text-white' : 'text-[#37405E]')}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </div>
@@ -167,14 +167,18 @@ export function UniversalHeader({ transparent = false, showScheduleButton = fals
           <div className="lg:hidden flex items-center space-x-4">
             {showScheduleButton && (
               <motion.button 
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="book-visit-button bg-[#D3AC4A] text-[#37405E] px-3 py-2 rounded-lg font-bold text-xs sm:text-sm hover:bg-[#C19B42] transition-colors"
+                whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                className="book-visit-button bg-[#D3AC4A] text-[#37405E] px-3 py-2 rounded-lg font-bold text-xs sm:text-sm hover:bg-[#C19B42] transition-colors flex items-center space-x-1"
                 style={{ fontFamily: 'Futura-Heavy' }}
               >
                 <span className="hidden sm:inline">Schedule</span>
                 <span className="sm:hidden">Visit</span>
+                <img 
+                  src="/images/home page - ff/icons/cta arrow Vector.svg"
+                  alt="Arrow"
+                  className="w-3 h-3"
+                />
               </motion.button>
             )}
             <button
@@ -195,7 +199,7 @@ export function UniversalHeader({ transparent = false, showScheduleButton = fals
           {/* Desktop Schedule Button (conditionally shown) */}
           {showScheduleButton && (
             <motion.div 
-              className="hidden lg:flex"
+              className="hidden lg:flex ml-4"
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
@@ -205,9 +209,11 @@ export function UniversalHeader({ transparent = false, showScheduleButton = fals
                 style={{ fontFamily: 'Futura-Heavy' }}
               >
                 <span>Schedule a visit</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6L16 12L10 18L8.59 16.59Z"/>
-                </svg>
+                <img 
+                  src="/images/home page - ff/icons/cta arrow Vector.svg"
+                  alt="Arrow"
+                  className="w-4 h-4"
+                />
               </button>
             </motion.div>
           )}
@@ -317,11 +323,16 @@ export function UniversalHeader({ transparent = false, showScheduleButton = fals
                 </Link>
                 {showScheduleButton && (
                   <button 
-                    className="book-visit-button w-full bg-[#D3AC4A] text-[#37405E] px-4 py-3 rounded-lg font-bold text-sm hover:bg-[#C19B42] transition-colors mt-3"
+                    className="book-visit-button w-full bg-[#D3AC4A] text-[#37405E] px-4 py-3 rounded-lg font-bold text-sm hover:bg-[#C19B42] transition-colors mt-3 flex items-center justify-center space-x-2"
                     style={{ fontFamily: 'Futura-Heavy' }}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    Schedule a visit
+                    <span>Schedule a visit</span>
+                    <img 
+                      src="/images/home page - ff/icons/cta arrow Vector.svg"
+                      alt="Arrow"
+                      className="w-4 h-4"
+                    />
                   </button>
                 )}
               </div>

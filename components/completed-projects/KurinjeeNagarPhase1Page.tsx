@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { UniversalHeader } from '@/components/shared/header/UniversalHeader';
 import UniversalFooter from '@/components/shared/footer/UniversalFooter';
+import { ShiningText } from '../ui/shining-text'
 
 export default function KurinjeeNagarPhase1Page() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -196,7 +197,7 @@ export default function KurinjeeNagarPhase1Page() {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <div className="space-y-12">
+              <div className="space-y-6 md:space-y-12">
                 {/* Location */}
                 <div className="flex items-center space-x-6">
                   <div className="w-6 h-6 flex-shrink-0">
@@ -293,7 +294,7 @@ export default function KurinjeeNagarPhase1Page() {
             viewport={{ once: true }}
             className="mb-12"
           >
-            <h3 
+            {/* <h3 
               className="text-[20px] md:text-[24px] font-normal mb-6"
               style={{ fontFamily: 'DM Serif Display' }}
             >
@@ -303,7 +304,8 @@ export default function KurinjeeNagarPhase1Page() {
               >
                 It's Special:
               </span>
-            </h3>
+            </h3> */}
+            <ShiningText customStyle="text-xl sm:text-xl md:text-xl lg:text-2xl font-medium font-['DM_Serif_Display'] mb-4 sm:mb-6 lg:mb-8" textLeft={"Why "} textRight={"It's Special:"} />                
             <p 
               className="text-[16px] md:text-[18px] text-black leading-relaxed mb-8"
               style={{ fontFamily: 'Futura-Medium' }}
@@ -318,11 +320,11 @@ export default function KurinjeeNagarPhase1Page() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="bg-[#F5F2E8] rounded-[8px] p-8 md:p-12"
+            className="bg-[#F5F2E8] rounded-[8px] p-6 md:p-12"
           >
             <div className="relative">
               {/* Quote Icon - Positioned at top left */}
-              <div className="absolute -top-14 -left-2">
+              <div className="absolute -top-10 md:-top-14 -left-2">
                 <Image
                   src="/images/completed page -ff/kurinjee nagar phase 1/icons/quote-icon.png"
                   alt="Quote Icon"
@@ -333,7 +335,7 @@ export default function KurinjeeNagarPhase1Page() {
               </div>
               
               {/* Content with proper spacing */}
-              <div className="relative pl-12 md:pl-16 pt-8">
+              <div className="relative pl-2 md:pl-16 pt-2 md:pt-8">
                 <blockquote 
                   className="text-[16px] md:text-[18px] text-[#37405E] mb-6 leading-relaxed font-normal"
                   style={{ fontFamily: 'Futura-Medium' }}

@@ -344,7 +344,7 @@ export default function CurrentProject2Page() {
               <div className="relative h-[400px] rounded-lg overflow-hidden bg-[#8B7B6E]">
                 {/* Embed Google Maps using iframe */}
                 <iframe
-                  src="https://maps.google.com/maps?q=Telungupalayam,Coimbatore,Tamil+Nadu&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d5512.835752583163!2d76.9293333!3d10.9926111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDU5JzMzLjQiTiA3NsKwNTUnNDUuNiJF!5e1!3m2!1sen!2sin!4v1763957245542!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
