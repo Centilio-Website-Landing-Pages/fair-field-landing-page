@@ -331,14 +331,14 @@ export default function CompletedProjectDetailPage() {
               <span 
                 className="bg-gradient-to-r from-[#37405E] to-[#D3AC4A] bg-clip-text text-transparent"
               >
-                It's Special:
+                It&apos;s Special:
               </span>
             </h3>
             <p 
               className="text-[16px] md:text-[18px] text-black leading-relaxed mb-8"
               style={{ fontFamily: 'Futura-Medium' }}
             >
-              Our first hill-station project blending modern villa design with the beauty of nature. Popular among NRIs and holiday home seekers, Kotagiri Serene Villas set the benchmark for Fair Field's commitment to craftsmanship and premium living in scenic locations.
+              Our first hill-station project blending modern villa design with the beauty of nature. Popular among NRIs and holiday home seekers, Kotagiri Serene Villas set the benchmark for Fair Field&apos;s commitment to craftsmanship and premium living in scenic locations.
             </p>
           </motion.div>
 
@@ -357,7 +357,7 @@ export default function CompletedProjectDetailPage() {
                   className="text-[80px] md:text-[100px] font-normal text-[#D3AC4A] leading-none opacity-80"
                   style={{ fontFamily: 'DM Serif Display' }}
                 >
-                  "
+                  &quot;
                 </div>
               </div>
               
@@ -367,7 +367,7 @@ export default function CompletedProjectDetailPage() {
                   className="text-[16px] md:text-[18px] text-[#37405E] mb-6 leading-relaxed font-normal"
                   style={{ fontFamily: 'Futura-Medium' }}
                 >
-                  "Owning a villa in Kotagiri Serene was our dream come true. Every detail was perfect and delivered on time."
+                  &quot;Owning a villa in Kotagiri Serene was our dream come true. Every detail was perfect and delivered on time.&quot;
                 </blockquote>
                 
                 <cite 

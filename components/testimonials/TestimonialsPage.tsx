@@ -171,8 +171,8 @@ export function TestimonialsPage() {
               </h3> */}
               <ShiningText customStyle="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-medium font-['DM_Serif_Display'] mb-4 sm:mb-6 lg:mb-8" textLeft={"Real "} textRight={"stories"} />                
               <p className="text-base sm:text-lg md:text-xl text-[#37405E] font-medium leading-relaxed max-w-3xl mx-auto text-center" style={{ fontFamily: 'Futura-Medium' }}>
-                At Fair Field Shelters, every project is more than land or buildings, it's a journey of trust, happiness and fulfilled dreams. 
-                Here's what our proud customers have to say about their experience with us.
+                At Fair Field Shelters, every project is more than land or buildings, it&apos;s a journey of trust, happiness and fulfilled dreams. 
+                Here&apos;s what our proud customers have to say about their experience with us.
               </p>
             </div>
           </motion.div>
@@ -240,7 +240,7 @@ export function TestimonialsPage() {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.3, duration: 0.5 }}
                 >
-                  "{testimonials[currentTestimonial].quote}"
+                  &quot;{testimonials[currentTestimonial].quote}&quot;
                 </motion.blockquote>
                 
                 <motion.div 
@@ -321,7 +321,7 @@ export function TestimonialsPage() {
                       >
                         {/* Content without quote icon */}
                         <p className="text-[#37405E] font-medium leading-relaxed mb-3 text-xs sm:text-sm" style={{ fontFamily: 'Futura-Medium' }}>
-                          "{testimonial.quote.length > 80 ? testimonial.quote.substring(0, 80) + '...' : testimonial.quote}"
+                          &quot;{testimonial.quote.length > 80 ? testimonial.quote.substring(0, 80) + '...' : testimonial.quote}&quot;
                         </p>
                         <div className="space-y-1">
                           <h4 className="font-bold text-[#37405E] text-sm sm:text-base" style={{ fontFamily: 'Futura-Heavy' }}>

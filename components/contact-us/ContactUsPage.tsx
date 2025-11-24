@@ -423,7 +423,7 @@ export function ContactUsPage() {
                   </h2> */}
                   <ShiningText customStyle="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-medium font-['DM_Serif_Display'] mb-4 sm:mb-6 lg:mb-8" textLeft={"Our "} textRight={"Commitment"} />                
                   <blockquote className="text-lg lg:text-xl text-[#37405E] font-medium leading-relaxed" style={{ fontFamily: 'Futura-Medium' }}>
-                    "We believe a good conversation is the first step to a great home. Reach out, we'll make sure your experience with Fair Field Shelters is simple, transparent and truly premium."
+                    &quot;We believe a good conversation is the first step to a great home. Reach out, we&apos;ll make sure your experience with Fair Field Shelters is simple, transparent and truly premium.&quot;
                   </blockquote>
                 </div>
               </div>

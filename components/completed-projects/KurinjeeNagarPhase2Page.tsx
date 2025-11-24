@@ -309,7 +309,7 @@ export default function KurinjeeNagarPhase2Page() {
               className="text-[16px] md:text-[18px] text-black leading-relaxed mb-8"
               style={{ fontFamily: 'Futura-Medium' }}
             >
-              A seamless extension of Phase I, this project was completed on schedule with consistent value growth. Every plot was delivered with legal transparency and infrastructure readiness, further strengthening Fair Field's reputation for timely execution and customer satisfaction.
+              A seamless extension of Phase I, this project was completed on schedule with consistent value growth. Every plot was delivered with legal transparency and infrastructure readiness, further strengthening Fair Field&apos;s reputation for timely execution and customer satisfaction.
             </p>
           </motion.div>
 
@@ -339,7 +339,7 @@ export default function KurinjeeNagarPhase2Page() {
                   className="text-[16px] md:text-[18px] text-[#37405E] mb-6 leading-relaxed font-normal"
                   style={{ fontFamily: 'Futura-Medium' }}
                 >
-                  "We saw the success of Phase I and booked early in Phase II. The entire process was quick, smooth, and trustworthy."
+                  &apos;We saw the success of Phase I and booked early in Phase II. The entire process was quick, smooth, and trustworthy.&apos;
                 </blockquote>
                 
                 <cite 

@@ -291,7 +291,7 @@ export default function CurrentProjectsPage() {
               Premium villas & DTCP-approved plots in the heart of the city
             </h3>
             <p className="text-[#37405E] font-medium text-lg leading-relaxed" style={{ fontFamily: 'Futura-Medium' }}>
-              Located on Ramanathapuram to Nagallapuram Road, near Peran Apartments, Anicham & Magilam offers the perfect blend of city convenience and peaceful living. It's a 5-acre premium residential community surrounded by schools, hospitals, supermarkets, and IT hubs, everything your family needs within minutes.
+              Located on Ramanathapuram to Nagallapuram Road, near Peran Apartments, Anicham & Magilam offers the perfect blend of city convenience and peaceful living. It&apos;s a 5-acre premium residential community surrounded by schools, hospitals, supermarkets, and IT hubs, everything your family needs within minutes.
             </p>
           </motion.div>
 

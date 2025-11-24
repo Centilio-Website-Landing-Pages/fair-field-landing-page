@@ -310,7 +310,7 @@ export default function KurinjeeNagarPhase1Page() {
               className="text-[16px] md:text-[18px] text-black leading-relaxed mb-8"
               style={{ fontFamily: 'Futura-Medium' }}
             >
-              Delivered with clear documents, strong appreciation, and immediate construction potential, Kurinjee Nagar Phase I earned the trust of every customer. Known for its transparent process, smooth registration, and excellent resale demand, it quickly became one of Coimbatore's most sought-after plotted communities.
+              Delivered with clear documents, strong appreciation, and immediate construction potential, Kurinjee Nagar Phase I earned the trust of every customer. Known for its transparent process, smooth registration, and excellent resale demand, it quickly became one of Coimbatore&apos;s most sought-after plotted communities.
             </p>
           </motion.div>
 
@@ -340,7 +340,7 @@ export default function KurinjeeNagarPhase1Page() {
                   className="text-[16px] md:text-[18px] text-[#37405E] mb-6 leading-relaxed font-normal"
                   style={{ fontFamily: 'Futura-Medium' }}
                 >
-                  "Our registration was done exactly as promised. Clear communication and complete peace of mind."
+                  &quot;Our registration was done exactly as promised. Clear communication and complete peace of mind.&quot;
                 </blockquote>
                 
                 <cite 

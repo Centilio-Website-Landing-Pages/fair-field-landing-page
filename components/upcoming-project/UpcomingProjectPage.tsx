@@ -525,7 +525,7 @@ export default function UpcomingProjectPage() {
                 className="text-[16px] md:text-[18px] text-black leading-relaxed max-w-lg"
                 style={{ fontFamily: 'Futura-Medium' }}
               >
-                "We are not just planning new projects, we are building new opportunities for families and investors to grow with us."
+                &quot;We are not just planning new projects, we are building new opportunities for families and investors to grow with us.&quot;
               </p>
             </div>
           </motion.div>
@@ -581,7 +581,7 @@ export default function UpcomingProjectPage() {
                 className="text-[16px] text-black leading-relaxed"
                 style={{ fontFamily: 'Futura-Medium' }}
               >
-                "We are not just planning new projects, we are building new opportunities for families and investors to grow with us."
+                &quot;We are not just planning new projects, we are building new opportunities for families and investors to grow with us.&quot;
               </p>
             </div>
           </motion.div>
